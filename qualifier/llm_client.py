@@ -52,6 +52,11 @@ class InvalidResponseError(LLMError):
 
 RETRYABLE_STATUS = {408, 409, 425, 429, 500, 502, 503, 504, 529}
 
+# A 429 usually means "slow down" (per-minute limit) and is worth retrying. But a
+# *daily* quota (e.g. Gemini free tier: GenerateRequestsPerDayPerProjectPerModel)
+# won't reset for hours, so retrying just wastes the run's time.
+DAILY_QUOTA_RE = re.compile(r"per\s*day|perday|daily", re.IGNORECASE)
+
 
 # ---------------------------------------------------------------------------
 # Retry with exponential backoff + jitter, and a simple rate limiter
@@ -158,13 +163,17 @@ def _post_json(url: str, headers: dict, body: dict, timeout: float) -> dict:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
-        detail = e.read().decode("utf-8", errors="replace")[:300]
+        full_body = e.read().decode("utf-8", errors="replace")
+        detail = full_body[:300]
         retry_after = None
         if e.headers and e.headers.get("Retry-After"):
             try:
                 retry_after = float(e.headers["Retry-After"])
             except ValueError:
                 pass
+        if e.code == 429 and DAILY_QUOTA_RE.search(full_body):
+            raise PermanentLLMError(f"HTTP 429: daily quota exhausted - try another model with --model, "
+                                    f"or wait for the quota to reset. {detail}") from e
         if e.code in RETRYABLE_STATUS:
             raise TransientLLMError(f"HTTP {e.code}: {detail}", retry_after) from e
         raise PermanentLLMError(f"HTTP {e.code}: {detail}") from e

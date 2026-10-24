@@ -12,7 +12,7 @@ cp .env.example .env                                 # add NVIDIA_API_KEY (or GR
 python main.py data/leads_full_scale_100.csv         # default provider: NVIDIA Nemotron (config.yaml)
 python test_prompts.py -n 5 --show-prompt            # check the prompt on 5 leads before a full run
 python main.py data/leads_testing.csv --simulate-failures 0.4     # inject API failures to test robustness
-python -m unittest discover -s tests -v              # 34 tests
+python -m unittest discover -s tests -v              # 37 tests
 ```
 
 Outputs go to `output/<input-name>/`: `output_report.json` (full record), `leads_scored.csv` (open in Excel), `summary.md` (one-screen summary), `run.log`. The sample output for the 100-lead file is at `output_report.json` in the repo root.
@@ -30,9 +30,11 @@ The pipeline makes 10 API calls for 100 leads. It retries 429/5xx/timeouts with 
 
 - **We are "FlowPilot"**, a made-up workflow-automation SaaS. The brief doesn't name a product, and the rubric and messages depend on one. Edit `seller:` in `config.yaml` to change it.
 - **Recency reference date**: the data is from 2023–24, so recency is measured from the latest date in the file, not from today. Use `--reference-date today` for live data.
-- **The committed sample outputs were made with the offline `mock` provider**: there are no LLM adjustments, and the messages come from templates. Rerun with a real API key to get LLM judgment and LLM-written messages.
+- **The committed sample outputs were made with Gemini on the free tier**: `leads_full_scale_100` and `leads_edge_cases_extra` with `gemini-3.5-flash-lite`, and `leads_training` and `leads_testing` with `gemini-3.5-flash` (its free daily quota of 20 requests ran out before the larger files). Every lead got an LLM judgment. In the 100-lead run, all 71 outreach messages came from the LLM and 0 from templates, and the LLM adjusted 2 scores. The `leads_full_scale_100_chaos_demo` output is older and kept as a failure-handling demo.
 - Only six columns are available, so there are no budget or timeline signals. Thresholds were tuned by eye on the sample files, since there's no ground truth. With real conversion data, the weights should be fitted to outcomes.
 - The ~49% qualified rate on the 100-lead file reflects a curated sample. The P1/P2 ranking is what limits outreach to the team's capacity.
 - Industry matching is a keyword lookup. Unmapped industries get a neutral score and are flagged, and the LLM may adjust them.
 - The duplicate check only matches exact name and company. Emails or domains, which this data doesn't have, would be better.
 - The free-tier model names in `config.yaml` change over time. Override them with `--model`.
+- **Free-tier limits and privacy**: the Gemini free tier allowed about 20 requests per model per day, which is one 100-lead run. A daily-quota error stops LLM calls at once and the remaining leads fall back to rubric-only scoring. Google may use free-tier prompts to improve its models, so use a paid key for real lead data. The sample CSVs are fictional.
+- LLM messages should be skimmed by a rep before sending. The prompt now forbids naming a referrer or presenting our pitch as the lead's stated need, but the committed outputs were generated before that change.

@@ -1,5 +1,5 @@
-08:13:04 INFO    lead_qualifier.ingest: Loaded 20 leads from leads_edge_cases_extra.csv (0 blank rows skipped)
-08:13:04 WARNING lead_qualifier.ingest: Ignoring 1 outlier date(s) when choosing the reference date (latest plausible: 2024-01-20)
-08:13:04 INFO    lead_qualifier.pipeline: Reference date for recency: 2024-01-20
-08:13:04 INFO    lead_qualifier.judge: Batch 1/2: 10 leads
-08:13:04 INFO    lead_qualifier.judge: Batch 2/2: 10 leads
+08:56:24 INFO    lead_qualifier.ingest: Loaded 20 leads from leads_edge_cases_extra.csv (0 blank rows skipped)
+08:56:24 WARNING lead_qualifier.ingest: Ignoring 1 outlier date(s) when choosing the reference date (latest plausible: 2024-01-20)
+08:56:24 INFO    lead_qualifier.pipeline: Reference date for recency: 2024-01-20
+08:56:24 INFO    lead_qualifier.judge: Batch 1/2: 10 leads
+08:56:27 INFO    lead_qualifier.judge: Batch 2/2: 10 leads

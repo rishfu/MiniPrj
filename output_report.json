@@ -1,11 +1,11 @@
 {
   "run": {
-    "run_id": "20261024T081304Z-349c73",
-    "generated_at": "2026-10-24T08:13:04+00:00",
+    "run_id": "20261024T085544Z-019868",
+    "generated_at": "2026-10-24T08:56:23+00:00",
     "input_file": "leads_full_scale_100.csv",
     "reference_date": "2024-01-20",
-    "llm_provider": "mock",
-    "llm_model": "mock",
+    "llm_provider": "gemini",
+    "llm_model": "gemini-3.5-flash-lite",
     "batch_size": 10,
     "rubric_version": "1.2",
     "rubric_summary": "Score = company size (max 2.5) + industry fit (max 2.0) + intent signal from lead source (max 3.5) + recency of last interaction (max 2.0) = 10. >= 7.0 qualified, 6.0-7.0 human review, < 6.0 rejected. Micro companies (<=10 staff), very large companies (>20,000 staff) and contacts older than a year are capped at review."
@@ -16,32 +16,32 @@
     "blank_rows_skipped": 0,
     "decisions": {
       "qualified": {
-        "count": 49,
-        "percent": 49.0
+        "count": 47,
+        "percent": 47.0
       },
       "review": {
-        "count": 23,
-        "percent": 23.0
+        "count": 25,
+        "percent": 25.0
       },
       "rejected": {
         "count": 28,
         "percent": 28.0
       }
     },
-    "qualified_percent": 49.0,
+    "qualified_percent": 47.0,
     "priority_tiers": {
       "P1": 20,
       "NURTURE": 25,
-      "REVIEW": 23,
-      "P2": 29,
+      "REVIEW": 25,
+      "P2": 27,
       "ARCHIVE": 3
     },
-    "average_score": 6.9,
+    "average_score": 6.89,
     "score_distribution": {
       "1-2.9": 0,
       "3-4.9": 11,
-      "5-6.9": 40,
-      "7-8.4": 29,
+      "5-6.9": 42,
+      "7-8.4": 27,
       "8.5-10": 20
     },
     "common_rejection_reasons": [
@@ -65,7 +65,7 @@
     "review_reasons": [
       [
         "score in 'too close to call' band",
-        23
+        25
       ],
       [
         "knock-out cap (Company has 10 or fewer employees)",
@@ -75,8 +75,8 @@
     "qualified_rate_by_source": {
       "Inbound demo request": {
         "total": 19,
-        "qualified": 19,
-        "rate_percent": 100.0
+        "qualified": 18,
+        "rate_percent": 94.7
       },
       "LinkedIn outreach": {
         "total": 18,
@@ -95,8 +95,8 @@
       },
       "Referral": {
         "total": 16,
-        "qualified": 15,
-        "rate_percent": 93.8
+        "qualified": 14,
+        "rate_percent": 87.5
       },
       "Webinar attendee": {
         "total": 13,
@@ -108,9 +108,9 @@
     "leads_with_data_issues": 0,
     "llm": {
       "judgment_source_counts": {
-        "mock": 100
+        "llm": 100
       },
-      "llm_adjusted_leads": 0,
+      "llm_adjusted_leads": 2,
       "batches_sent": 10,
       "batch_splits": 0,
       "circuit_breaker_opened": false,
@@ -121,12 +121,12 @@
       "permanent_errors": 0,
       "invalid_responses": 0,
       "total_wait_seconds": 0.0,
-      "messages_from_llm": 0,
-      "messages_from_template": 71
+      "messages_from_llm": 71,
+      "messages_from_template": 0
     },
     "efficiency": {
-      "runtime_seconds": 0.01,
-      "seconds_per_lead": 0.0,
+      "runtime_seconds": 38.94,
+      "seconds_per_lead": 0.389,
       "estimated_manual_minutes": 1000,
       "note": "Manual estimate assumes 10 min per lead (brief: 8-12 min)."
     }
@@ -945,24 +945,6 @@
     {
       "priority_rank": 46,
       "priority_tier": "P2",
-      "lead_id": "L020",
-      "name": "Tina Patel",
-      "company": "Energy Solutions",
-      "qualification_score": 7.3,
-      "why": [
-        "Core mid-market (51-1000): our ideal customer profile [900 employees]",
-        "Adjacent vertical: real need, but slower buying or more compliance [Energy]",
-        "Inbound demo request: explicit buying intent",
-        "Very cold: 3-12 months since contact [94 days ago]"
-      ],
-      "reasoning": [
-        "Score 7.3 >= 7.0 qualification threshold"
-      ],
-      "next_action": "P2: send first message via Email (reply to demo request) within 3 business days"
-    },
-    {
-      "priority_rank": 47,
-      "priority_tier": "P2",
       "lead_id": "L058",
       "name": "Evelyn Richardson",
       "company": "Human Resources Tech",
@@ -979,25 +961,7 @@
       "next_action": "P2: send first message via LinkedIn message within 3 business days"
     },
     {
-      "priority_rank": 48,
-      "priority_tier": "P2",
-      "lead_id": "L039",
-      "name": "Mona Patel",
-      "company": "Blockchain Startup",
-      "qualification_score": 7.0,
-      "why": [
-        "Small business (11-50): good fit, smaller deal size [22 employees]",
-        "Low-fit vertical: procurement rules or budgets rarely fit our product [Cryptocurrency]",
-        "Referral: warm, trusted introduction",
-        "Hot: touched in the last week [5 days ago]"
-      ],
-      "reasoning": [
-        "Score 7.0 >= 7.0 qualification threshold"
-      ],
-      "next_action": "P2: send first message via Email (warm intro) within 3 business days"
-    },
-    {
-      "priority_rank": 49,
+      "priority_rank": 47,
       "priority_tier": "P2",
       "lead_id": "L037",
       "name": "Katherine Lee",
@@ -1109,6 +1073,44 @@
     {
       "priority_rank": 6,
       "priority_tier": "REVIEW",
+      "lead_id": "L020",
+      "name": "Tina Patel",
+      "company": "Energy Solutions",
+      "qualification_score": 6.8,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [900 employees]",
+        "Adjacent vertical: real need, but slower buying or more compliance [Energy]",
+        "Inbound demo request: explicit buying intent",
+        "Very cold: 3-12 months since contact [94 days ago]"
+      ],
+      "reasoning": [
+        "Score 6.8 is in the 6.0-7.0 'too close to call' band",
+        "LLM adjustment -0.5: Inbound demo request score is offset by 94 days of inactivity, making the lead quite cold."
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 7,
+      "priority_tier": "REVIEW",
+      "lead_id": "L039",
+      "name": "Mona Patel",
+      "company": "Blockchain Startup",
+      "qualification_score": 6.5,
+      "why": [
+        "Small business (11-50): good fit, smaller deal size [22 employees]",
+        "Low-fit vertical: procurement rules or budgets rarely fit our product [Cryptocurrency]",
+        "Referral: warm, trusted introduction",
+        "Hot: touched in the last week [5 days ago]"
+      ],
+      "reasoning": [
+        "Score 6.5 is in the 6.0-7.0 'too close to call' band",
+        "LLM adjustment -0.5: Low industry fit for cryptocurrency requires a slight downward adjustment despite the referral source."
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 8,
+      "priority_tier": "REVIEW",
       "lead_id": "L006",
       "name": "Frank Liu",
       "company": "Healthcare Systems Ltd",
@@ -1125,7 +1127,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 7,
+      "priority_rank": 9,
       "priority_tier": "REVIEW",
       "lead_id": "L038",
       "name": "Liam O'Connor",
@@ -1143,7 +1145,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 8,
+      "priority_rank": 10,
       "priority_tier": "REVIEW",
       "lead_id": "L064",
       "name": "Kennedy Owens",
@@ -1161,7 +1163,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 9,
+      "priority_rank": 11,
       "priority_tier": "REVIEW",
       "lead_id": "L048",
       "name": "Ursula Hoffmann",
@@ -1179,7 +1181,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 10,
+      "priority_rank": 12,
       "priority_tier": "REVIEW",
       "lead_id": "L070",
       "name": "Quinton Price",
@@ -1197,7 +1199,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 11,
+      "priority_rank": 13,
       "priority_tier": "REVIEW",
       "lead_id": "L027",
       "name": "Aaron Benjamin",
@@ -1215,7 +1217,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 12,
+      "priority_rank": 14,
       "priority_tier": "REVIEW",
       "lead_id": "L082",
       "name": "Cecilia Santos",
@@ -1233,7 +1235,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 13,
+      "priority_rank": 15,
       "priority_tier": "REVIEW",
       "lead_id": "L083",
       "name": "Daisy Newton",
@@ -1251,7 +1253,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 14,
+      "priority_rank": 16,
       "priority_tier": "REVIEW",
       "lead_id": "L031",
       "name": "Ethan Smith",
@@ -1269,7 +1271,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 15,
+      "priority_rank": 17,
       "priority_tier": "REVIEW",
       "lead_id": "L061",
       "name": "Harrison Scott",
@@ -1287,7 +1289,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 16,
+      "priority_rank": 18,
       "priority_tier": "REVIEW",
       "lead_id": "L017",
       "name": "Quinn Matthews",
@@ -1305,7 +1307,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 17,
+      "priority_rank": 19,
       "priority_tier": "REVIEW",
       "lead_id": "L072",
       "name": "Silas Brown",
@@ -1323,7 +1325,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 18,
+      "priority_rank": 20,
       "priority_tier": "REVIEW",
       "lead_id": "L084",
       "name": "Ezra Fox",
@@ -1341,7 +1343,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 19,
+      "priority_rank": 21,
       "priority_tier": "REVIEW",
       "lead_id": "L097",
       "name": "Raymond Grant",
@@ -1359,7 +1361,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 20,
+      "priority_rank": 22,
       "priority_tier": "REVIEW",
       "lead_id": "L004",
       "name": "David Moore",
@@ -1378,7 +1380,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 21,
+      "priority_rank": 23,
       "priority_tier": "REVIEW",
       "lead_id": "L073",
       "name": "Tara Gonzalez",
@@ -1396,7 +1398,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 22,
+      "priority_rank": 24,
       "priority_tier": "REVIEW",
       "lead_id": "L088",
       "name": "Iris Monroe",
@@ -1414,7 +1416,7 @@
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
     },
     {
-      "priority_rank": 23,
+      "priority_rank": 25,
       "priority_tier": "REVIEW",
       "lead_id": "L016",
       "name": "Pamela White",
@@ -1985,8 +1987,8 @@
       "company": "Digital Marketing Agency",
       "priority_rank": 1,
       "angle": "demo_followup",
-      "message_source": "template",
-      "message": "Hi Jack,\n\nThanks for requesting a FlowPilot demo just now. For a 120-person organisation in Marketing like Digital Marketing Agency, the quickest win is usually to automate campaign-approval and client-onboarding workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Jack, thanks for requesting a demo for Digital Marketing Agency yesterday. I saw that you are looking to automate campaign-approval and client-onboarding workflows across your team. We can definitely help you eliminate those manual bottlenecks. Do you have 15 minutes for a quick chat this Wednesday at 2 PM or Thursday at 11 AM? Best, Sam Rivera, Account Executive, FlowPilot."
     },
     {
       "lead_id": "L056",
@@ -1994,8 +1996,8 @@
       "company": "Supply Chain Analytics",
       "priority_rank": 4,
       "angle": "warm_referral",
-      "message_source": "template",
-      "message": "Hi Chloe,\n\nYou were referred to us earlier this week, so I wanted to reach out personally. Teams in Software often use FlowPilot to automate release, support-escalation and onboarding workflows across teams, and at Supply Chain Analytics' size (a 60-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Chloe, thanks for the warm introduction from Supply Chain Analytics. We love working with software teams to help automate release, support-escalation and onboarding workflows across teams. Since we connected just 2 days ago, I wanted to reach out directly and see how we can help streamline your internal hand-offs. Would you have ten minutes for a brief introduction call this Tuesday or Thursday? Best, Sam Rivera, Account Executive, FlowPilot."
     },
     {
       "lead_id": "L054",
@@ -2003,8 +2005,8 @@
       "company": "Cybersecurity Consulting",
       "priority_rank": 13,
       "angle": "call_recap",
-      "message_source": "template",
-      "message": "Hi Amelia,\n\nThanks again for the conversation just now. As a quick recap: for Cybersecurity Consulting, a 95-person organisation in Cybersecurity, the clearest opportunity is to automate incident-triage and access-request workflows with an audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Amelia, great speaking with you about Cybersecurity Consulting today. As we discussed, our team can help you automate incident-triage and access-request workflows with an audit trail across your organization. Since we just touched base today, I wanted to propose our next steps to keep the momentum going. Would you be open to a technical deep dive this Thursday or Friday? Best, Sam Rivera, Account Executive, FlowPilot."
     },
     {
       "lead_id": "L060",
@@ -2012,8 +2014,8 @@
       "company": "E-commerce Platform",
       "priority_rank": 31,
       "angle": "event_followup",
-      "message_source": "template",
-      "message": "Hi Gina,\n\nThanks for joining our webinar earlier this week. Many SaaS teams in the audience asked how to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets, so I put together a two-page example that fits a 140-person organisation like E-commerce Platform. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Gina, thanks for attending our recent webinar representing E-commerce Platform. Since you are in the SaaS space with 140 employees, you might find our approach to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets particularly relevant. We touched base 6 days ago, so I wanted to share a brief, useful takeaway from the session. Are you open to a quick chat this week? Best, Sam Rivera, Account Executive, FlowPilot."
     },
     {
       "lead_id": "L055",
@@ -2021,8 +2023,8 @@
       "company": "Cloud Storage",
       "priority_rank": 37,
       "angle": "content_followup",
-      "message_source": "template",
-      "message": "Hi Bradley,\n\nI saw you downloaded one of our guides just now - I hope it was useful. One idea that tends to land well with SaaS teams like Cloud Storage is to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. If it would help, I'm happy to share a 10-minute example tailored to a 800-person organisation. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Bradley, thanks for downloading our recent content at Cloud Storage. Since you are in the SaaS space with 800 employees, you might find our tools useful to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. We touched base 1 day ago, so I wanted to share a brief, relevant takeaway on how teams scale hand-offs without extra headcount. Are you open to a quick chat this week? Best, Sam Rivera, Account Executive, FlowPilot."
     }
   ],
   "leads": [
@@ -2076,21 +2078,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "CloudScale AI: rubric score 9.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "CloudScale AI submitted an inbound demo request 5 days ago and is a strong SaaS prospect.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Alice,\n\nThanks for requesting a FlowPilot demo earlier this week. For a team of about 50 in SaaS like CloudScale AI, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Alice, thanks for reaching out to request a demo for CloudScale AI. Since you are looking to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets, I would love to show you how FlowPilot handles this seamlessly. Do you have time for a quick walkthrough this Thursday at 10 AM or Friday at 2 PM? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -2165,13 +2167,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "TechVentures Inc: rubric score 5.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "TechVentures Inc is too small at 8 employees for an automated workflow tool right now.",
         "note": null
       },
       "data_issues": [],
@@ -2228,13 +2230,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "National Bank Corp: rubric score 4.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "National Bank Corp downloaded content 50 days ago but has slow engagement.",
         "note": null
       },
       "data_issues": [],
@@ -2251,7 +2253,7 @@
       "last_interaction_date": "2024-01-18",
       "decision": "review",
       "qualification_score": 6.0,
-      "priority_rank": 20,
+      "priority_rank": 22,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -2291,15 +2293,15 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": [
           "micro_company"
         ]
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "StartupXYZ: rubric score 7.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "StartupXYZ is a warm referral but has only 3 employees.",
         "note": null
       },
       "data_issues": [],
@@ -2355,21 +2357,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "RetailWorks Solutions: rubric score 7.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "RetailWorks Solutions requested a demo previously but engagement is cold at 71 days.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Emma,\n\nThanks for requesting a FlowPilot demo about 2 months ago. For a 200-person organisation in Retail like RetailWorks Solutions, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Emma, I noticed you previously requested a demo for RetailWorks Solutions to help automate order-exception, returns and store-ops requests. Even though it has been a little while, I wanted to circle back and see if streamlining those operations is still a priority for your team. Would you be open to connecting this week on Tuesday at 11 AM or Thursday at 3 PM? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -2403,7 +2405,7 @@
       "last_interaction_date": "2024-01-12",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 6,
+      "priority_rank": 8,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -2442,21 +2444,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Healthcare Systems Ltd: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Healthcare Systems Ltd had a sales call 8 days ago and remains a solid mid-market prospect.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Frank,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Healthcare Systems Ltd, an organisation of 1,200 people in Healthcare, the clearest opportunity is to automate patient-intake and referral hand-offs while keeping an audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Frank, it was great speaking with the team at Healthcare Systems Ltd a few days ago regarding your patient-intake workflows. To help you automate patient-intake and referral hand-offs while keeping an audit trail, I suggest we map out a quick pilot. How does this Wednesday at 1 PM or Friday at 10 AM look for a brief follow-up call? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -2512,13 +2514,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Manufacturing Co: rubric score 5.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Manufacturing Co attended a webinar over three months ago and remains cold.",
         "note": null
       },
       "data_issues": [],
@@ -2574,21 +2576,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "EdTech Innovations: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "EdTech Innovations downloaded content 6 days ago and is a strong mid-market fit.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "content_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Henry,\n\nI saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with EdTech teams like EdTech Innovations is to automate learner-onboarding and content-approval workflows. If it would help, I'm happy to share a 10-minute example tailored to a 75-person organisation. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Henry, thanks for downloading our recent content regarding EdTech Innovations. Since you are focused on ways to automate learner-onboarding and content-approval workflows, I thought you might find a quick look at our platform useful. We help teams eliminate manual hand-offs without adding overhead. Would you be open to a brief conversation this week? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -2663,13 +2665,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Logistics Global: rubric score 5.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Logistics Global was contacted via LinkedIn 122 days ago with no response.",
         "note": null
       },
       "data_issues": [],
@@ -2725,21 +2727,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Digital Marketing Agency: rubric score 10.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Digital Marketing Agency is a highly qualified inbound demo lead from yesterday.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Jack,\n\nThanks for requesting a FlowPilot demo just now. For a 120-person organisation in Marketing like Digital Marketing Agency, the quickest win is usually to automate campaign-approval and client-onboarding workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Jack, thanks for requesting a demo for Digital Marketing Agency yesterday. I saw that you are looking to automate campaign-approval and client-onboarding workflows across your team. We can definitely help you eliminate those manual bottlenecks. Do you have 15 minutes for a quick chat this Wednesday at 2 PM or Thursday at 11 AM? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -2812,21 +2814,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "InsurancePro: rubric score 6.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market insurance provider from a past sales call, currently cooling at 36 days.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Karen,\n\nThanks again for the conversation about 1 month ago. As a quick recap: for InsurancePro, a 600-person organisation in Insurance, the clearest opportunity is to cut claims and underwriting hand-off delays with automated routing. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Karen, it was good speaking with you a few weeks ago regarding InsurancePro. We discussed how manual routing slows down teams, and I wanted to circle back on how we can help you cut claims and underwriting hand-off delays with automated routing. Do you have 15 minutes this Thursday afternoon or Friday morning to reconnect? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -2880,21 +2882,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "FinTech Startup: rubric score 8.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Warm referral from a hot FinTech startup with strong buying potential.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Leon,\n\nYou were referred to us earlier this week, so I wanted to reach out personally. Teams in FinTech often use FlowPilot to automate approval and compliance workflows with a full audit trail, and at FinTech Startup's size (a team of about 25) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Leon, thanks for the warm introduction to FinTech Startup. Given your fast-moving team, I wanted to reach out and share how we help companies like yours automate approval and compliance workflows with a full audit trail. Let me know if you would be open to a brief conversation this week to see how it fits your current stack. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -2969,13 +2971,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Agricultural Tech: rubric score 4.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Early-stage content download from an agricultural firm with low industry fit.",
         "note": null
       },
       "data_issues": [],
@@ -3031,21 +3033,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Enterprise Solutions Corp: rubric score 9.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Hot inbound demo request from a software enterprise with 3,500 employees.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Nathan,\n\nThanks for requesting a FlowPilot demo earlier this week. For an organisation of 3,500 people in Software like Enterprise Solutions Corp, the quickest win is usually to automate release, support-escalation and onboarding workflows across teams. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Nathan, thanks for requesting a demo for Enterprise Solutions Corp. I saw your request come in recently and want to make sure you get a firsthand look at how we automate release, support-escalation and onboarding workflows across teams. Are you available for a quick walkthrough this Wednesday or Thursday? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -3120,13 +3122,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Local Restaurant Group: rubric score 3.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach from a small hospitality group, inactive for nearly five months.",
         "note": null
       },
       "data_issues": [],
@@ -3143,7 +3145,7 @@
       "last_interaction_date": "2023-11-25",
       "decision": "review",
       "qualification_score": 6.0,
-      "priority_rank": 23,
+      "priority_rank": 25,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -3182,21 +3184,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Pharma Research Inc: rubric score 6.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Pharma research mid-market company from a past sales call, cooling at 56 days.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Pamela,\n\nThanks again for the conversation about 2 months ago. As a quick recap: for Pharma Research Inc, an organisation of 2,200 people in Pharmaceuticals, the clearest opportunity is to automate document-review and approval workflows with a full audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Pamela, it has been a couple of months since we last spoke about Pharma Research Inc. I wanted to follow up on our previous conversation regarding how to automate document-review and approval workflows with a full audit trail. Let me know if you are ready to pick this back up this week. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -3211,7 +3213,7 @@
       "last_interaction_date": "2024-01-11",
       "decision": "review",
       "qualification_score": 6.3,
-      "priority_rank": 16,
+      "priority_rank": 18,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -3250,21 +3252,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Consulting Firm: rubric score 6.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Consulting firm attendee from our recent webinar, showing warm engagement.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Quinn,\n\nThanks for joining our webinar a few weeks ago. Many Consulting teams in the audience asked how to replace manual, email-driven hand-offs with automated workflows, so I put together a two-page example that fits a 180-person organisation like Consulting Firm. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Quinn, thanks for joining our webinar a couple of weeks ago representing Consulting Firm. I wanted to share a quick resource that builds on the session, specifically how we help teams replace manual, email-driven hand-offs with automated workflows. Let me know if you would like to see a quick example tailored to your team. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -3320,13 +3322,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Government Agency: rubric score 4.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Government agency contact who downloaded content, currently under review.",
         "note": null
       },
       "data_issues": [],
@@ -3382,21 +3384,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Cybersecurity Startup: rubric score 9.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Warm referral from a cybersecurity startup with strong core vertical fit.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Samuel,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Cybersecurity often use FlowPilot to automate incident-triage and access-request workflows with an audit trail, and at Cybersecurity Startup's size (a 60-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Samuel, thanks for the introduction to Cybersecurity Startup. Since security operations require tight coordination, I wanted to introduce myself and show how we help teams automate incident-triage and access-request workflows with an audit trail. Would you be open to a brief introductory chat this week? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -3428,13 +3430,14 @@
       "industry": "Energy",
       "source": "Inbound demo request",
       "last_interaction_date": "2023-10-18",
-      "decision": "qualified",
-      "qualification_score": 7.3,
-      "priority_rank": 46,
-      "priority_tier": "P2",
-      "next_action": "P2: send first message via Email (reply to demo request) within 3 business days",
+      "decision": "review",
+      "qualification_score": 6.8,
+      "priority_rank": 6,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
-        "Score 7.3 >= 7.0 qualification threshold"
+        "Score 6.8 is in the 6.0-7.0 'too close to call' band",
+        "LLM adjustment -0.5: Inbound demo request score is offset by 94 days of inactivity, making the lead quite cold."
       ],
       "score_breakdown": {
         "base_score": 7.25,
@@ -3468,42 +3471,23 @@
             "used_default": false
           }
         ],
-        "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment": -0.5,
+        "llm_adjustment_reason": "Inbound demo request score is offset by 94 days of inactivity, making the lead quite cold.",
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
+        "source": "llm",
         "confidence": "medium",
-        "summary": "Energy Solutions: rubric score 7.25/10.",
+        "summary": "Energy solutions mid-market company with an old inbound demo request.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
-        "status": "ready to send",
-        "message": "Hi Tina,\n\nThanks for requesting a FlowPilot demo about 3 months ago. For a 900-person organisation in Energy like Energy Solutions, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
-        "sequence": [
-          {
-            "step": 1,
-            "day": 0,
-            "channel": "Email (reply to demo request)",
-            "action": "Send the personalised first message (within 3 business days)"
-          },
-          {
-            "step": 2,
-            "day": 3,
-            "channel": "Email",
-            "action": "Short follow-up with one relevant customer example"
-          },
-          {
-            "step": 3,
-            "day": 7,
-            "channel": "Phone",
-            "action": "Final touch; if no reply, move to nurture"
-          }
-        ]
+        "message_source": "llm",
+        "status": "draft - send only after human approval",
+        "message": "Hi Tina, I noticed your demo request for Energy Solutions came in a few months ago, and I wanted to check in to see if you are still looking to replace manual, email-driven hand-offs with automated workflows. If your priorities have shifted back to this project, let me know what your schedule looks like for a quick call this week. Best, Sam Rivera, Account Executive, FlowPilot.",
+        "sequence": []
       }
     },
     {
@@ -3557,13 +3541,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Event Planning Co: rubric score 4.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Small events company sourced via LinkedIn outreach with moderate recency.",
         "note": null
       },
       "data_issues": [],
@@ -3619,21 +3603,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Real Estate Platform: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market real estate platform from a recent sales call.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Victor,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Real Estate Platform, a 250-person organisation in Real Estate, the clearest opportunity is to automate lease, maintenance and tenant-request workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Victor, it was great speaking with you two weeks ago regarding Real Estate Platform. I wanted to follow up on our discussion about how FlowPilot can help automate lease, maintenance and tenant-request workflows. Do you have 15 minutes this Thursday or Friday to connect again? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -3707,13 +3691,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Fashion Brand: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market retail brand that downloaded content recently.",
         "note": null
       },
       "data_issues": [],
@@ -3769,21 +3753,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Data Analytics Firm: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Analytics firm and webinar attendee with solid mid-market fit.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Xavier,\n\nThanks for joining our webinar a few weeks ago. Many Analytics teams in the audience asked how to replace manual, email-driven hand-offs with automated workflows, so I put together a two-page example that fits a 110-person organisation like Data Analytics Firm. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Xavier, thanks for attending our recent webinar representing Data Analytics Firm. Since you are exploring digital-first team efficiency, I wanted to share how FlowPilot helps replace manual, email-driven hand-offs with automated workflows. Would you be open to a quick chat next week to see how it fits your analytics operations? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -3856,21 +3840,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Travel Technology: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Travel tech referral with high intent and warm engagement.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Yuki,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Travel often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Travel Technology's size (a 55-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Yuki, thanks for the warm introduction to Travel Technology. Given your team size and focus on travel tech, I wanted to share how FlowPilot helps replace manual, email-driven hand-offs with automated workflows. Let me know if you would like to explore this further. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -3943,21 +3927,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Education Institution: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Education institution requesting a demo, cooling slightly after 46 days.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Zara,\n\nThanks for requesting a FlowPilot demo about 2 months ago. For a 600-person organisation in Education like Education Institution, the quickest win is usually to automate enrolment and staff-request workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Zara, thanks for requesting a demo for Education Institution a few weeks ago. I know things get busy, so I wanted to reconnect to help automate enrolment and staff-request workflows. Do you have some time this Tuesday or Thursday for a quick walkthrough? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -3991,7 +3975,7 @@
       "last_interaction_date": "2024-01-02",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 11,
+      "priority_rank": 13,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -4030,21 +4014,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Supply Chain Co: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Supply chain mid-market company from cold LinkedIn outreach.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Aaron,\n\nI came across Supply Chain Co while looking at Supply Chain teams of your size (a 320-person organisation). We help companies like yours automate shipment-exception and supplier hand-offs so nothing sits in an inbox. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Aaron, I noticed the strong growth at Supply Chain Co and wanted to reach out directly. We help teams automate shipment-exception and supplier hand-offs so nothing sits in an inbox. Are you currently looking at ways to streamline your supply chain workflows? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -4098,21 +4082,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Legal Services Firm: rubric score 6.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Legal services mid-market firm from a past sales call, cooling at 51 days.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Bella,\n\nThanks again for the conversation about 2 months ago. As a quick recap: for Legal Services Firm, a 90-person organisation in Legal, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Bella, it has been a little while since our sales call with Legal Services Firm. I wanted to reconnect and see where your team stands on replacing manual, email-driven hand-offs with automated workflows. Would you be open to a brief follow-up conversation this week? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -4167,13 +4151,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Media & Entertainment: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Media company that engaged with a content download.",
         "note": null
       },
       "data_issues": [],
@@ -4229,21 +4213,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Cloud Infrastructure: rubric score 10.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Hot SaaS inbound demo request from yesterday.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Derek,\n\nThanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Cloud Infrastructure, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Derek, thanks for requesting a demo for Cloud Infrastructure yesterday. I would love to show you how FlowPilot can automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. Do you have availability for a brief call this Wednesday or Friday? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -4277,7 +4261,7 @@
       "last_interaction_date": "2024-01-17",
       "decision": "review",
       "qualification_score": 6.3,
-      "priority_rank": 14,
+      "priority_rank": 16,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -4316,21 +4300,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Mobile Development: rubric score 6.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold software lead with recent LinkedIn touchpoint.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Ethan,\n\nI came across Mobile Development while looking at Software teams of your size (a team of about 40). We help companies like yours automate release, support-escalation and onboarding workflows across teams. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Ethan, I saw your team at Mobile Development on LinkedIn recently and wanted to connect. For fast-moving software teams, we help automate release, support-escalation and onboarding workflows across teams. Would you be open to a brief chat to see how this fits your setup? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -4385,13 +4369,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Telecommunications: rubric score 5.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Telecommunications mid-market lead from a past sales call.",
         "note": null
       },
       "data_issues": [],
@@ -4447,21 +4431,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Beauty & Cosmetics: rubric score 6.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Beauty and cosmetics webinar attendee with good company size fit.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Gabriella,\n\nThanks for joining our webinar earlier this week. Many Consumer teams in the audience asked how to replace manual, email-driven hand-offs with automated workflows, so I put together a two-page example that fits a 120-person organisation like Beauty & Cosmetics. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Gabriella, Thanks for joining our recent webinar with Beauty & Cosmetics. Since you attended, I wanted to share how we help teams replace manual, email-driven hand-offs with automated workflows. Would you be interested in seeing a quick walkthrough tailored to your team size? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -4518,13 +4502,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Oil & Gas Corp: rubric score 3.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Very cold enterprise energy lead from an old content download.",
         "note": null
       },
       "data_issues": [],
@@ -4580,21 +4564,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Luxury Hotels: rubric score 8.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Warm referral lead in hospitality with strong mid-market fit.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Isabella,\n\nYou were referred to us earlier this week, so I wanted to reach out personally. Teams in Hospitality often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Luxury Hotels' size (a 350-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Isabella, It's great to connect following the recent referral regarding Luxury Hotels. We've been working with similar teams to replace manual, email-driven hand-offs with automated workflows. I'd love to share a few examples of what that looks like in practice. Do you have ten minutes this week for a brief introduction? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -4667,21 +4651,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Property Management: rubric score 9.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "High-intent inbound demo request from a real estate property management company.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi James,\n\nThanks for requesting a FlowPilot demo earlier this week. For a 180-person organisation in Real Estate like Property Management, the quickest win is usually to automate lease, maintenance and tenant-request workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi James, Thanks for requesting a demo for Property Management. I saw your request come through and would love to get something on the calendar to show you how we automate lease, maintenance and tenant-request workflows. Would Tuesday at 2 PM or Thursday at 10 AM work better for you? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -4715,7 +4699,7 @@
       "last_interaction_date": "2024-01-13",
       "decision": "qualified",
       "qualification_score": 7.0,
-      "priority_rank": 49,
+      "priority_rank": 47,
       "priority_tier": "P2",
       "next_action": "P2: send first message via LinkedIn message within 3 business days",
       "reasoning": [
@@ -4754,21 +4738,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Artificial Intelligence Lab: rubric score 7.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "AI lab lead with solid core vertical fit and recent LinkedIn touch.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Katherine,\n\nI came across Artificial Intelligence Lab while looking at AI/ML teams of your size (a 65-person organisation). We help companies like yours replace manual, email-driven hand-offs with automated workflows. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Katherine, I noticed your work at Artificial Intelligence Lab on LinkedIn and wanted to reach out. In fast-paced tech environments, we help teams replace manual, email-driven hand-offs with automated workflows to keep projects moving. Are you currently looking at ways to streamline your internal processes? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -4802,7 +4786,7 @@
       "last_interaction_date": "2024-01-10",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 7,
+      "priority_rank": 9,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -4841,21 +4825,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Venture Capital Fund: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Venture capital finance lead following a recent sales call conversation.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Liam,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Venture Capital Fund, a team of about 40 in Finance, the clearest opportunity is to automate approval and compliance workflows with a full audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Liam, It was great speaking with you recently regarding Venture Capital Fund. As we discussed, we specialize in helping finance teams automate approval and compliance workflows with a full audit trail. Let me know if you have any questions following our chat or if you would like to review the next steps. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -4868,13 +4852,14 @@
       "industry": "Cryptocurrency",
       "source": "Referral",
       "last_interaction_date": "2024-01-15",
-      "decision": "qualified",
-      "qualification_score": 7.0,
-      "priority_rank": 48,
-      "priority_tier": "P2",
-      "next_action": "P2: send first message via Email (warm intro) within 3 business days",
+      "decision": "review",
+      "qualification_score": 6.5,
+      "priority_rank": 7,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
-        "Score 7.0 >= 7.0 qualification threshold"
+        "Score 6.5 is in the 6.0-7.0 'too close to call' band",
+        "LLM adjustment -0.5: Low industry fit for cryptocurrency requires a slight downward adjustment despite the referral source."
       ],
       "score_breakdown": {
         "base_score": 7.0,
@@ -4908,42 +4893,23 @@
             "used_default": false
           }
         ],
-        "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment": -0.5,
+        "llm_adjustment_reason": "Low industry fit for cryptocurrency requires a slight downward adjustment despite the referral source.",
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
+        "source": "llm",
         "confidence": "medium",
-        "summary": "Blockchain Startup: rubric score 7.0/10.",
+        "summary": "Referred cryptocurrency startup lead with a low-fit industry vertical.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
-        "status": "ready to send",
-        "message": "Hi Mona,\n\nYou were referred to us earlier this week, so I wanted to reach out personally. Teams in Cryptocurrency often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Blockchain Startup's size (a team of about 22) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
-        "sequence": [
-          {
-            "step": 1,
-            "day": 0,
-            "channel": "Email (warm intro)",
-            "action": "Send the personalised first message (within 3 business days)"
-          },
-          {
-            "step": 2,
-            "day": 3,
-            "channel": "Email",
-            "action": "Short follow-up with one relevant customer example"
-          },
-          {
-            "step": 3,
-            "day": 7,
-            "channel": "LinkedIn",
-            "action": "Final touch; if no reply, move to nurture"
-          }
-        ]
+        "message_source": "llm",
+        "status": "draft - send only after human approval",
+        "message": "Hi Mona, It's great to connect following the recent introduction to Blockchain Startup. While crypto is a unique space, we regularly help teams replace manual, email-driven hand-offs with automated workflows. I would love to learn more about your current setup and share how we might help. Do you have time for a quick chat this week? Best, Sam Rivera, Account Executive, FlowPilot.",
+        "sequence": []
       }
     },
     {
@@ -4997,13 +4963,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Sports Management: rubric score 5.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cooling sports management lead from a content download.",
         "note": null
       },
       "data_issues": [],
@@ -5059,21 +5025,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Renewable Energy Corp: rubric score 8.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Inbound demo request from Renewable Energy Corp with strong mid-market fit and recent touch.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Olivia,\n\nThanks for requesting a FlowPilot demo a few weeks ago. For a 600-person organisation in Energy like Renewable Energy Corp, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Olivia, thanks for requesting a demo for Renewable Energy Corp. It looks like you're looking to replace manual, email-driven hand-offs with automated workflows across your team. Given your interest, I'd love to show you how FlowPilot handles cross-team routing. Do you have 20 minutes this Tuesday at 2 PM or Thursday at 10 AM for a quick walkthrough? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -5147,13 +5113,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Biotechnology Research: rubric score 5.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach lead from Biotechnology Research with moderate fit and no demo request yet.",
         "note": null
       },
       "data_issues": [],
@@ -5210,13 +5176,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Streaming Service: rubric score 5.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Older sales call lead from Streaming Service with upper mid-market size and declining recency.",
         "note": null
       },
       "data_issues": [],
@@ -5273,13 +5239,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Waste Management: rubric score 5.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Webinar attendee from Waste Management with upper mid-market size and early research intent.",
         "note": null
       },
       "data_issues": [],
@@ -5335,21 +5301,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Robotics Company: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Referred lead from Robotics Company with strong core mid-market size and recent interaction.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Steven,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Manufacturing often use FlowPilot to automate quality, maintenance and procurement requests on the shop floor, and at Robotics Company's size (a 75-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Steven, thanks for the warm introduction to Robotics Company. Since you're looking to automate quality, maintenance and procurement requests on the shop floor, I wanted to reach out directly. FlowPilot helps teams eliminate manual bottlenecks and speed up internal hand-offs. Would you be open to a brief introductory chat next week to see how it might fit your operations? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -5422,21 +5388,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Wine Distribution: rubric score 8.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Inbound demo request from Wine Distribution with ideal company size and high intent.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Sophia,\n\nThanks for requesting a FlowPilot demo a few weeks ago. For a 95-person organisation in Retail like Wine Distribution, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Sophia, thanks for reaching out about Wine Distribution. It's great to see your interest in finding a better way to automate order-exception, returns and store-ops requests. I'd love to walk you through how FlowPilot connects those moving parts without the usual email delays. Would Tuesday at 11 AM or Wednesday at 3 PM work for a quick demo? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -5510,13 +5476,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Construction Tech: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Content download lead from Construction Tech indicating early-stage research.",
         "note": null
       },
       "data_issues": [],
@@ -5533,7 +5499,7 @@
       "last_interaction_date": "2024-01-05",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 9,
+      "priority_rank": 11,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -5572,21 +5538,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Insurance Tech: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "LinkedIn outreach lead from Insurance Tech with core vertical fit and recent touch.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Ursula,\n\nI came across Insurance Tech while looking at InsurTech teams of your size (a 130-person organisation). We help companies like yours cut claims and underwriting hand-off delays with automated routing. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Ursula, I noticed your work at Insurance Tech and wanted to connect. Teams in your space often struggle to cut claims and underwriting hand-off delays with automated routing. FlowPilot removes those manual roadblocks between departments so things move faster. Are you currently exploring ways to streamline your internal hand-offs this quarter? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -5640,21 +5606,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Transportation Logistics: rubric score 8.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Sales call lead from Transportation Logistics with strong core vertical fit and ongoing conversation.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Victoria,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Transportation Logistics, a 550-person organisation in Logistics, the clearest opportunity is to automate shipment-exception and carrier hand-offs so nothing sits in an inbox. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Victoria, it was great speaking with you recently regarding Transportation Logistics. Following up on our conversation about how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, I wanted to share a couple of relevant workflow examples. Do you have a few minutes later this week to review those notes? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -5727,21 +5693,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Pharmaceutical Distribution: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Referred lead from Pharmaceutical Distribution with great mid-market size and strong intent.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi William,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Healthcare often use FlowPilot to automate patient-intake and referral hand-offs while keeping an audit trail, and at Pharmaceutical Distribution's size (a 400-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi William, thanks for the warm introduction to Pharmaceutical Distribution. Since you are focused on ways to automate patient-intake and referral hand-offs while keeping an audit trail, I wanted to connect. FlowPilot is designed specifically to remove those manual hand-offs securely. Would you be open to a brief call next week to explore how it could work for your team? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -5814,21 +5780,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Virtual Reality Studios: rubric score 7.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Qualified inbound demo request from Virtual Reality Studios wanting to replace manual hand-offs.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Xander,\n\nThanks for requesting a FlowPilot demo a few weeks ago. For a team of about 45 in Entertainment like Virtual Reality Studios, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Xander, thanks for requesting a demo for Virtual Reality Studios. We saw your inbound request regarding our platform to replace manual, email-driven hand-offs with automated workflows. Since you reached out 17 days ago, I wanted to follow up and see if you have time for a brief walk-through this week. Would Tuesday afternoon or Thursday morning work better for you? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -5902,13 +5868,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Pet Care Services: rubric score 4.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach lead from Pet Care Services currently needing review.",
         "note": null
       },
       "data_issues": [],
@@ -5965,13 +5931,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Office Furniture: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Webinar attendee from Office Furniture requiring human review.",
         "note": null
       },
       "data_issues": [],
@@ -6027,21 +5993,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Cybersecurity Consulting: rubric score 8.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Highly qualified cybersecurity lead from a recent sales call ready for a follow-up.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Amelia,\n\nThanks again for the conversation just now. As a quick recap: for Cybersecurity Consulting, a 95-person organisation in Cybersecurity, the clearest opportunity is to automate incident-triage and access-request workflows with an audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Amelia, great speaking with you about Cybersecurity Consulting today. As we discussed, our team can help you automate incident-triage and access-request workflows with an audit trail across your organization. Since we just touched base today, I wanted to propose our next steps to keep the momentum going. Would you be open to a technical deep dive this Thursday or Friday? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6114,21 +6080,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Cloud Storage: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cloud Storage content download lead who fits our mid-market SaaS profile.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "content_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Bradley,\n\nI saw you downloaded one of our guides just now - I hope it was useful. One idea that tends to land well with SaaS teams like Cloud Storage is to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. If it would help, I'm happy to share a 10-minute example tailored to a 800-person organisation. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Bradley, thanks for downloading our recent content at Cloud Storage. Since you are in the SaaS space with 800 employees, you might find our tools useful to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. We touched base 1 day ago, so I wanted to share a brief, relevant takeaway on how teams scale hand-offs without extra headcount. Are you open to a quick chat this week? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6201,21 +6167,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Supply Chain Analytics: rubric score 9.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Top-tier warm referral from Supply Chain Analytics ready for outreach.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Chloe,\n\nYou were referred to us earlier this week, so I wanted to reach out personally. Teams in Software often use FlowPilot to automate release, support-escalation and onboarding workflows across teams, and at Supply Chain Analytics' size (a 60-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Chloe, thanks for the warm introduction from Supply Chain Analytics. We love working with software teams to help automate release, support-escalation and onboarding workflows across teams. Since we connected just 2 days ago, I wanted to reach out directly and see how we can help streamline your internal hand-offs. Would you have ten minutes for a brief introduction call this Tuesday or Thursday? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6288,21 +6254,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Payment Processing: rubric score 10.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Strong inbound demo request from Payment Processing with immediate buying intent.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Dominic,\n\nThanks for requesting a FlowPilot demo earlier this week. For a 500-person organisation in FinTech like Payment Processing, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Dominic, thanks for requesting a demo for Payment Processing. We saw your inbound request regarding our platform to automate approval and compliance workflows with a full audit trail. Since we spoke 3 days ago, I wanted to set up a time to review your specific requirements. Do you have availability for a brief walk-through this Wednesday afternoon or Friday morning? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6336,7 +6302,7 @@
       "last_interaction_date": "2024-01-16",
       "decision": "qualified",
       "qualification_score": 7.0,
-      "priority_rank": 47,
+      "priority_rank": 46,
       "priority_tier": "P2",
       "next_action": "P2: send first message via LinkedIn message within 3 business days",
       "reasoning": [
@@ -6375,21 +6341,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Human Resources Tech: rubric score 7.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "LinkedIn outreach lead from Human Resources Tech currently in active rotation.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Evelyn,\n\nI came across Human Resources Tech while looking at HR Tech teams of your size (a 70-person organisation). We help companies like yours replace manual, email-driven hand-offs with automated workflows. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Evelyn, I noticed your work at Human Resources Tech on LinkedIn and wanted to connect. Companies of your size often struggle with manual hand-offs between teams, and we help teams replace manual, email-driven hand-offs with automated workflows. Since we connected 4 days ago, I wanted to ask a quick question: how are you currently managing hand-offs between departments? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6462,21 +6428,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Accounting Software: rubric score 8.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Qualified sales call lead from Accounting Software with strong engagement.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Franklin,\n\nThanks again for the conversation earlier this week. As a quick recap: for Accounting Software, a 220-person organisation in Software, the clearest opportunity is to automate release, support-escalation and onboarding workflows across teams. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Franklin, it was great speaking with the Accounting Software team recently. As we discussed on our sales call 5 days ago, our software can help you automate release, support-escalation and onboarding workflows across teams. I wanted to follow up with some additional materials and propose a concrete next step for our evaluation. Do you have time for a quick technical review this week? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6549,21 +6515,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "E-commerce Platform: rubric score 7.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Webinar attendee from E-commerce Platform showing strong engagement signals.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Gina,\n\nThanks for joining our webinar earlier this week. Many SaaS teams in the audience asked how to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets, so I put together a two-page example that fits a 140-person organisation like E-commerce Platform. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Gina, thanks for attending our recent webinar representing E-commerce Platform. Since you are in the SaaS space with 140 employees, you might find our approach to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets particularly relevant. We touched base 6 days ago, so I wanted to share a brief, useful takeaway from the session. Are you open to a quick chat this week? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6597,7 +6563,7 @@
       "last_interaction_date": "2024-01-13",
       "decision": "review",
       "qualification_score": 6.3,
-      "priority_rank": 15,
+      "priority_rank": 17,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -6636,21 +6602,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Commercial Real Estate: rubric score 6.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market real estate firm engaged via content download seven days ago.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "content_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Harrison,\n\nI saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with Real Estate teams like Commercial Real Estate is to automate lease, maintenance and tenant-request workflows. If it would help, I'm happy to share a 10-minute example tailored to a 900-person organisation. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Harrison, I saw you recently downloaded our content on workflow automation for Commercial Real Estate. Since you are managing a team of 900, you might find it useful to automate lease, maintenance and tenant-request workflows. We help companies like yours remove manual hand-offs. Would you be open to a quick look at how that works? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -6704,21 +6670,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Telecommunications Equipment: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Telecom enterprise lead via warm referral with recent touchpoint.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Iris,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Telecom often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Telecommunications Equipment's size (an organisation of 2,000 people) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Iris, thanks for connecting through our recent referral regarding Telecommunications Equipment. At a 2,000-person scale, streamlining operations is crucial, and we would love to help you replace manual, email-driven hand-offs with automated workflows. Do you have ten minutes this week to discuss? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6791,21 +6757,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Logistics Optimization: rubric score 9.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Software software company submitted an inbound demo request.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Jerome,\n\nThanks for requesting a FlowPilot demo a few weeks ago. For a 85-person organisation in Software like Logistics Optimization, the quickest win is usually to automate release, support-escalation and onboarding workflows across teams. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Jerome, thanks for requesting a demo for Logistics Optimization. With an 85-person software team, you likely have plenty of moving parts, and we can help you automate release, support-escalation and onboarding workflows across teams. How does your schedule look for a quick chat this Tuesday or Thursday? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -6839,7 +6805,7 @@
       "last_interaction_date": "2024-01-10",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 8,
+      "priority_rank": 10,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -6878,21 +6844,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Environmental Monitoring: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Climate tech startup engaged via cold LinkedIn outreach.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Kennedy,\n\nI came across Environmental Monitoring while looking at Climate Tech teams of your size (a 55-person organisation). We help companies like yours replace manual, email-driven hand-offs with automated workflows. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Kennedy, I noticed your work at Environmental Monitoring and wanted to connect. For a 55-person climate tech team, manual processes can slow down momentum, and our platform helps replace manual, email-driven hand-offs with automated workflows. Are you currently looking at ways to streamline your team hand-offs? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -6946,21 +6912,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Medical Devices: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Healthcare device manufacturer active in sales conversation.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Lauren,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Medical Devices, a 450-person organisation in Healthcare, the clearest opportunity is to automate patient-intake and referral hand-offs while keeping an audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Lauren, great speaking with you recently about Medical Devices. Following our sales call regarding your 450-person team, I wanted to circle back on how we can help you automate patient-intake and referral hand-offs while keeping an audit trail. What are your thoughts on our proposed next steps? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -7034,13 +7000,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Venture Studio: rubric score 5.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Small finance venture studio attended a webinar.",
         "note": null
       },
       "data_issues": [],
@@ -7097,13 +7063,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Fashion E-commerce: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Retail e-commerce company downloaded early-stage content.",
         "note": null
       },
       "data_issues": [],
@@ -7159,21 +7125,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Warehouse Automation: rubric score 9.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Logistics mid-market company introduced via warm referral.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Oscar,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Logistics often use FlowPilot to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, and at Warehouse Automation's size (a 300-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Oscar, thanks for connecting through our referral for Warehouse Automation. With a 300-person team in logistics, keeping operations moving is key, and we can help you automate shipment-exception and carrier hand-offs so nothing sits in an inbox. Would you be open to a brief introductory chat this week? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -7246,21 +7212,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Mental Health Platform: rubric score 9.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Health tech mid-market company submitted an inbound demo request.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Penny,\n\nThanks for requesting a FlowPilot demo a few weeks ago. For a 75-person organisation in HealthTech like Mental Health Platform, the quickest win is usually to automate patient-intake and referral hand-offs while keeping an audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Penny, thanks for requesting a demo for Mental Health Platform. For a 75-person health tech team, our solution can easily automate patient-intake and referral hand-offs while keeping an audit trail. Would Tuesday afternoon or Thursday morning work for us to walk through a quick demo? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -7294,7 +7260,7 @@
       "last_interaction_date": "2024-01-04",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 10,
+      "priority_rank": 12,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -7333,21 +7299,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Database Software: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Database software mid-market company reached via LinkedIn.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Quinton,\n\nI came across Database Software while looking at Software teams of your size (a 250-person organisation). We help companies like yours automate release, support-escalation and onboarding workflows across teams. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Quinton, I came across Database Software on LinkedIn and wanted to reach out. For a 250-person software company, scaling processes without adding overhead is a priority, and we specialize in helping teams automate release, support-escalation and onboarding workflows across teams. Are you currently exploring ways to streamline these hand-offs? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -7401,21 +7367,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Sustainable Fashion: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market retail lead from a recent sales call with solid engagement.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Ruby,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Sustainable Fashion, a 85-person organisation in Retail, the clearest opportunity is to automate order-exception, returns and store-ops requests. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Ruby,\n\nIt was great speaking with you a couple of weeks ago regarding Sustainable Fashion. I wanted to follow up on our conversation about how FlowPilot can help automate order-exception, returns and store-ops requests to eliminate manual hand-offs. Since you have an active team of 85, this could save considerable time across departments. Do you have ten minutes this Thursday or Friday to review a quick workflow tailored to your retail operations?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -7449,7 +7415,7 @@
       "last_interaction_date": "2024-01-02",
       "decision": "review",
       "qualification_score": 6.3,
-      "priority_rank": 17,
+      "priority_rank": 19,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -7488,21 +7454,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Financial Advisory: rubric score 6.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market finance lead who attended our recent webinar and is actively researching solutions.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Silas,\n\nThanks for joining our webinar a few weeks ago. Many Finance teams in the audience asked how to automate approval and compliance workflows with a full audit trail, so I put together a two-page example that fits a 140-person organisation like Financial Advisory. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Silas,\n\nThanks for attending our recent webinar representing Financial Advisory. Given your team size of 140, I know that maintaining robust governance while scaling operations is a priority. FlowPilot helps teams automate approval and compliance workflows with a full audit trail, removing manual bottlenecks between departments. Would you be open to a brief chat next week to see how this fits your compliance requirements?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": []
       }
     },
@@ -7517,7 +7483,7 @@
       "last_interaction_date": "2024-01-01",
       "decision": "review",
       "qualification_score": 6.0,
-      "priority_rank": 21,
+      "priority_rank": 23,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -7556,21 +7522,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Nutrition Tech: rubric score 6.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Small healthtech team that downloaded content and fits our core vertical well.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "content_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Tara,\n\nI saw you downloaded one of our guides a few weeks ago - I hope it was useful. One idea that tends to land well with HealthTech teams like Nutrition Tech is to automate patient-intake and referral hand-offs while keeping an audit trail. If it would help, I'm happy to share a 10-minute example tailored to a team of about 50. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Tara,\n\nI noticed you recently downloaded our guide at Nutrition Tech. Since you are operating in the healthtech space with a dedicated team, I wanted to share a quick thought on how FlowPilot can help automate patient-intake and referral hand-offs while keeping an audit trail. It is designed to remove tedious administrative hand-offs so your staff can focus on care. Let me know if you would like a brief overview.\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": []
       }
     },
@@ -7624,21 +7590,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Autonomous Vehicles: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "High-intent referral lead from the automotive sector with strong mid-market sizing.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Ulysses,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Automotive often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Autonomous Vehicles' size (a 600-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Ulysses,\n\nThanks for connecting with us following the recent warm introduction regarding Autonomous Vehicles. With a mid-market team of 600, streamlining cross-departmental hand-offs is critical for efficiency. FlowPilot helps organizations replace manual, email-driven hand-offs with automated workflows to keep projects moving smoothly. I would love to connect this week to discuss how we can support your operations.\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -7711,21 +7677,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Commercial Cleaning: rubric score 8.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Inbound demo request from a mid-market commercial cleaning company representing high buying intent.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Veronica,\n\nThanks for requesting a FlowPilot demo a few weeks ago. For a 180-person organisation in Business Services like Commercial Cleaning, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Veronica,\n\nThanks for requesting a demo for Commercial Cleaning. With your team of 180 employees, replacing manual, email-driven hand-offs with automated workflows can make a major impact on daily productivity. I have a couple of openings this Tuesday at 2:00 PM or Thursday at 10:00 AM for our walkthrough. Do either of those times work for you?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -7799,13 +7765,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Construction Management: rubric score 5.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold outbound lead in the construction sector requiring further nurturing before outreach.",
         "note": null
       },
       "data_issues": [],
@@ -7861,21 +7827,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Gaming Studio: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market entertainment company engaged in an active sales call conversation.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Ximena,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Gaming Studio, a 95-person organisation in Entertainment, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Ximena,\n\nIt was great speaking with you recently about Gaming Studio. I wanted to touch base following our conversation on how FlowPilot can help replace manual, email-driven hand-offs with automated workflows across your studio teams. Managing production hand-offs efficiently is key at your scale. Do you have some time this week to review the next steps we discussed?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -7948,21 +7914,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Customer Support Platform: rubric score 7.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Core SaaS vertical lead who attended a webinar and fits our ideal profile.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Yolanda,\n\nThanks for joining our webinar a few weeks ago. Many SaaS teams in the audience asked how to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets, so I put together a two-page example that fits a 110-person organisation like Customer Support Platform. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Yolanda,\n\nThanks for joining our recent webinar representing Customer Support Platform. Since you are in the SaaS space with 110 employees, I wanted to follow up on how FlowPilot can help automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. Would you be open to a quick introductory chat next week to see a brief walkthrough?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -8037,13 +8003,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Landscaping Services: rubric score 4.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Small services lead with low industry fit and early-stage research intent.",
         "note": null
       },
       "data_issues": [],
@@ -8099,21 +8065,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Dental Practice Management: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Highly qualified healthcare referral lead with strong mid-market sizing.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Audrey,\n\nYou were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Healthcare often use FlowPilot to automate patient-intake and referral hand-offs while keeping an audit trail, and at Dental Practice Management's size (a 150-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Audrey,\n\nThank you for the warm introduction from your network regarding Dental Practice Management. With a team of 150, managing patient coordination smoothly is essential. FlowPilot helps organizations automate patient-intake and referral hand-offs while keeping an audit trail to ensure nothing slips through the cracks. I would love to schedule a brief introductory call this week to learn more about your current processes.\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -8186,21 +8152,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Climate Analytics: rubric score 9.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "High-intent inbound demo request from a mid-market climate tech firm.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Bryson,\n\nThanks for requesting a FlowPilot demo a few weeks ago. For a 70-person organisation in Climate Tech like Climate Analytics, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Bryson, thanks for requesting a demo for Climate Analytics. Given your team of 70, we regularly help organizations like yours replace manual, email-driven hand-offs with automated workflows. We'd love to show you how FlowPilot fits into your stack. Do you have time for a brief look this Thursday at 10 AM or Friday at 2 PM? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -8234,7 +8200,7 @@
       "last_interaction_date": "2023-12-23",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 12,
+      "priority_rank": 14,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -8273,21 +8239,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Freight Forwarding: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold outbound lead from a mid-market logistics provider via LinkedIn.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Cecilia,\n\nI came across Freight Forwarding while looking at Logistics teams of your size (a 400-person organisation). We help companies like yours automate shipment-exception and carrier hand-offs so nothing sits in an inbox. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Cecilia, I noticed your work at Freight Forwarding and wanted to connect. With a team of 400, managing operations efficiently is always a priority. We help logistics teams automate shipment-exception and carrier hand-offs so nothing sits in an inbox. Are you currently looking at ways to streamline these internal hand-offs? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -8302,7 +8268,7 @@
       "last_interaction_date": "2023-12-22",
       "decision": "review",
       "qualification_score": 6.5,
-      "priority_rank": 13,
+      "priority_rank": 15,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -8341,21 +8307,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Wedding Planning Tech: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Ongoing sales conversation with a small events tech company.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Daisy,\n\nThanks again for the conversation a few weeks ago. As a quick recap: for Wedding Planning Tech, a team of about 38 in Events, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Daisy, great speaking with you recently regarding Wedding Planning Tech. For a 38-person team in the events space, keeping operations tight is crucial. To recap our discussion, our focus is to help you replace manual, email-driven hand-offs with automated workflows. Let's touch base next week to review the next steps we outlined. Does Tuesday work for a quick sync? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -8370,7 +8336,7 @@
       "last_interaction_date": "2023-12-21",
       "decision": "review",
       "qualification_score": 6.3,
-      "priority_rank": 18,
+      "priority_rank": 20,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -8409,21 +8375,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Veterinary Practice: rubric score 6.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Webinar attendee from a mid-market healthcare practice.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Ezra,\n\nThanks for joining our webinar a few weeks ago. Many Healthcare teams in the audience asked how to automate patient-intake and referral hand-offs while keeping an audit trail, so I put together a two-page example that fits a 65-person organisation like Veterinary Practice. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Ezra, thanks for joining our recent webinar from Veterinary Practice. In the healthcare sector with 65 employees, administrative efficiency matters. We specialize in helping teams automate patient-intake and referral hand-offs while keeping an audit trail. I wanted to share a few relevant notes from the session if you're exploring ways to scale your internal processes. Let me know if you would like to see a quick walkthrough. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -8478,13 +8444,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Craft Beverage: rubric score 5.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Content download lead from a mid-market consumer craft beverage brand.",
         "note": null
       },
       "data_issues": [],
@@ -8540,21 +8506,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Public Relations Firm: rubric score 8.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Warm referral introduction from a mid-market PR and marketing firm.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Gemma,\n\nYou were referred to us about 1 month ago, so I wanted to reach out personally. Teams in Marketing often use FlowPilot to automate campaign-approval and client-onboarding workflows, and at Public Relations Firm's size (a 75-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Gemma, thanks for the warm introduction from your network. At Public Relations Firm with your team of 75, keeping campaign workflows aligned is key. We regularly help marketing teams automate campaign-approval and client-onboarding workflows to eliminate friction between departments. I'd love to connect for a brief introductory chat to see if our approach aligns with your current goals. Let me know what your calendar looks like next week. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -8627,21 +8593,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Retail Inventory: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Inbound demo request from a mid-market retail inventory company.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Harper,\n\nThanks for requesting a FlowPilot demo about 1 month ago. For a 140-person organisation in Retail like Retail Inventory, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Harper, thanks for submitting an inbound demo request for Retail Inventory. With 140 employees, handling high-volume operational requests smoothly is essential. We help retail teams automate order-exception, returns and store-ops requests to keep things moving. Let's get that demo scheduled—does this Wednesday at 11 AM or Thursday at 3 PM suit your schedule? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": [
           {
             "step": 1,
@@ -8675,7 +8641,7 @@
       "last_interaction_date": "2023-12-17",
       "decision": "review",
       "qualification_score": 6.0,
-      "priority_rank": 22,
+      "priority_rank": 24,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -8714,21 +8680,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Corporate Training: rubric score 6.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach lead at an EdTech corporate training provider.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "social_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Iris,\n\nI came across Corporate Training while looking at EdTech teams of your size (a 110-person organisation). We help companies like yours automate learner-onboarding and content-approval workflows. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Iris, I've been following Corporate Training on LinkedIn and wanted to reach out. For an EdTech team of 110, streamlining educational programs is always a focus. We help organizations automate learner-onboarding and content-approval workflows so teams spend less time chasing updates. Are you currently exploring ways to remove manual hand-offs in your programs? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -8782,21 +8748,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Hotel Management: rubric score 6.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Active sales call lead in the hospitality management sector.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Julian,\n\nThanks again for the conversation about 1 month ago. As a quick recap: for Hotel Management, a 250-person organisation in Hospitality, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Julian, it was great connecting with you about Hotel Management. Managing 250 employees across properties brings unique operational challenges. Following our call, I want to keep the momentum going as you look to replace manual, email-driven hand-offs with automated workflows. Let's schedule our next conversation to review your specific requirements. Would early next week work for you? Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -8850,21 +8816,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Knowledge Management: rubric score 6.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Webinar attendee from a mid-market software and knowledge management firm.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Kevin,\n\nThanks for joining our webinar about 1 month ago. Many Software teams in the audience asked how to automate release, support-escalation and onboarding workflows across teams, so I put together a two-page example that fits a 125-person organisation like Knowledge Management. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Kevin, thanks for attending our recent webinar representing Knowledge Management. For a software team of 125, keeping cross-functional projects synchronized is a priority. We help technical teams automate release, support-escalation and onboarding workflows across teams. I wanted to follow up and see if you had any questions on the material we covered. Let me know if a brief walkthrough would be helpful for your team. Best, Sam Rivera, Account Executive, FlowPilot.",
         "sequence": []
       }
     },
@@ -8920,13 +8886,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Interior Design Services: rubric score 3.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Early-stage content download from a small interior design firm; not a priority right now.",
         "note": null
       },
       "data_issues": [],
@@ -8982,21 +8948,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Cyber Insurance: rubric score 7.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Warm referral from a mid-market cyber insurance company with good expansion potential.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Marcus,\n\nYou were referred to us about 1 month ago, so I wanted to reach out personally. Teams in Insurance often use FlowPilot to cut claims and underwriting hand-off delays with automated routing, and at Cyber Insurance's size (a 220-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Marcus,\n\nI understand we received a warm introduction regarding Cyber Insurance and how your team handles cross-departmental hand-offs. At FlowPilot, we help companies like yours cut claims and underwriting hand-off delays with automated routing.\n\nSince it has been a few weeks since we connected, I wanted to circle back and see if streamlining these operational bottlenecks is still a priority this quarter. Do you have ten minutes this Thursday or Friday to connect?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -9069,21 +9035,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Import Export Trading: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Strong inbound demo request from a mid-market import-export trading company.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Natasha,\n\nThanks for requesting a FlowPilot demo about 1 month ago. For a 350-person organisation in Trade like Import Export Trading, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Natasha,\n\nThanks for requesting a demo for Import Export Trading last month. We would love to show you how FlowPilot can replace manual, email-driven hand-offs with automated workflows to keep your international shipping operations moving smoothly.\n\nAre you available for a quick walkthrough this Tuesday or Thursday afternoon? Let me know what time works best on your end.\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -9158,13 +9124,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Museum Management: rubric score 4.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach to a museum management company in the cultural sector.",
         "note": null
       },
       "data_issues": [],
@@ -9220,21 +9186,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Network Security: rubric score 7.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Active sales conversation with a cybersecurity firm that fits our core ICP well.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Priya,\n\nThanks again for the conversation about 1 month ago. As a quick recap: for Network Security, a 180-person organisation in Cybersecurity, the clearest opportunity is to automate incident-triage and access-request workflows with an audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Priya,\n\nIt was great speaking with your team at Network Security a few weeks ago regarding your operational workflows. As we discussed, FlowPilot can help you automate incident-triage and access-request workflows with an audit trail.\n\nTo recap our conversation, our next step was to look at a tailored pilot for your internal security queues. Do you have some time later this week to review the implementation timeline?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -9309,13 +9275,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Volunteer Management: rubric score 4.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Webinar attendee from a small non-profit organization doing early research.",
         "note": null
       },
       "data_issues": [],
@@ -9332,7 +9298,7 @@
       "last_interaction_date": "2023-12-08",
       "decision": "review",
       "qualification_score": 6.3,
-      "priority_rank": 19,
+      "priority_rank": 21,
       "priority_tier": "REVIEW",
       "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
       "reasoning": [
@@ -9371,21 +9337,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Logistics Tracking: rubric score 6.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Content download from a mid-market logistics firm in our core industry.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "content_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Raymond,\n\nI saw you downloaded one of our guides about 1 month ago - I hope it was useful. One idea that tends to land well with Logistics teams like Logistics Tracking is to automate shipment-exception and carrier hand-offs so nothing sits in an inbox. If it would help, I'm happy to share a 10-minute example tailored to a 300-person organisation. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Raymond,\n\nI noticed you recently downloaded our logistics automation guide on behalf of Logistics Tracking. Teams in your space often struggle with keeping freight updates synchronized across disparate systems.\n\nFlowPilot helps you automate shipment-exception and carrier hand-offs so nothing sits in an inbox. Would you be open to a brief conversation this week to see how this applies to your dispatch operations?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": []
       }
     },
@@ -9439,21 +9405,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Laboratory Information: rubric score 7.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Warm referral from a mid-market healthcare and laboratory information provider.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Sophie,\n\nYou were referred to us about 1 month ago, so I wanted to reach out personally. Teams in Healthcare often use FlowPilot to automate patient-intake and referral hand-offs while keeping an audit trail, and at Laboratory Information's size (a 170-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Sophie,\n\nWe recently received a great introduction regarding Laboratory Information and the manual coordination involved in your patient data pipelines. At FlowPilot, we specialize in helping healthcare organizations automate patient-intake and referral hand-offs while keeping an audit trail.\n\nSince our initial touchpoint a few weeks ago, I wanted to see if you are still looking to eliminate administrative bottlenecks. Would you be available for a brief introductory chat this week?\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -9526,21 +9492,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Vehicle Tracking: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "High-intent inbound demo request from an automotive vehicle tracking company.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Tobias,\n\nThanks for requesting a FlowPilot demo about 2 months ago. For a 220-person organisation in Automotive like Vehicle Tracking, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Tobias,\n\nThanks for reaching out for a demo on behalf of Vehicle Tracking last month. We are ready to show you how FlowPilot can replace manual, email-driven hand-offs with automated workflows across your telemetry and support teams.\n\nDo you have capacity this week for a 20-minute product tour? Let me know if Wednesday or Friday works for you.\n\nBest,\nSam Rivera, Account Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -9614,13 +9580,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Waste Reduction: rubric score 5.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach lead from an environmental waste reduction firm.",
         "note": null
       },
       "data_issues": [],

@@ -1,13 +1,13 @@
 # Lead Qualification Summary - leads_training.csv
 
-Run `20261024T081304Z-106598` | provider **mock** (mock) | rubric v1.2 | reference date 2024-01-20
+Run `20261024T084705Z-8c71df` | provider **gemini** (gemini-3.5-flash) | rubric v1.2 | reference date 2024-01-20
 
-**29 leads processed** in 0.01s (manual estimate: ~290 min).
+**29 leads processed** in 175.82s (manual estimate: ~290 min).
 
 | Decision | Count | % |
 |---|---|---|
-| Qualified | 12 | 41.4% |
-| Review | 7 | 24.1% |
+| Qualified | 11 | 37.9% |
+| Review | 8 | 27.6% |
 | Rejected | 10 | 34.5% |
 
 ## Priority queue (contact in this order)
@@ -25,7 +25,6 @@ Run `20261024T081304Z-106598` | provider **mock** (mock) | rubric v1.2 | referen
 | 9 | P2 | 7.3 | Henry Park | EdTech Innovations | Core mid-market (51-1000); Core vertical; Content download; Hot | P2: send first message via Email (content follow-up) within 3 business days |
 | 10 | P2 | 7.3 | Victor Moore | Real Estate Platform | Core mid-market (51-1000); Adjacent vertical; Sales call; Warm | P2: send first message via Email (call recap) within 3 business days |
 | 11 | P2 | 7.3 | Xavier Lopez | Data Analytics Firm | Core mid-market (51-1000); Core vertical; Webinar attendee; Warm | P2: send first message via Email (webinar follow-up) within 3 business days |
-| 12 | P2 | 7.3 | Tina Patel | Energy Solutions | Core mid-market (51-1000); Adjacent vertical; Inbound demo request; Very cold | P2: send first message via Email (reply to demo request) within 3 business days |
 
 ## Needs human review
 
@@ -33,11 +32,12 @@ Run `20261024T081304Z-106598` | provider **mock** (mock) | rubric v1.2 | referen
 |---|---|---|---|---|
 | 1 | 6.8 | Karen Miller | InsurancePro | Score 6.8 is in the 6.0-7.0 'too close to call' band |
 | 2 | 6.8 | Bella Cross | Legal Services Firm | Score 6.8 is in the 6.0-7.0 'too close to call' band |
-| 3 | 6.5 | Frank Liu | Healthcare Systems Ltd | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 4 | 6.5 | Aaron Benj | Supply Chain Co | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 5 | 6.3 | Quinn Matthews | Consulting Firm | Score 6.3 is in the 6.0-7.0 'too close to call' band |
-| 6 | 6.0 | David Moore | StartupXYZ | Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case |
-| 7 | 6.0 | Pamela White | Pharma Research Inc | Score 6.0 is in the 6.0-7.0 'too close to call' band |
+| 3 | 6.8 | Tina Patel | Energy Solutions | LLM adjustment -0.5: The high intent signal from the inbound demo request is significantly weakened by the 94-day lapse in communication. |
+| 4 | 6.5 | Frank Liu | Healthcare Systems Ltd | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 5 | 6.5 | Aaron Benj | Supply Chain Co | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 6 | 6.3 | Quinn Matthews | Consulting Firm | Score 6.3 is in the 6.0-7.0 'too close to call' band |
+| 7 | 6.0 | David Moore | StartupXYZ | Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case |
+| 8 | 6.0 | Pamela White | Pharma Research Inc | Score 6.0 is in the 6.0-7.0 'too close to call' band |
 
 ## Disqualified
 
@@ -50,69 +50,79 @@ Run `20261024T081304Z-106598` | provider **mock** (mock) | rubric v1.2 | referen
 
 ## Sample outreach messages
 
-### #1 Jack White - Digital Marketing Agency (demo_followup, template)
+### #1 Jack White - Digital Marketing Agency (demo_followup, llm)
 
 ```
 Hi Jack,
 
-Thanks for requesting a FlowPilot demo just now. For a 120-person organisation in Marketing like Digital Marketing Agency, the quickest win is usually to automate campaign-approval and client-onboarding workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thanks for submitting a demo request yesterday. For a 120-person team at Digital Marketing Agency, maintaining momentum across client accounts is crucial in the marketing industry.
 
-Best,
+FlowPilot allows teams to automate campaign-approval and client-onboarding workflows so your team can focus on strategy rather than tracking manual updates. I would love to walk you through a short demo this week. Are you available for a brief call Wednesday at 10:00 AM or Thursday at 2:00 PM?
+
+Best regards,
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
-### #4 Samuel Lee - Cybersecurity Startup (warm_referral, template)
+### #4 Samuel Lee - Cybersecurity Startup (warm_referral, llm)
 
 ```
 Hi Samuel,
 
-You were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Cybersecurity often use FlowPilot to automate incident-triage and access-request workflows with an audit trail, and at Cybersecurity Startup's size (a 60-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
+I was recently referred to you and wanted to reach out regarding Cybersecurity Startup. For a fast-growing cybersecurity team of 60, maintaining strict control over internal processes while responding swiftly to incidents is essential.
 
-Best,
+FlowPilot enables security teams to automate incident-triage and access-request workflows with an audit trail, keeping cross-functional hand-offs seamless and fully compliance-ready.
+
+I would love to schedule a short call to introduce FlowPilot and see how we can support your operations. Are you open to connecting for 15 minutes later this week?
+
+Best regards,
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
-### #9 Henry Park - EdTech Innovations (content_followup, template)
+### #9 Henry Park - EdTech Innovations (content_followup, llm)
 
 ```
 Hi Henry,
 
-I saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with EdTech teams like EdTech Innovations is to automate learner-onboarding and content-approval workflows. If it would help, I'm happy to share a 10-minute example tailored to a 75-person organisation. No pressure either way.
+I noticed you downloaded our content resource 6 days ago. For EdTech Innovations with a 75-person team, optimizing internal workflows is critical for scaling in the EdTech space.
 
-Best,
+FlowPilot helps teams automate learner-onboarding and content-approval workflows. A key takeaway from our research is that automating hand-offs reduces turnaround times significantly across departments. I would be glad to share a brief case study on how similar teams manage this if you are interested.
+
+Best regards,
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
-### #10 Victor Moore - Real Estate Platform (call_recap, template)
+### #10 Victor Moore - Real Estate Platform (call_recap, llm)
 
 ```
 Hi Victor,
 
-Thanks again for the conversation a few weeks ago. As a quick recap: for Real Estate Platform, a 250-person organisation in Real Estate, the clearest opportunity is to automate lease, maintenance and tenant-request workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+Thanks for taking the time to speak with us two weeks ago about Real Estate Platform. Following up on our sales call, I wanted to reconnect on how FlowPilot can help your team of 250 automate lease, maintenance, and tenant-request workflows. Moving away from manual hand-offs can significantly speed up response times for your property managers.
+
+Are you open to a brief follow-up call this Thursday to review a tailored workflow demo and discuss next steps?
 
 Best,
-Sam Rivera
-Account Executive, FlowPilot
+Sam Rivera, Account Executive, FlowPilot
 ```
 
-### #11 Xavier Lopez - Data Analytics Firm (event_followup, template)
+### #11 Xavier Lopez - Data Analytics Firm (event_followup, llm)
 
 ```
 Hi Xavier,
 
-Thanks for joining our webinar a few weeks ago. Many Analytics teams in the audience asked how to replace manual, email-driven hand-offs with automated workflows, so I put together a two-page example that fits a 110-person organisation like Data Analytics Firm. Shall I send it over, or would a short walkthrough be more useful?
+Thank you for attending our recent FlowPilot webinar about a month ago. I noticed your work at Data Analytics Firm and wanted to share a quick resource on how teams of 110 employees replace manual, email-driven hand-offs with automated workflows. In fast-paced analytics organizations, removing these manual operational bottlenecks can streamline cross-functional projects and increase delivery speed.
+
+I would love to send over a short guide on optimizing workflow hand-offs if you are interested.
 
 Best,
-Sam Rivera
-Account Executive, FlowPilot
+Sam Rivera, Account Executive, FlowPilot
 ```
 
 ## Robustness
 
-- LLM batches sent: 3 (API calls incl. retries: 3, retries: 0, batch splits: 0, invalid responses: 0)
-- Judgment source per lead: {'mock': 29}
+- LLM batches sent: 5 (API calls incl. retries: 10, retries: 5, batch splits: 1, invalid responses: 1)
+- Judgment source per lead: {'llm': 29}
 - Circuit breaker opened: False
 - Leads with data-quality issues: 0 - by field: {}

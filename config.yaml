@@ -135,7 +135,7 @@ llm:
   models:                          # defaults per provider - override with --model
     nvidia: nvidia/nemotron-3.5-lightning-30b-a3b
     groq: llama-3.3-70b-versatile
-    gemini: gemini-2.5-flash
+    gemini: gemini-3.5-flash
     openai: gpt-4o-mini
   batch_size: 10                   # leads per API call (100 leads -> 10 calls, not 100)
   max_retries: 4                   # retries per call for transient errors (429, 5xx, timeouts)

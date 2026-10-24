@@ -212,6 +212,25 @@ class FlakyProvider(Provider):
         return self.inner.complete(system, user)
 
 
+class TestHttpErrorMapping(unittest.TestCase):
+    def _raise(self, code, body):
+        import io
+        import urllib.error
+        from unittest import mock
+        from qualifier.llm_client import _post_json
+        err = urllib.error.HTTPError("http://x", code, "err", {}, io.BytesIO(body.encode()))
+        with mock.patch("urllib.request.urlopen", side_effect=err):
+            _post_json("http://x", {}, {}, 5)
+
+    def test_daily_quota_is_permanent(self):
+        with self.assertRaises(PermanentLLMError):
+            self._raise(429, '{"error": {"details": [{"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}}')
+
+    def test_per_minute_rate_limit_is_transient(self):
+        with self.assertRaises(TransientLLMError):
+            self._raise(429, '{"error": {"message": "Resource exhausted, retry later"}}')
+
+
 class TestRetryAndFallback(unittest.TestCase):
     def test_retry_then_success(self):
         stats, n = CallStats(), {"i": 0}
