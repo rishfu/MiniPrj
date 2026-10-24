@@ -176,7 +176,7 @@ The most important low-level idea: **classify errors by what you should do about
 | Kind | Examples | Right reaction |
 |---|---|---|
 | `TransientLLMError` | 429 rate limit, 500/502/503/529, timeout, connection reset | wait and **retry** |
-| `PermanentLLMError` | 401 bad key, 400 bad request, 404 unknown model, key not set | **don't retry**: it will never work. Stop using the LLM |
+| `PermanentLLMError` | 401 bad key, 400 bad request, 404 unknown model, key not set, **429 with a *daily* quota** (found in the real Gemini run: the free tier allows ~20 requests/day, so retrying for seconds can't help) | **don't retry**: it will never work. Stop using the LLM |
 | `InvalidResponseError` | garbled text, truncated JSON, refusal, missing results | the API is fine but the *answer* is bad: **ask differently** (smaller) |
 
 The ladder in `judge.BatchJudge`, from cheapest to most drastic:
@@ -211,7 +211,7 @@ After the fix, at a 40% failure rate all 100 leads got LLM judgments, with 8 ret
 
 **Bug 4: unknown shown as bad.** A lead with *missing* size was told "company size outside target range". That's wrong and unfair. Defaulted factors are now reported as "Unknown company size (scored with a default)".
 
-Unit tests (`tests/test_pipeline.py`, 34 tests, standard library only) lock all of this in. They cover parsing edge cases, deterministic scoring, caps the LLM can't break, clamping, the retry/fallback/circuit-breaker paths with fake providers that fail N times, and end-to-end runs on every data file.
+Unit tests (`tests/test_pipeline.py`, 37 tests, standard library only) lock all of this in. They cover parsing edge cases, deterministic scoring, caps the LLM can't break, clamping, the retry/fallback/circuit-breaker paths with fake providers that fail N times, and end-to-end runs on every data file.
 
 ### 9. Stage 3: decide (`qualifier/decide.py`)
 

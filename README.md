@@ -12,7 +12,7 @@ cp .env.example .env                                 # add NVIDIA_API_KEY (or GR
 python main.py data/leads_full_scale_100.csv         # default provider: NVIDIA Nemotron (config.yaml)
 python test_prompts.py -n 5 --show-prompt            # check the prompt on 5 leads before a full run
 python main.py data/leads_testing.csv --simulate-failures 0.4     # inject API failures to test robustness
-python -m unittest discover -s tests -v              # 35 tests
+python -m unittest discover -s tests -v              # 37 tests
 ```
 
 Outputs go to `output/<input-name>/`: `output_report.json` (full record), `leads_scored.csv` (open in Excel), `summary.md` (one-screen summary), `run.log`. The sample output for the 100-lead file is at `output_report.json` in the repo root.
@@ -36,3 +36,5 @@ The pipeline makes 10 API calls for 100 leads. It retries 429/5xx/timeouts with 
 - Industry matching is a keyword lookup. Unmapped industries get a neutral score and are flagged, and the LLM may adjust them.
 - The duplicate check only matches exact name and company. Emails or domains, which this data doesn't have, would be better.
 - The free-tier model names in `config.yaml` change over time. Override them with `--model`.
+- **Free-tier limits and privacy**: the Gemini free tier allowed about 20 requests per model per day, which is one 100-lead run. A daily-quota error stops LLM calls at once and the remaining leads fall back to rubric-only scoring. Google may use free-tier prompts to improve its models, so use a paid key for real lead data. The sample CSVs are fictional.
+- LLM messages should be skimmed by a rep before sending. The prompt now forbids naming a referrer or presenting our pitch as the lead's stated need, but the committed outputs were generated before that change.
