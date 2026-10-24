@@ -222,62 +222,6 @@ class GeminiProvider(Provider):
             raise InvalidResponseError(f"unexpected response shape: {str(resp)[:200]}") from e
 
 
-class AnthropicProvider(Provider):
-    """Claude via the official `anthropic` Python SDK (pip install anthropic)."""
-    name = "anthropic"
-
-    def __init__(self, refusal_fallback: bool = True, **kw):
-        super().__init__(**kw)
-        self.refusal_fallback = refusal_fallback
-        self._client = None
-
-    def _get_client(self):
-        if self._client is None:
-            try:
-                import anthropic
-            except ImportError as e:
-                raise PermanentLLMError("The 'anthropic' package is not installed: pip install anthropic") from e
-            _require_key("ANTHROPIC_API_KEY", self.name)
-            # max_retries=0: our own call_with_retry owns retries, so behaviour
-            # (and the stats in the report) is the same for every provider.
-            self._client = anthropic.Anthropic(max_retries=0, timeout=self.timeout)
-        return self._client
-
-    def complete(self, system: str, user: str) -> str:
-        import anthropic
-        client = self._get_client()
-        kwargs = dict(model=self.model, max_tokens=self.max_output_tokens, system=system,
-                      messages=[{"role": "user", "content": user}],
-                      output_config={"effort": "low"})   # scoring 10 leads is a light task
-        try:
-            if self.refusal_fallback:
-                # If a safety classifier declines, the API re-runs the request on
-                # a fallback model server-side instead of returning a refusal.
-                resp = client.beta.messages.create(betas=["server-side-fallback-2026-07-01"],
-                                                   fallbacks="default", **kwargs)
-            else:
-                resp = client.messages.create(**kwargs)
-        except anthropic.RateLimitError as e:
-            ra = e.response.headers.get("retry-after") if e.response is not None else None
-            raise TransientLLMError(f"rate limited: {e}", float(ra) if ra else None) from e
-        except anthropic.APIStatusError as e:
-            if e.status_code in RETRYABLE_STATUS or e.status_code >= 500:
-                raise TransientLLMError(f"HTTP {e.status_code}: {e}") from e
-            raise PermanentLLMError(f"HTTP {e.status_code}: {e}") from e
-        except anthropic.APIConnectionError as e:   # includes timeouts
-            raise TransientLLMError(f"connection error: {e}") from e
-        except TypeError as e:
-            # An older SDK that doesn't know a parameter (e.g. `fallbacks`).
-            raise PermanentLLMError(f"anthropic SDK rejected the request ({e}); upgrade with "
-                                    f"'pip install -U anthropic' or set llm.anthropic_refusal_fallback: false") from e
-
-        if resp.stop_reason == "refusal":
-            raise InvalidResponseError("model declined the request (stop_reason=refusal)")
-        if resp.stop_reason == "max_tokens":
-            raise InvalidResponseError("response truncated (hit max_tokens)")
-        return "".join(b.text for b in resp.content if b.type == "text")
-
-
 class MockProvider(Provider):
     """
     Offline stand-in for an LLM so the whole pipeline runs with no API key.
@@ -346,9 +290,7 @@ def build_provider(llm_cfg: dict, provider: Optional[str] = None, model: Optiona
         return OpenAICompatibleProvider("openai", "https://api.openai.com/v1", "OPENAI_API_KEY", **common)
     if name == "gemini":
         return GeminiProvider(**common)
-    if name == "anthropic":
-        return AnthropicProvider(refusal_fallback=llm_cfg.get("anthropic_refusal_fallback", True), **common)
-    raise ValueError(f"Unknown provider '{name}'. Choose: mock, groq, gemini, openai, anthropic")
+    raise ValueError(f"Unknown provider '{name}'. Choose: mock, groq, gemini, openai")
 
 
 def load_dotenv(path: str = ".env") -> None:

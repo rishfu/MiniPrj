@@ -131,12 +131,11 @@ rubric:
     nurture_min_score: 4.0         # rejected leads at or above this go to nurture, below -> archive
 
 llm:
-  provider: mock                   # mock | groq | gemini | openai | anthropic
+  provider: mock                   # mock | groq | gemini | openai
   models:                          # defaults per provider - override with --model
     groq: llama-3.3-70b-versatile
     gemini: gemini-2.5-flash
     openai: gpt-4o-mini
-    anthropic: claude-opus-5-5
   batch_size: 10                   # leads per API call (100 leads -> 10 calls, not 100)
   max_retries: 4                   # retries per call for transient errors (429, 5xx, timeouts)
   base_delay_seconds: 2.0          # exponential backoff: ~2s, 4s, 8s, 16s (+ jitter)
@@ -145,7 +144,6 @@ llm:
   requests_per_minute: 20          # client-side throttle, keeps us under free-tier limits
   max_output_tokens: 8000
   circuit_breaker_failures: 3      # after N failed batches in a row, stop calling the API
-  anthropic_refusal_fallback: true # Claude only: let the API retry a refused request on a fallback model
 
 run:
   reference_date: auto             # "auto" = latest interaction date in the file; or "today"; or YYYY-MM-DD

@@ -45,7 +45,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Auto-qualify leads from a CSV using a rubric + LLM.")
     ap.add_argument("input", help="CSV with columns name,company,company_size,industry,source,last_interaction_date")
     ap.add_argument("--config", default=str(ROOT / "config.yaml"))
-    ap.add_argument("--provider", choices=["mock", "groq", "gemini", "openai", "anthropic"], help="overrides config llm.provider")
+    ap.add_argument("--provider", choices=["mock", "groq", "gemini", "openai"], help="overrides config llm.provider")
     ap.add_argument("--model", help="overrides the provider's default model")
     ap.add_argument("--batch-size", type=int, help="leads per LLM call (default from config)")
     ap.add_argument("--output-dir", help="default: output/<input file name>/")
