@@ -29,6 +29,7 @@ from qualifier.pipeline import run  # noqa: E402
 from qualifier.rubric import Rubric  # noqa: E402
 
 CONFIG = yaml.safe_load(open(ROOT / "config.yaml", encoding="utf-8"))
+CONFIG["llm"]["provider"] = "mock"   # tests never call a real API
 REF = date(2024, 1, 20)
 logging.disable(logging.CRITICAL)
 
@@ -173,6 +174,9 @@ class TestResponseParsing(unittest.TestCase):
 
     def test_json_with_preamble(self):
         self.assertEqual(extract_json('Here you go: {"results": []} hope it helps'), {"results": []})
+
+    def test_inline_thinking_is_stripped(self):
+        self.assertEqual(extract_json('<think>hmm, L001 looks good</think>\n{"results": []}'), {"results": []})
 
     def test_garbage_raises(self):
         with self.assertRaises(InvalidResponseError):

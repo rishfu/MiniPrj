@@ -40,7 +40,9 @@ def extract_json(text: str):
     """Models sometimes wrap JSON in ```fences``` or add a sentence before it."""
     if not text or not text.strip():
         raise InvalidResponseError("empty response")
-    t = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.IGNORECASE)
+    # Reasoning models may put their thinking inline as <think>...</think> before the answer.
+    t = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
+    t = re.sub(r"^```(?:json)?\s*|\s*```$", "", t, flags=re.IGNORECASE)
     try:
         return json.loads(t)
     except json.JSONDecodeError:

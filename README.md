@@ -6,11 +6,11 @@ A command-line tool that scores a CSV of leads (1–10), decides **qualified / r
 
 ```bash
 pip install -r requirements.txt                      # only PyYAML is required
-python main.py data/leads_full_scale_100.csv         # works offline (mock LLM, template messages)
+python main.py data/leads_full_scale_100.csv --provider mock   # offline: no key needed, template messages
 
-cp .env.example .env                                 # add e.g. GROQ_API_KEY (free tier)
-python main.py data/leads_full_scale_100.csv --provider groq      # or gemini | openai
-python test_prompts.py --provider groq -n 5          # check the prompt on 5 leads before a full run
+cp .env.example .env                                 # add NVIDIA_API_KEY (or GROQ/GEMINI/OPENAI)
+python main.py data/leads_full_scale_100.csv         # default provider: NVIDIA Nemotron (config.yaml)
+python test_prompts.py -n 5 --show-prompt            # check the prompt on 5 leads before a full run
 python main.py data/leads_testing.csv --simulate-failures 0.4     # inject API failures to test robustness
 python -m unittest discover -s tests -v              # 34 tests
 ```

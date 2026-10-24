@@ -175,11 +175,18 @@ def _post_json(url: str, headers: dict, body: dict, timeout: float) -> dict:
 
 
 class OpenAICompatibleProvider(Provider):
-    """Works for OpenAI and Groq (Groq exposes an OpenAI-compatible endpoint)."""
+    """Works for OpenAI, Groq and NVIDIA (both expose OpenAI-compatible endpoints).
 
-    def __init__(self, name: str, base_url: str, key_env: str, **kw):
+    `json_mode` asks the API to guarantee JSON (not every endpoint supports it;
+    the parser in judge.py copes either way). `extra_body` passes vendor-specific
+    fields, e.g. NVIDIA's chat_template_kwargs to switch model "thinking" on/off.
+    """
+
+    def __init__(self, name: str, base_url: str, key_env: str, json_mode: bool = True,
+                 extra_body: Optional[dict] = None, **kw):
         super().__init__(**kw)
         self.name, self.base_url, self.key_env = name, base_url, key_env
+        self.json_mode, self.extra_body = json_mode, extra_body or {}
 
     def complete(self, system: str, user: str) -> str:
         key = _require_key(self.key_env, self.name)
@@ -188,14 +195,20 @@ class OpenAICompatibleProvider(Provider):
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
             "temperature": 0.2,                         # low = more consistent judgments
             "max_tokens": self.max_output_tokens,
-            "response_format": {"type": "json_object"},  # ask the API to guarantee JSON
+            **self.extra_body,
         }
+        if self.json_mode:
+            body["response_format"] = {"type": "json_object"}  # ask the API to guarantee JSON
         resp = _post_json(f"{self.base_url}/chat/completions", {"Authorization": f"Bearer {key}"}, body, self.timeout)
         try:
             choice = resp["choices"][0]
             if choice.get("finish_reason") == "length":
                 raise InvalidResponseError("response truncated (hit max_tokens)")
-            return choice["message"]["content"]
+            content = choice["message"]["content"]
+            if not content:
+                # Reasoning models can spend the whole budget "thinking" and return no answer.
+                raise InvalidResponseError("response had no content (reasoning may have used all tokens)")
+            return content
         except (KeyError, IndexError, TypeError) as e:
             raise InvalidResponseError(f"unexpected response shape: {str(resp)[:200]}") from e
 
@@ -280,6 +293,7 @@ class ChaosProvider(Provider):
 def build_provider(llm_cfg: dict, provider: Optional[str] = None, model: Optional[str] = None) -> Provider:
     name = (provider or llm_cfg.get("provider") or "mock").lower()
     model = model or llm_cfg.get("models", {}).get(name, "")
+    options = llm_cfg.get("provider_options", {}).get(name, {})
     common = dict(model=model, timeout=llm_cfg.get("timeout_seconds", 90),
                   max_output_tokens=llm_cfg.get("max_output_tokens", 8000))
     if name == "mock":
@@ -288,9 +302,13 @@ def build_provider(llm_cfg: dict, provider: Optional[str] = None, model: Optiona
         return OpenAICompatibleProvider("groq", "https://api.groq.com/openai/v1", "GROQ_API_KEY", **common)
     if name == "openai":
         return OpenAICompatibleProvider("openai", "https://api.openai.com/v1", "OPENAI_API_KEY", **common)
+    if name == "nvidia":
+        return OpenAICompatibleProvider("nvidia", "https://integrate.api.nvidia.com/v1", "NVIDIA_API_KEY",
+                                        json_mode=options.get("json_mode", False),
+                                        extra_body=options.get("extra_body"), **common)
     if name == "gemini":
         return GeminiProvider(**common)
-    raise ValueError(f"Unknown provider '{name}'. Choose: mock, groq, gemini, openai")
+    raise ValueError(f"Unknown provider '{name}'. Choose: mock, nvidia, groq, gemini, openai")
 
 
 def load_dotenv(path: str = ".env") -> None:
