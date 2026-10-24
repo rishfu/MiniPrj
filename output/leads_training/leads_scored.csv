@@ -1,0 +1,138 @@
+lead_id,decision,priority_tier,priority_rank,score,base_score,llm_adjustment,name,company,company_size,industry,source,last_interaction_date,next_action,reasoning,data_issues,message_source,outreach_message
+L010,qualified,P1,1,10.0,10.0,0.0,Jack White,Digital Marketing Agency,120,Marketing,Inbound demo request,2024-01-19,P1: send first message via Email (reply to demo request) within 24 hours,Score 10.0 >= 7.0 qualification threshold,,template,"Hi Jack,
+
+Thanks for requesting a FlowPilot demo just now. For a 120-person organisation in Marketing like Digital Marketing Agency, the quickest win is usually to automate campaign-approval and client-onboarding workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L001,qualified,P1,2,9.3,9.25,0.0,Alice Chen,CloudScale AI,50,SaaS,Inbound demo request,2024-01-15,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.3 >= 7.0 qualification threshold,,template,"Hi Alice,
+
+Thanks for requesting a FlowPilot demo earlier this week. For a team of about 50 in SaaS like CloudScale AI, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L014,qualified,P1,3,9.3,9.25,0.0,Nathan Brooks,Enterprise Solutions Corp,3500,Software,Inbound demo request,2024-01-13,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.3 >= 7.0 qualification threshold,,template,"Hi Nathan,
+
+Thanks for requesting a FlowPilot demo earlier this week. For an organisation of 3,500 people in Software like Enterprise Solutions Corp, the quickest win is usually to automate release, support-escalation and onboarding workflows across teams. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L019,qualified,P1,4,9.0,9.0,0.0,Samuel Lee,Cybersecurity Startup,60,Cybersecurity,Referral,2024-01-09,P1: send first message via Email (warm intro) within 24 hours,Score 9.0 >= 7.0 qualification threshold,,template,"Hi Samuel,
+
+You were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Cybersecurity often use FlowPilot to automate incident-triage and access-request workflows with an audit trail, and at Cybersecurity Startup's size (a 60-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L012,qualified,P1,5,8.8,8.75,0.0,Leon Chen,FinTech Startup,25,FinTech,Referral,2024-01-17,P1: send first message via Email (warm intro) within 24 hours,Score 8.8 >= 7.0 qualification threshold,,template,"Hi Leon,
+
+You were referred to us earlier this week, so I wanted to reach out personally. Teams in FinTech often use FlowPilot to automate approval and compliance workflows with a full audit trail, and at FinTech Startup's size (a team of about 25) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L025,qualified,P2,6,8.0,8.0,0.0,Yuki Tanaka,Travel Technology,55,Travel,Referral,2024-01-04,P2: send first message via Email (warm intro) within 3 business days,Score 8.0 >= 7.0 qualification threshold,,template,"Hi Yuki,
+
+You were referred to us a few weeks ago, so I wanted to reach out personally. Teams in Travel often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Travel Technology's size (a 55-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L026,qualified,P2,7,8.0,8.0,0.0,Zara Hassan,Education Institution,600,Education,Inbound demo request,2023-12-05,P2: send first message via Email (reply to demo request) within 3 business days,Score 8.0 >= 7.0 qualification threshold,,template,"Hi Zara,
+
+Thanks for requesting a FlowPilot demo about 2 months ago. For a 600-person organisation in Education like Education Institution, the quickest win is usually to automate enrolment and staff-request workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L005,qualified,P2,8,7.5,7.5,0.0,Emma Thompson,RetailWorks Solutions,200,Retail,Inbound demo request,2023-11-10,P2: send first message via Email (reply to demo request) within 3 business days,Score 7.5 >= 7.0 qualification threshold,,template,"Hi Emma,
+
+Thanks for requesting a FlowPilot demo about 2 months ago. For a 200-person organisation in Retail like RetailWorks Solutions, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L008,qualified,P2,9,7.3,7.25,0.0,Henry Park,EdTech Innovations,75,EdTech,Content download,2024-01-14,P2: send first message via Email (content follow-up) within 3 business days,Score 7.3 >= 7.0 qualification threshold,,template,"Hi Henry,
+
+I saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with EdTech teams like EdTech Innovations is to automate learner-onboarding and content-approval workflows. If it would help, I'm happy to share a 10-minute example tailored to a 75-person organisation. No pressure either way.
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L022,qualified,P2,10,7.3,7.25,0.0,Victor Moore,Real Estate Platform,250,Real Estate,Sales call,2024-01-06,P2: send first message via Email (call recap) within 3 business days,Score 7.3 >= 7.0 qualification threshold,,template,"Hi Victor,
+
+Thanks again for the conversation a few weeks ago. As a quick recap: for Real Estate Platform, a 250-person organisation in Real Estate, the clearest opportunity is to automate lease, maintenance and tenant-request workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L024,qualified,P2,11,7.3,7.25,0.0,Xavier Lopez,Data Analytics Firm,110,Analytics,Webinar attendee,2023-12-22,P2: send first message via Email (webinar follow-up) within 3 business days,Score 7.3 >= 7.0 qualification threshold,,template,"Hi Xavier,
+
+Thanks for joining our webinar a few weeks ago. Many Analytics teams in the audience asked how to replace manual, email-driven hand-offs with automated workflows, so I put together a two-page example that fits a 110-person organisation like Data Analytics Firm. Shall I send it over, or would a short walkthrough be more useful?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L020,qualified,P2,12,7.3,7.25,0.0,Tina Patel,Energy Solutions,900,Energy,Inbound demo request,2023-10-18,P2: send first message via Email (reply to demo request) within 3 business days,Score 7.3 >= 7.0 qualification threshold,,template,"Hi Tina,
+
+Thanks for requesting a FlowPilot demo about 3 months ago. For a 900-person organisation in Energy like Energy Solutions, the quickest win is usually to replace manual, email-driven hand-offs with automated workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L011,review,REVIEW,1,6.8,6.75,0.0,Karen Miller,InsurancePro,600,Insurance,Sales call,2023-12-15,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.8 is in the 6.0-7.0 'too close to call' band,,template,"Hi Karen,
+
+Thanks again for the conversation about 1 month ago. As a quick recap: for InsurancePro, a 600-person organisation in Insurance, the clearest opportunity is to cut claims and underwriting hand-off delays with automated routing. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L028,review,REVIEW,2,6.8,6.75,0.0,Bella Cross,Legal Services Firm,90,Legal,Sales call,2023-11-30,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.8 is in the 6.0-7.0 'too close to call' band,,template,"Hi Bella,
+
+Thanks again for the conversation about 2 months ago. As a quick recap: for Legal Services Firm, a 90-person organisation in Legal, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L006,review,REVIEW,3,6.5,6.5,0.0,Frank Liu,Healthcare Systems Ltd,1200,Healthcare,Sales call,2024-01-12,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.5 is in the 6.0-7.0 'too close to call' band,,template,"Hi Frank,
+
+Thanks again for the conversation a few weeks ago. As a quick recap: for Healthcare Systems Ltd, an organisation of 1,200 people in Healthcare, the clearest opportunity is to automate patient-intake and referral hand-offs while keeping an audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L027,review,REVIEW,4,6.5,6.5,0.0,Aaron Benj,Supply Chain Co,320,Supply Chain,LinkedIn outreach,2024-01-02,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.5 is in the 6.0-7.0 'too close to call' band,,template,"Hi Aaron,
+
+I came across Supply Chain Co while looking at Supply Chain teams of your size (a 320-person organisation). We help companies like yours automate shipment-exception and supplier hand-offs so nothing sits in an inbox. Curious - how does your team handle hand-offs between departments today? If it's still email and spreadsheets, I'd love to compare notes.
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L017,review,REVIEW,5,6.3,6.25,0.0,Quinn Matthews,Consulting Firm,180,Consulting,Webinar attendee,2024-01-11,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.3 is in the 6.0-7.0 'too close to call' band,,template,"Hi Quinn,
+
+Thanks for joining our webinar a few weeks ago. Many Consulting teams in the audience asked how to replace manual, email-driven hand-offs with automated workflows, so I put together a two-page example that fits a 180-person organisation like Consulting Firm. Shall I send it over, or would a short walkthrough be more useful?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L004,review,REVIEW,6,6.0,7.5,0.0,David Moore,StartupXYZ,3,SaaS,Referral,2024-01-18,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.0 is in the 6.0-7.0 'too close to call' band | Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case,,,
+L016,review,REVIEW,7,6.0,6.0,0.0,Pamela White,Pharma Research Inc,2200,Pharmaceuticals,Sales call,2023-11-25,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.0 is in the 6.0-7.0 'too close to call' band,,template,"Hi Pamela,
+
+Thanks again for the conversation about 2 months ago. As a quick recap: for Pharma Research Inc, an organisation of 2,200 people in Pharmaceuticals, the clearest opportunity is to automate document-review and approval workflows with a full audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L023,rejected,NURTURE,,5.8,5.75,0.0,Wendy Zhang,Fashion Brand,400,Retail,Content download,2024-01-05,Add to monthly newsletter / nurture track,Score 5.8 < 6.0 | Weak buying-intent signal (cold or early-stage source),,,
+L029,rejected,NURTURE,,5.8,5.75,0.0,Cassandra Jones,Media & Entertainment,150,Media,Content download,2024-01-01,Add to monthly newsletter / nurture track,Score 5.8 < 6.0 | Weak buying-intent signal (cold or early-stage source),,,
+L009,rejected,NURTURE,,5.3,5.25,0.0,Iris Patel,Logistics Global,800,Logistics,LinkedIn outreach,2023-09-20,Add to monthly newsletter / nurture track,Score 5.3 < 6.0 | Weak buying-intent signal (cold or early-stage source) | No recent interaction,,,
+L002,rejected,NURTURE,,5.0,5.0,0.0,Bob Rodriguez,TechVentures Inc,8,SaaS,LinkedIn outreach,2024-01-20,Add to monthly newsletter / nurture track,Score 5.0 < 6.0 | Company size outside target range | Weak buying-intent signal (cold or early-stage source),,,
+L007,rejected,NURTURE,,5.0,5.0,0.0,Grace Lee,Manufacturing Co,450,Manufacturing,Webinar attendee,2023-10-05,Add to monthly newsletter / nurture track,Score 5.0 < 6.0 | Weak buying-intent signal (cold or early-stage source) | No recent interaction,,,
+L013,rejected,NURTURE,,4.8,4.75,0.0,Maya Desai,Agricultural Tech,45,Agriculture,Content download,2024-01-16,Add to monthly newsletter / nurture track,Score 4.8 < 6.0 | Low-fit or unknown industry | Weak buying-intent signal (cold or early-stage source),,,
+L021,rejected,NURTURE,,4.8,4.75,0.0,Uma Singh,Event Planning Co,35,Events,LinkedIn outreach,2024-01-08,Add to monthly newsletter / nurture track,Score 4.8 < 6.0 | Weak buying-intent signal (cold or early-stage source),,,
+L003,rejected,NURTURE,,4.5,4.5,0.0,Carol Singh,National Bank Corp,5000,Finance,Content download,2023-12-01,Add to monthly newsletter / nurture track,Score 4.5 < 6.0 | Weak buying-intent signal (cold or early-stage source),,,
+L018,rejected,NURTURE,,4.5,4.5,0.0,Rachel Kim,Government Agency,800,Government,Content download,2023-12-10,Add to monthly newsletter / nurture track,Score 4.5 < 6.0 | Low-fit or unknown industry | Weak buying-intent signal (cold or early-stage source),,,
+L015,rejected,ARCHIVE,,3.5,3.5,0.0,Olivia Garcia,Local Restaurant Group,12,Hospitality,LinkedIn outreach,2023-08-30,Archive - no action,Score 3.5 < 6.0 | Weak buying-intent signal (cold or early-stage source) | No recent interaction,,,

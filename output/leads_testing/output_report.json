@@ -1,0 +1,2137 @@
+{
+  "run": {
+    "run_id": "20261024T081304Z-a0bc32",
+    "generated_at": "2026-10-24T08:13:04+00:00",
+    "input_file": "leads_testing.csv",
+    "reference_date": "2024-01-20",
+    "llm_provider": "mock",
+    "llm_model": "mock",
+    "batch_size": 10,
+    "rubric_version": "1.2",
+    "rubric_summary": "Score = company size (max 2.5) + industry fit (max 2.0) + intent signal from lead source (max 3.5) + recency of last interaction (max 2.0) = 10. >= 7.0 qualified, 6.0-7.0 human review, < 6.0 rejected. Micro companies (<=10 staff), very large companies (>20,000 staff) and contacts older than a year are capped at review."
+  },
+  "stats": {
+    "total_processed": 20,
+    "rows_read": 20,
+    "blank_rows_skipped": 0,
+    "decisions": {
+      "qualified": {
+        "count": 7,
+        "percent": 35.0
+      },
+      "review": {
+        "count": 9,
+        "percent": 45.0
+      },
+      "rejected": {
+        "count": 4,
+        "percent": 20.0
+      }
+    },
+    "qualified_percent": 35.0,
+    "priority_tiers": {
+      "P1": 5,
+      "REVIEW": 9,
+      "NURTURE": 3,
+      "P2": 2,
+      "ARCHIVE": 1
+    },
+    "average_score": 6.65,
+    "score_distribution": {
+      "1-2.9": 1,
+      "3-4.9": 2,
+      "5-6.9": 9,
+      "7-8.4": 3,
+      "8.5-10": 5
+    },
+    "common_rejection_reasons": [
+      [
+        "Company size outside target range",
+        3
+      ],
+      [
+        "Weak buying-intent signal (cold or early-stage source)",
+        2
+      ],
+      [
+        "No recent interaction",
+        2
+      ],
+      [
+        "Low-fit or unknown industry",
+        1
+      ]
+    ],
+    "review_reasons": [
+      [
+        "score in 'too close to call' band",
+        5
+      ],
+      [
+        "insufficient data",
+        3
+      ],
+      [
+        "knock-out cap (Over 20,000 employees)",
+        1
+      ],
+      [
+        "knock-out cap (Company has 10 or fewer employees)",
+        1
+      ],
+      [
+        "data problem",
+        1
+      ]
+    ],
+    "qualified_rate_by_source": {
+      "Inbound demo request": {
+        "total": 7,
+        "qualified": 5,
+        "rate_percent": 71.4
+      },
+      "(missing)": {
+        "total": 4,
+        "qualified": 0,
+        "rate_percent": 0.0
+      },
+      "Sales call": {
+        "total": 3,
+        "qualified": 0,
+        "rate_percent": 0.0
+      },
+      "LinkedIn outreach": {
+        "total": 2,
+        "qualified": 0,
+        "rate_percent": 0.0
+      },
+      "Referral": {
+        "total": 2,
+        "qualified": 1,
+        "rate_percent": 50.0
+      },
+      "Webinar attendee": {
+        "total": 1,
+        "qualified": 1,
+        "rate_percent": 100.0
+      },
+      "Content download": {
+        "total": 1,
+        "qualified": 0,
+        "rate_percent": 0.0
+      }
+    },
+    "data_quality_issues_by_field": {
+      "company_size": 4,
+      "source": 4,
+      "last_interaction_date": 2,
+      "industry": 2,
+      "company": 1
+    },
+    "leads_with_data_issues": 8,
+    "llm": {
+      "judgment_source_counts": {
+        "mock": 20
+      },
+      "llm_adjusted_leads": 0,
+      "batches_sent": 2,
+      "batch_splits": 0,
+      "circuit_breaker_opened": false,
+      "circuit_breaker_reason": null,
+      "api_calls": 2,
+      "retries": 0,
+      "transient_errors": 0,
+      "permanent_errors": 0,
+      "invalid_responses": 0,
+      "total_wait_seconds": 0.0,
+      "messages_from_llm": 0,
+      "messages_from_template": 11
+    },
+    "efficiency": {
+      "runtime_seconds": 0.01,
+      "seconds_per_lead": 0.0,
+      "estimated_manual_minutes": 200,
+      "note": "Manual estimate assumes 10 min per lead (brief: 8-12 min)."
+    }
+  },
+  "priority_queue": [
+    {
+      "priority_rank": 1,
+      "priority_tier": "P1",
+      "lead_id": "L005",
+      "name": "Test_RecentEngagement",
+      "company": "Hot Lead Corp",
+      "qualification_score": 10.0,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [200 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+        "Inbound demo request: explicit buying intent",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 10.0 >= 7.0 qualification threshold"
+      ],
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours"
+    },
+    {
+      "priority_rank": 2,
+      "priority_tier": "P1",
+      "lead_id": "L011",
+      "name": "Test_HighValueMatch",
+      "company": "Perfect Fit Enterprise",
+      "qualification_score": 9.3,
+      "why": [
+        "Upper mid-market (1001-5000): good fit, longer sales cycle [2,000 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+        "Inbound demo request: explicit buying intent",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 9.3 >= 7.0 qualification threshold"
+      ],
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours"
+    },
+    {
+      "priority_rank": 3,
+      "priority_tier": "P1",
+      "lead_id": "L009",
+      "name": "Test_MultipleInteractions",
+      "company": "Active Company",
+      "qualification_score": 9.0,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [500 employees]",
+        "Adjacent vertical: real need, but slower buying or more compliance [Finance]",
+        "Inbound demo request: explicit buying intent",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 9.0 >= 7.0 qualification threshold"
+      ],
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours"
+    },
+    {
+      "priority_rank": 4,
+      "priority_tier": "P1",
+      "lead_id": "L020",
+      "name": "Test_SMBAverage",
+      "company": "Average SMB Co",
+      "qualification_score": 9.0,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [120 employees]",
+        "Adjacent vertical: real need, but slower buying or more compliance [Retail]",
+        "Inbound demo request: explicit buying intent",
+        "Hot: touched in the last week [1 days ago]"
+      ],
+      "reasoning": [
+        "Score 9.0 >= 7.0 qualification threshold"
+      ],
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours"
+    },
+    {
+      "priority_rank": 5,
+      "priority_tier": "P1",
+      "lead_id": "L001",
+      "name": "Test_MissingSize",
+      "company": "Test Inc",
+      "qualification_score": 8.5,
+      "why": [
+        "Company size unknown: neutral-low default used",
+        "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+        "Inbound demo request: explicit buying intent",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 8.5 >= 7.0 qualification threshold"
+      ],
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours"
+    },
+    {
+      "priority_rank": 6,
+      "priority_tier": "P2",
+      "lead_id": "L016",
+      "name": "Test_WeekOldInteraction",
+      "company": "Week Old Corp",
+      "qualification_score": 7.8,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [250 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [Logistics]",
+        "Webinar attendee: interested, still researching",
+        "Hot: touched in the last week [7 days ago]"
+      ],
+      "reasoning": [
+        "Score 7.8 >= 7.0 qualification threshold"
+      ],
+      "next_action": "P2: send first message via Email (webinar follow-up) within 3 business days"
+    },
+    {
+      "priority_rank": 7,
+      "priority_tier": "P2",
+      "lead_id": "L007",
+      "name": "Test_UnknownIndustry",
+      "company": "Mysterious Startup",
+      "qualification_score": 7.3,
+      "why": [
+        "Small business (11-50): good fit, smaller deal size [15 employees]",
+        "Industry unknown: default used",
+        "Referral: warm, trusted introduction",
+        "Hot: touched in the last week [1 days ago]"
+      ],
+      "reasoning": [
+        "Score 7.3 >= 7.0 qualification threshold"
+      ],
+      "next_action": "P2: send first message via Email (warm intro) within 3 business days"
+    }
+  ],
+  "review_queue": [
+    {
+      "priority_rank": 1,
+      "priority_tier": "REVIEW",
+      "lead_id": "L013",
+      "name": "Test_MissingName",
+      "company": null,
+      "qualification_score": 7.8,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [400 employees]",
+        "Adjacent vertical: real need, but slower buying or more compliance [Consulting]",
+        "Sales call: already in a live conversation",
+        "Hot: touched in the last week [1 days ago]"
+      ],
+      "reasoning": [
+        "Score 7.8 >= 7.0 qualification threshold",
+        "Needs human review - data problem: missing company name - cannot personalise or verify the account"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 2,
+      "priority_tier": "REVIEW",
+      "lead_id": "L017",
+      "name": "Test_MidMarketSoft",
+      "company": "Mid Market Software",
+      "qualification_score": 6.5,
+      "why": [
+        "Upper mid-market (1001-5000): good fit, longer sales cycle [1,500 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+        "Content download: early-stage research",
+        "Hot: touched in the last week [2 days ago]"
+      ],
+      "reasoning": [
+        "Score 6.5 is in the 6.0-7.0 'too close to call' band"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 3,
+      "priority_tier": "REVIEW",
+      "lead_id": "L010",
+      "name": "Test_NoSourceInfo",
+      "company": "Source Unknown Corp",
+      "qualification_score": 6.3,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [300 employees]",
+        "Adjacent vertical: real need, but slower buying or more compliance [Retail]",
+        "Lead source unknown: low default used",
+        "Hot: touched in the last week [2 days ago]"
+      ],
+      "reasoning": [
+        "Score 6.3 is in the 6.0-7.0 'too close to call' band"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 4,
+      "priority_tier": "REVIEW",
+      "lead_id": "L019",
+      "name": "Test_GovernmentBuyer",
+      "company": "Government Tech",
+      "qualification_score": 6.3,
+      "why": [
+        "Upper mid-market (1001-5000): good fit, longer sales cycle [3,000 employees]",
+        "Low-fit vertical: procurement rules or budgets rarely fit our product [Government]",
+        "Sales call: already in a live conversation",
+        "Hot: touched in the last week [3 days ago]"
+      ],
+      "reasoning": [
+        "Score 6.3 is in the 6.0-7.0 'too close to call' band"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 5,
+      "priority_tier": "REVIEW",
+      "lead_id": "L002",
+      "name": "Test_VeryLargeEnterprise",
+      "company": "Global Fortune 500 Corp",
+      "qualification_score": 6.0,
+      "why": [
+        "Enterprise (5000+): long procurement cycle, outside our motion [50,000 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [Enterprise Software]",
+        "Inbound demo request: explicit buying intent",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 6.0 is in the 6.0-7.0 'too close to call' band",
+        "Capped at 6.0: Over 20,000 employees: capped at review - verify the record and consider routing to an enterprise team"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 6,
+      "priority_tier": "REVIEW",
+      "lead_id": "L008",
+      "name": "Test_VeryRecentSignup",
+      "company": "Brand New Startup",
+      "qualification_score": 6.0,
+      "why": [
+        "Micro business (1-10): too small to need cross-team workflows [2 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+        "Inbound demo request: explicit buying intent",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 6.0 is in the 6.0-7.0 'too close to call' band",
+        "Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 7,
+      "priority_tier": "REVIEW",
+      "lead_id": "L015",
+      "name": "Test_PartialData",
+      "company": "Tech Partial",
+      "qualification_score": 5.8,
+      "why": [
+        "Company size unknown: neutral-low default used",
+        "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+        "Lead source unknown: low default used",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "Unknown company size (scored with a default)",
+        "Unknown intent signal (scored with a default)",
+        "Needs human review - insufficient data (company_size, source missing); score not reliable"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 8,
+      "priority_tier": "REVIEW",
+      "lead_id": "L006",
+      "name": "Test_MissingDate",
+      "company": "Mystery Co",
+      "qualification_score": 5.8,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [150 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [Technology]",
+        "Lead source unknown: low default used",
+        "Last interaction date unknown: low default used"
+      ],
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "Unknown intent signal (scored with a default)",
+        "Unknown recency (scored with a default)",
+        "Needs human review - insufficient data (source, last_interaction_date missing); score not reliable"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    },
+    {
+      "priority_rank": 9,
+      "priority_tier": "REVIEW",
+      "lead_id": "L014",
+      "name": "Test_NameOnly",
+      "company": "James Wilson",
+      "qualification_score": 2.8,
+      "why": [
+        "Company size unknown: neutral-low default used",
+        "Industry unknown: default used",
+        "Lead source unknown: low default used",
+        "Last interaction date unknown: low default used"
+      ],
+      "reasoning": [
+        "Score 2.8 < 6.0",
+        "Unknown company size (scored with a default)",
+        "Unknown industry fit (scored with a default)",
+        "Unknown intent signal (scored with a default)",
+        "Unknown recency (scored with a default)",
+        "Needs human review - insufficient data (company_size, industry, source, last_interaction_date missing); score not reliable"
+      ],
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)"
+    }
+  ],
+  "disqualified": [
+    {
+      "priority_rank": null,
+      "priority_tier": "NURTURE",
+      "lead_id": "L004",
+      "name": "Test_StaleInteraction",
+      "company": "Old Company Inc",
+      "qualification_score": 5.8,
+      "why": [
+        "Core mid-market (51-1000): our ideal customer profile [100 employees]",
+        "Adjacent vertical: real need, but slower buying or more compliance [Manufacturing]",
+        "Sales call: already in a live conversation",
+        "Stale: over a year since contact [584 days ago]"
+      ],
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "No recent interaction"
+      ],
+      "next_action": "Add to monthly newsletter / nurture track"
+    },
+    {
+      "priority_rank": null,
+      "priority_tier": "NURTURE",
+      "lead_id": "L018",
+      "name": "Test_StartupShutdown",
+      "company": "Failed Startup",
+      "qualification_score": 5.8,
+      "why": [
+        "Micro business (1-10): too small to need cross-team workflows [8 employees]",
+        "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+        "Referral: warm, trusted introduction",
+        "Very cold: 3-12 months since contact [264 days ago]"
+      ],
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "Company size outside target range",
+        "No recent interaction"
+      ],
+      "next_action": "Add to monthly newsletter / nurture track"
+    },
+    {
+      "priority_rank": null,
+      "priority_tier": "NURTURE",
+      "lead_id": "L003",
+      "name": "Test_Solo",
+      "company": "John Doe Consulting",
+      "qualification_score": 4.0,
+      "why": [
+        "Micro business (1-10): too small to need cross-team workflows [1 employees]",
+        "Adjacent vertical: real need, but slower buying or more compliance [Consulting]",
+        "LinkedIn outreach: cold outbound, no intent shown yet",
+        "Hot: touched in the last week [0 days ago]"
+      ],
+      "reasoning": [
+        "Score 4.0 < 6.0",
+        "Company size outside target range",
+        "Weak buying-intent signal (cold or early-stage source)"
+      ],
+      "next_action": "Add to monthly newsletter / nurture track"
+    },
+    {
+      "priority_rank": null,
+      "priority_tier": "ARCHIVE",
+      "lead_id": "L012",
+      "name": "Test_LowValueNiche",
+      "company": "Niche Small Op",
+      "qualification_score": 3.3,
+      "why": [
+        "Micro business (1-10): too small to need cross-team workflows [5 employees]",
+        "Low-fit vertical: procurement rules or budgets rarely fit our product [Agriculture]",
+        "LinkedIn outreach: cold outbound, no intent shown yet",
+        "Hot: touched in the last week [5 days ago]"
+      ],
+      "reasoning": [
+        "Score 3.3 < 6.0",
+        "Company size outside target range",
+        "Low-fit or unknown industry",
+        "Weak buying-intent signal (cold or early-stage source)"
+      ],
+      "next_action": "Archive - no action"
+    }
+  ],
+  "sample_outreach_messages": [
+    {
+      "lead_id": "L005",
+      "contact": "Test_RecentEngagement",
+      "company": "Hot Lead Corp",
+      "priority_rank": 1,
+      "angle": "demo_followup",
+      "message_source": "template",
+      "message": "Hi Test_RecentEngagement,\n\nThanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Hot Lead Corp, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+    },
+    {
+      "lead_id": "L016",
+      "contact": "Test_WeekOldInteraction",
+      "company": "Week Old Corp",
+      "priority_rank": 6,
+      "angle": "event_followup",
+      "message_source": "template",
+      "message": "Hi Test_WeekOldInteraction,\n\nThanks for joining our webinar earlier this week. Many Logistics teams in the audience asked how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, so I put together a two-page example that fits a 250-person organisation like Week Old Corp. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+    },
+    {
+      "lead_id": "L007",
+      "contact": "Test_UnknownIndustry",
+      "company": "Mysterious Startup",
+      "priority_rank": 7,
+      "angle": "warm_referral",
+      "message_source": "template",
+      "message": "Hi Test_UnknownIndustry,\n\nYou were referred to us just now, so I wanted to reach out personally. Teams in your industry often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Mysterious Startup's size (a team of about 15) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+    },
+    {
+      "lead_id": "L011",
+      "contact": "Test_HighValueMatch",
+      "company": "Perfect Fit Enterprise",
+      "priority_rank": 2,
+      "angle": "demo_followup",
+      "message_source": "template",
+      "message": "Hi Test_HighValueMatch,\n\nThanks for requesting a FlowPilot demo just now. For an organisation of 2,000 people in SaaS like Perfect Fit Enterprise, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+    },
+    {
+      "lead_id": "L009",
+      "contact": "Test_MultipleInteractions",
+      "company": "Active Company",
+      "priority_rank": 3,
+      "angle": "demo_followup",
+      "message_source": "template",
+      "message": "Hi Test_MultipleInteractions,\n\nThanks for requesting a FlowPilot demo just now. For a 500-person organisation in Finance like Active Company, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+    }
+  ],
+  "leads": [
+    {
+      "lead_id": "L001",
+      "row_number": 2,
+      "name": "Test_MissingSize",
+      "company": "Test Inc",
+      "company_size": null,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "decision": "qualified",
+      "qualification_score": 8.5,
+      "priority_rank": 5,
+      "priority_tier": "P1",
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours",
+      "reasoning": [
+        "Score 8.5 >= 7.0 qualification threshold"
+      ],
+      "score_breakdown": {
+        "base_score": 8.5,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.0,
+            "max_points": 2.5,
+            "explanation": "Company size unknown: neutral-low default used",
+            "used_default": true
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.5,
+            "max_points": 3.5,
+            "explanation": "Inbound demo request: explicit buying intent",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Test Inc: rubric score 8.5/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "company_size",
+          "issue": "missing company_size",
+          "severity": "warning"
+        }
+      ],
+      "outreach": {
+        "angle": "demo_followup",
+        "message_source": "template",
+        "status": "ready to send",
+        "message": "Hi Test_MissingSize,\n\nThanks for requesting a FlowPilot demo just now. For a growing team in SaaS like Test Inc, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": [
+          {
+            "step": 1,
+            "day": 0,
+            "channel": "Email (reply to demo request)",
+            "action": "Send the personalised first message (within 24 hours)"
+          },
+          {
+            "step": 2,
+            "day": 3,
+            "channel": "Email",
+            "action": "Short follow-up with one relevant customer example"
+          },
+          {
+            "step": 3,
+            "day": 7,
+            "channel": "LinkedIn",
+            "action": "Final touch; if no reply, move to nurture"
+          }
+        ]
+      }
+    },
+    {
+      "lead_id": "L002",
+      "row_number": 3,
+      "name": "Test_VeryLargeEnterprise",
+      "company": "Global Fortune 500 Corp",
+      "company_size": 50000,
+      "industry": "Enterprise Software",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "decision": "review",
+      "qualification_score": 6.0,
+      "priority_rank": 5,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 6.0 is in the 6.0-7.0 'too close to call' band",
+        "Capped at 6.0: Over 20,000 employees: capped at review - verify the record and consider routing to an enterprise team"
+      ],
+      "score_breakdown": {
+        "base_score": 8.5,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.0,
+            "max_points": 2.5,
+            "explanation": "Enterprise (5000+): long procurement cycle, outside our motion [50,000 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [Enterprise Software]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.5,
+            "max_points": 3.5,
+            "explanation": "Inbound demo request: explicit buying intent",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": [
+          "very_large_company"
+        ]
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Global Fortune 500 Corp: rubric score 8.5/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "company_size",
+          "issue": "unusually large company_size 50,000 - verify",
+          "severity": "warning"
+        }
+      ],
+      "outreach": null
+    },
+    {
+      "lead_id": "L003",
+      "row_number": 4,
+      "name": "Test_Solo",
+      "company": "John Doe Consulting",
+      "company_size": 1,
+      "industry": "Consulting",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2024-01-20",
+      "decision": "rejected",
+      "qualification_score": 4.0,
+      "priority_rank": null,
+      "priority_tier": "NURTURE",
+      "next_action": "Add to monthly newsletter / nurture track",
+      "reasoning": [
+        "Score 4.0 < 6.0",
+        "Company size outside target range",
+        "Weak buying-intent signal (cold or early-stage source)"
+      ],
+      "score_breakdown": {
+        "base_score": 4.0,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 0.5,
+            "max_points": 2.5,
+            "explanation": "Micro business (1-10): too small to need cross-team workflows [1 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 1.0,
+            "max_points": 2.0,
+            "explanation": "Adjacent vertical: real need, but slower buying or more compliance [Consulting]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 0.5,
+            "max_points": 3.5,
+            "explanation": "LinkedIn outreach: cold outbound, no intent shown yet",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "John Doe Consulting: rubric score 4.0/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": null
+    },
+    {
+      "lead_id": "L004",
+      "row_number": 5,
+      "name": "Test_StaleInteraction",
+      "company": "Old Company Inc",
+      "company_size": 100,
+      "industry": "Manufacturing",
+      "source": "Sales call",
+      "last_interaction_date": "2022-06-15",
+      "decision": "rejected",
+      "qualification_score": 5.8,
+      "priority_rank": null,
+      "priority_tier": "NURTURE",
+      "next_action": "Add to monthly newsletter / nurture track",
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "No recent interaction"
+      ],
+      "score_breakdown": {
+        "base_score": 5.75,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [100 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 1.0,
+            "max_points": 2.0,
+            "explanation": "Adjacent vertical: real need, but slower buying or more compliance [Manufacturing]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 2.25,
+            "max_points": 3.5,
+            "explanation": "Sales call: already in a live conversation",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 0.0,
+            "max_points": 2.0,
+            "explanation": "Stale: over a year since contact [584 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Old Company Inc: rubric score 5.75/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": null
+    },
+    {
+      "lead_id": "L005",
+      "row_number": 6,
+      "name": "Test_RecentEngagement",
+      "company": "Hot Lead Corp",
+      "company_size": 200,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "decision": "qualified",
+      "qualification_score": 10.0,
+      "priority_rank": 1,
+      "priority_tier": "P1",
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours",
+      "reasoning": [
+        "Score 10.0 >= 7.0 qualification threshold"
+      ],
+      "score_breakdown": {
+        "base_score": 10.0,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [200 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.5,
+            "max_points": 3.5,
+            "explanation": "Inbound demo request: explicit buying intent",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Hot Lead Corp: rubric score 10.0/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": {
+        "angle": "demo_followup",
+        "message_source": "template",
+        "status": "ready to send",
+        "message": "Hi Test_RecentEngagement,\n\nThanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Hot Lead Corp, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": [
+          {
+            "step": 1,
+            "day": 0,
+            "channel": "Email (reply to demo request)",
+            "action": "Send the personalised first message (within 24 hours)"
+          },
+          {
+            "step": 2,
+            "day": 3,
+            "channel": "Email",
+            "action": "Short follow-up with one relevant customer example"
+          },
+          {
+            "step": 3,
+            "day": 7,
+            "channel": "Phone",
+            "action": "Final touch; if no reply, move to nurture"
+          }
+        ]
+      }
+    },
+    {
+      "lead_id": "L006",
+      "row_number": 7,
+      "name": "Test_MissingDate",
+      "company": "Mystery Co",
+      "company_size": 150,
+      "industry": "Technology",
+      "source": null,
+      "last_interaction_date": null,
+      "decision": "review",
+      "qualification_score": 5.8,
+      "priority_rank": 8,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "Unknown intent signal (scored with a default)",
+        "Unknown recency (scored with a default)",
+        "Needs human review - insufficient data (source, last_interaction_date missing); score not reliable"
+      ],
+      "score_breakdown": {
+        "base_score": 5.75,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [150 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [Technology]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 0.75,
+            "max_points": 3.5,
+            "explanation": "Lead source unknown: low default used",
+            "used_default": true
+          },
+          {
+            "factor": "recency",
+            "points": 0.5,
+            "max_points": 2.0,
+            "explanation": "Last interaction date unknown: low default used",
+            "used_default": true
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Mystery Co: rubric score 5.75/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "source",
+          "issue": "missing source",
+          "severity": "warning"
+        },
+        {
+          "field": "last_interaction_date",
+          "issue": "missing last_interaction_date",
+          "severity": "warning"
+        }
+      ],
+      "outreach": null
+    },
+    {
+      "lead_id": "L007",
+      "row_number": 8,
+      "name": "Test_UnknownIndustry",
+      "company": "Mysterious Startup",
+      "company_size": 15,
+      "industry": null,
+      "source": "Referral",
+      "last_interaction_date": "2024-01-19",
+      "decision": "qualified",
+      "qualification_score": 7.3,
+      "priority_rank": 7,
+      "priority_tier": "P2",
+      "next_action": "P2: send first message via Email (warm intro) within 3 business days",
+      "reasoning": [
+        "Score 7.3 >= 7.0 qualification threshold"
+      ],
+      "score_breakdown": {
+        "base_score": 7.25,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.75,
+            "max_points": 2.5,
+            "explanation": "Small business (11-50): good fit, smaller deal size [15 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 0.5,
+            "max_points": 2.0,
+            "explanation": "Industry unknown: default used",
+            "used_default": true
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.0,
+            "max_points": 3.5,
+            "explanation": "Referral: warm, trusted introduction",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [1 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Mysterious Startup: rubric score 7.25/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "industry",
+          "issue": "placeholder value 'Unknown Sector' treated as missing",
+          "severity": "warning"
+        }
+      ],
+      "outreach": {
+        "angle": "warm_referral",
+        "message_source": "template",
+        "status": "ready to send",
+        "message": "Hi Test_UnknownIndustry,\n\nYou were referred to us just now, so I wanted to reach out personally. Teams in your industry often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Mysterious Startup's size (a team of about 15) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": [
+          {
+            "step": 1,
+            "day": 0,
+            "channel": "Email (warm intro)",
+            "action": "Send the personalised first message (within 3 business days)"
+          },
+          {
+            "step": 2,
+            "day": 3,
+            "channel": "Email",
+            "action": "Short follow-up with one relevant customer example"
+          },
+          {
+            "step": 3,
+            "day": 7,
+            "channel": "LinkedIn",
+            "action": "Final touch; if no reply, move to nurture"
+          }
+        ]
+      }
+    },
+    {
+      "lead_id": "L008",
+      "row_number": 9,
+      "name": "Test_VeryRecentSignup",
+      "company": "Brand New Startup",
+      "company_size": 2,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "decision": "review",
+      "qualification_score": 6.0,
+      "priority_rank": 6,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 6.0 is in the 6.0-7.0 'too close to call' band",
+        "Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case"
+      ],
+      "score_breakdown": {
+        "base_score": 8.0,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 0.5,
+            "max_points": 2.5,
+            "explanation": "Micro business (1-10): too small to need cross-team workflows [2 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.5,
+            "max_points": 3.5,
+            "explanation": "Inbound demo request: explicit buying intent",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": [
+          "micro_company"
+        ]
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Brand New Startup: rubric score 8.0/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": null
+    },
+    {
+      "lead_id": "L009",
+      "row_number": 10,
+      "name": "Test_MultipleInteractions",
+      "company": "Active Company",
+      "company_size": 500,
+      "industry": "Finance",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "decision": "qualified",
+      "qualification_score": 9.0,
+      "priority_rank": 3,
+      "priority_tier": "P1",
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours",
+      "reasoning": [
+        "Score 9.0 >= 7.0 qualification threshold"
+      ],
+      "score_breakdown": {
+        "base_score": 9.0,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [500 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 1.0,
+            "max_points": 2.0,
+            "explanation": "Adjacent vertical: real need, but slower buying or more compliance [Finance]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.5,
+            "max_points": 3.5,
+            "explanation": "Inbound demo request: explicit buying intent",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Active Company: rubric score 9.0/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": {
+        "angle": "demo_followup",
+        "message_source": "template",
+        "status": "ready to send",
+        "message": "Hi Test_MultipleInteractions,\n\nThanks for requesting a FlowPilot demo just now. For a 500-person organisation in Finance like Active Company, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": [
+          {
+            "step": 1,
+            "day": 0,
+            "channel": "Email (reply to demo request)",
+            "action": "Send the personalised first message (within 24 hours)"
+          },
+          {
+            "step": 2,
+            "day": 3,
+            "channel": "Email",
+            "action": "Short follow-up with one relevant customer example"
+          },
+          {
+            "step": 3,
+            "day": 7,
+            "channel": "Phone",
+            "action": "Final touch; if no reply, move to nurture"
+          }
+        ]
+      }
+    },
+    {
+      "lead_id": "L010",
+      "row_number": 11,
+      "name": "Test_NoSourceInfo",
+      "company": "Source Unknown Corp",
+      "company_size": 300,
+      "industry": "Retail",
+      "source": null,
+      "last_interaction_date": "2024-01-18",
+      "decision": "review",
+      "qualification_score": 6.3,
+      "priority_rank": 3,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 6.3 is in the 6.0-7.0 'too close to call' band"
+      ],
+      "score_breakdown": {
+        "base_score": 6.25,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [300 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 1.0,
+            "max_points": 2.0,
+            "explanation": "Adjacent vertical: real need, but slower buying or more compliance [Retail]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 0.75,
+            "max_points": 3.5,
+            "explanation": "Lead source unknown: low default used",
+            "used_default": true
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [2 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Source Unknown Corp: rubric score 6.25/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "source",
+          "issue": "placeholder value 'Unknown Source' treated as missing",
+          "severity": "warning"
+        }
+      ],
+      "outreach": {
+        "angle": "general_intro",
+        "message_source": "template",
+        "status": "draft - send only after human approval",
+        "message": "Hi Test_NoSourceInfo,\n\nI'm reaching out because Source Unknown Corp looks like a strong fit for FlowPilot: we help Retail teams of a 300-person organisation automate order-exception, returns and store-ops requests. Would a short call next week be worthwhile to see whether it fits your current priorities?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": []
+      }
+    },
+    {
+      "lead_id": "L011",
+      "row_number": 12,
+      "name": "Test_HighValueMatch",
+      "company": "Perfect Fit Enterprise",
+      "company_size": 2000,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "decision": "qualified",
+      "qualification_score": 9.3,
+      "priority_rank": 2,
+      "priority_tier": "P1",
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours",
+      "reasoning": [
+        "Score 9.3 >= 7.0 qualification threshold"
+      ],
+      "score_breakdown": {
+        "base_score": 9.25,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.75,
+            "max_points": 2.5,
+            "explanation": "Upper mid-market (1001-5000): good fit, longer sales cycle [2,000 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.5,
+            "max_points": 3.5,
+            "explanation": "Inbound demo request: explicit buying intent",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Perfect Fit Enterprise: rubric score 9.25/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": {
+        "angle": "demo_followup",
+        "message_source": "template",
+        "status": "ready to send",
+        "message": "Hi Test_HighValueMatch,\n\nThanks for requesting a FlowPilot demo just now. For an organisation of 2,000 people in SaaS like Perfect Fit Enterprise, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": [
+          {
+            "step": 1,
+            "day": 0,
+            "channel": "Email (reply to demo request)",
+            "action": "Send the personalised first message (within 24 hours)"
+          },
+          {
+            "step": 2,
+            "day": 3,
+            "channel": "Email",
+            "action": "Short follow-up with one relevant customer example"
+          },
+          {
+            "step": 3,
+            "day": 7,
+            "channel": "Phone",
+            "action": "Final touch; if no reply, move to nurture"
+          }
+        ]
+      }
+    },
+    {
+      "lead_id": "L012",
+      "row_number": 13,
+      "name": "Test_LowValueNiche",
+      "company": "Niche Small Op",
+      "company_size": 5,
+      "industry": "Agriculture",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2024-01-15",
+      "decision": "rejected",
+      "qualification_score": 3.3,
+      "priority_rank": null,
+      "priority_tier": "ARCHIVE",
+      "next_action": "Archive - no action",
+      "reasoning": [
+        "Score 3.3 < 6.0",
+        "Company size outside target range",
+        "Low-fit or unknown industry",
+        "Weak buying-intent signal (cold or early-stage source)"
+      ],
+      "score_breakdown": {
+        "base_score": 3.25,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 0.5,
+            "max_points": 2.5,
+            "explanation": "Micro business (1-10): too small to need cross-team workflows [5 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 0.25,
+            "max_points": 2.0,
+            "explanation": "Low-fit vertical: procurement rules or budgets rarely fit our product [Agriculture]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 0.5,
+            "max_points": 3.5,
+            "explanation": "LinkedIn outreach: cold outbound, no intent shown yet",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [5 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Niche Small Op: rubric score 3.25/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": null
+    },
+    {
+      "lead_id": "L013",
+      "row_number": 14,
+      "name": "Test_MissingName",
+      "company": null,
+      "company_size": 400,
+      "industry": "Consulting",
+      "source": "Sales call",
+      "last_interaction_date": "2024-01-19",
+      "decision": "review",
+      "qualification_score": 7.8,
+      "priority_rank": 1,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 7.8 >= 7.0 qualification threshold",
+        "Needs human review - data problem: missing company name - cannot personalise or verify the account"
+      ],
+      "score_breakdown": {
+        "base_score": 7.75,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [400 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 1.0,
+            "max_points": 2.0,
+            "explanation": "Adjacent vertical: real need, but slower buying or more compliance [Consulting]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 2.25,
+            "max_points": 3.5,
+            "explanation": "Sales call: already in a live conversation",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [1 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Unknown company: rubric score 7.75/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "company",
+          "issue": "missing company name - cannot personalise or verify the account",
+          "severity": "critical"
+        }
+      ],
+      "outreach": {
+        "angle": "call_recap",
+        "message_source": "template",
+        "status": "draft - send only after human approval",
+        "message": "Hi Test_MissingName,\n\nThanks again for the conversation just now. As a quick recap: for your team, a 400-person organisation in Consulting, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": []
+      }
+    },
+    {
+      "lead_id": "L014",
+      "row_number": 15,
+      "name": "Test_NameOnly",
+      "company": "James Wilson",
+      "company_size": null,
+      "industry": null,
+      "source": null,
+      "last_interaction_date": null,
+      "decision": "review",
+      "qualification_score": 2.8,
+      "priority_rank": 9,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 2.8 < 6.0",
+        "Unknown company size (scored with a default)",
+        "Unknown industry fit (scored with a default)",
+        "Unknown intent signal (scored with a default)",
+        "Unknown recency (scored with a default)",
+        "Needs human review - insufficient data (company_size, industry, source, last_interaction_date missing); score not reliable"
+      ],
+      "score_breakdown": {
+        "base_score": 2.75,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.0,
+            "max_points": 2.5,
+            "explanation": "Company size unknown: neutral-low default used",
+            "used_default": true
+          },
+          {
+            "factor": "industry_fit",
+            "points": 0.5,
+            "max_points": 2.0,
+            "explanation": "Industry unknown: default used",
+            "used_default": true
+          },
+          {
+            "factor": "intent_signal",
+            "points": 0.75,
+            "max_points": 3.5,
+            "explanation": "Lead source unknown: low default used",
+            "used_default": true
+          },
+          {
+            "factor": "recency",
+            "points": 0.5,
+            "max_points": 2.0,
+            "explanation": "Last interaction date unknown: low default used",
+            "used_default": true
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "James Wilson: rubric score 2.75/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "company_size",
+          "issue": "missing company_size",
+          "severity": "warning"
+        },
+        {
+          "field": "industry",
+          "issue": "missing industry",
+          "severity": "warning"
+        },
+        {
+          "field": "source",
+          "issue": "missing source",
+          "severity": "warning"
+        },
+        {
+          "field": "last_interaction_date",
+          "issue": "missing last_interaction_date",
+          "severity": "warning"
+        }
+      ],
+      "outreach": null
+    },
+    {
+      "lead_id": "L015",
+      "row_number": 16,
+      "name": "Test_PartialData",
+      "company": "Tech Partial",
+      "company_size": null,
+      "industry": "SaaS",
+      "source": null,
+      "last_interaction_date": "2024-01-20",
+      "decision": "review",
+      "qualification_score": 5.8,
+      "priority_rank": 7,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "Unknown company size (scored with a default)",
+        "Unknown intent signal (scored with a default)",
+        "Needs human review - insufficient data (company_size, source missing); score not reliable"
+      ],
+      "score_breakdown": {
+        "base_score": 5.75,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.0,
+            "max_points": 2.5,
+            "explanation": "Company size unknown: neutral-low default used",
+            "used_default": true
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 0.75,
+            "max_points": 3.5,
+            "explanation": "Lead source unknown: low default used",
+            "used_default": true
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [0 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Tech Partial: rubric score 5.75/10.",
+        "note": null
+      },
+      "data_issues": [
+        {
+          "field": "company_size",
+          "issue": "missing company_size",
+          "severity": "warning"
+        },
+        {
+          "field": "source",
+          "issue": "missing source",
+          "severity": "warning"
+        }
+      ],
+      "outreach": null
+    },
+    {
+      "lead_id": "L016",
+      "row_number": 17,
+      "name": "Test_WeekOldInteraction",
+      "company": "Week Old Corp",
+      "company_size": 250,
+      "industry": "Logistics",
+      "source": "Webinar attendee",
+      "last_interaction_date": "2024-01-13",
+      "decision": "qualified",
+      "qualification_score": 7.8,
+      "priority_rank": 6,
+      "priority_tier": "P2",
+      "next_action": "P2: send first message via Email (webinar follow-up) within 3 business days",
+      "reasoning": [
+        "Score 7.8 >= 7.0 qualification threshold"
+      ],
+      "score_breakdown": {
+        "base_score": 7.75,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [250 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [Logistics]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 1.25,
+            "max_points": 3.5,
+            "explanation": "Webinar attendee: interested, still researching",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [7 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Week Old Corp: rubric score 7.75/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": {
+        "angle": "event_followup",
+        "message_source": "template",
+        "status": "ready to send",
+        "message": "Hi Test_WeekOldInteraction,\n\nThanks for joining our webinar earlier this week. Many Logistics teams in the audience asked how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, so I put together a two-page example that fits a 250-person organisation like Week Old Corp. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": [
+          {
+            "step": 1,
+            "day": 0,
+            "channel": "Email (webinar follow-up)",
+            "action": "Send the personalised first message (within 3 business days)"
+          },
+          {
+            "step": 2,
+            "day": 3,
+            "channel": "Email",
+            "action": "Short follow-up with one relevant customer example"
+          },
+          {
+            "step": 3,
+            "day": 7,
+            "channel": "Phone",
+            "action": "Final touch; if no reply, move to nurture"
+          }
+        ]
+      }
+    },
+    {
+      "lead_id": "L017",
+      "row_number": 18,
+      "name": "Test_MidMarketSoft",
+      "company": "Mid Market Software",
+      "company_size": 1500,
+      "industry": "SaaS",
+      "source": "Content download",
+      "last_interaction_date": "2024-01-18",
+      "decision": "review",
+      "qualification_score": 6.5,
+      "priority_rank": 2,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 6.5 is in the 6.0-7.0 'too close to call' band"
+      ],
+      "score_breakdown": {
+        "base_score": 6.5,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.75,
+            "max_points": 2.5,
+            "explanation": "Upper mid-market (1001-5000): good fit, longer sales cycle [1,500 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 0.75,
+            "max_points": 3.5,
+            "explanation": "Content download: early-stage research",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [2 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Mid Market Software: rubric score 6.5/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": {
+        "angle": "content_followup",
+        "message_source": "template",
+        "status": "draft - send only after human approval",
+        "message": "Hi Test_MidMarketSoft,\n\nI saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with SaaS teams like Mid Market Software is to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. If it would help, I'm happy to share a 10-minute example tailored to an organisation of 1,500 people. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": []
+      }
+    },
+    {
+      "lead_id": "L018",
+      "row_number": 19,
+      "name": "Test_StartupShutdown",
+      "company": "Failed Startup",
+      "company_size": 8,
+      "industry": "SaaS",
+      "source": "Referral",
+      "last_interaction_date": "2023-05-01",
+      "decision": "rejected",
+      "qualification_score": 5.8,
+      "priority_rank": null,
+      "priority_tier": "NURTURE",
+      "next_action": "Add to monthly newsletter / nurture track",
+      "reasoning": [
+        "Score 5.8 < 6.0",
+        "Company size outside target range",
+        "No recent interaction"
+      ],
+      "score_breakdown": {
+        "base_score": 5.75,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 0.5,
+            "max_points": 2.5,
+            "explanation": "Micro business (1-10): too small to need cross-team workflows [8 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Core vertical: digital-first teams with heavy cross-team workflows [SaaS]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.0,
+            "max_points": 3.5,
+            "explanation": "Referral: warm, trusted introduction",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 0.25,
+            "max_points": 2.0,
+            "explanation": "Very cold: 3-12 months since contact [264 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Failed Startup: rubric score 5.75/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": null
+    },
+    {
+      "lead_id": "L019",
+      "row_number": 20,
+      "name": "Test_GovernmentBuyer",
+      "company": "Government Tech",
+      "company_size": 3000,
+      "industry": "Government",
+      "source": "Sales call",
+      "last_interaction_date": "2024-01-17",
+      "decision": "review",
+      "qualification_score": 6.3,
+      "priority_rank": 4,
+      "priority_tier": "REVIEW",
+      "next_action": "Human review: an SDR confirms or rejects (see decision_reasons)",
+      "reasoning": [
+        "Score 6.3 is in the 6.0-7.0 'too close to call' band"
+      ],
+      "score_breakdown": {
+        "base_score": 6.25,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 1.75,
+            "max_points": 2.5,
+            "explanation": "Upper mid-market (1001-5000): good fit, longer sales cycle [3,000 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 0.25,
+            "max_points": 2.0,
+            "explanation": "Low-fit vertical: procurement rules or budgets rarely fit our product [Government]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 2.25,
+            "max_points": 3.5,
+            "explanation": "Sales call: already in a live conversation",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [3 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Government Tech: rubric score 6.25/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": {
+        "angle": "call_recap",
+        "message_source": "template",
+        "status": "draft - send only after human approval",
+        "message": "Hi Test_GovernmentBuyer,\n\nThanks again for the conversation earlier this week. As a quick recap: for Government Tech, an organisation of 3,000 people in Government, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": []
+      }
+    },
+    {
+      "lead_id": "L020",
+      "row_number": 21,
+      "name": "Test_SMBAverage",
+      "company": "Average SMB Co",
+      "company_size": 120,
+      "industry": "Retail",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-19",
+      "decision": "qualified",
+      "qualification_score": 9.0,
+      "priority_rank": 4,
+      "priority_tier": "P1",
+      "next_action": "P1: send first message via Email (reply to demo request) within 24 hours",
+      "reasoning": [
+        "Score 9.0 >= 7.0 qualification threshold"
+      ],
+      "score_breakdown": {
+        "base_score": 9.0,
+        "factors": [
+          {
+            "factor": "company_size",
+            "points": 2.5,
+            "max_points": 2.5,
+            "explanation": "Core mid-market (51-1000): our ideal customer profile [120 employees]",
+            "used_default": false
+          },
+          {
+            "factor": "industry_fit",
+            "points": 1.0,
+            "max_points": 2.0,
+            "explanation": "Adjacent vertical: real need, but slower buying or more compliance [Retail]",
+            "used_default": false
+          },
+          {
+            "factor": "intent_signal",
+            "points": 3.5,
+            "max_points": 3.5,
+            "explanation": "Inbound demo request: explicit buying intent",
+            "used_default": false
+          },
+          {
+            "factor": "recency",
+            "points": 2.0,
+            "max_points": 2.0,
+            "explanation": "Hot: touched in the last week [1 days ago]",
+            "used_default": false
+          }
+        ],
+        "llm_adjustment": 0.0,
+        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "caps_applied": []
+      },
+      "llm": {
+        "source": "mock",
+        "confidence": "medium",
+        "summary": "Average SMB Co: rubric score 9.0/10.",
+        "note": null
+      },
+      "data_issues": [],
+      "outreach": {
+        "angle": "demo_followup",
+        "message_source": "template",
+        "status": "ready to send",
+        "message": "Hi Test_SMBAverage,\n\nThanks for requesting a FlowPilot demo just now. For a 120-person organisation in Retail like Average SMB Co, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "sequence": [
+          {
+            "step": 1,
+            "day": 0,
+            "channel": "Email (reply to demo request)",
+            "action": "Send the personalised first message (within 24 hours)"
+          },
+          {
+            "step": 2,
+            "day": 3,
+            "channel": "Email",
+            "action": "Short follow-up with one relevant customer example"
+          },
+          {
+            "step": 3,
+            "day": 7,
+            "channel": "Phone",
+            "action": "Final touch; if no reply, move to nurture"
+          }
+        ]
+      }
+    }
+  ],
+  "output_files": {
+    "json": "/home/user/MiniPrj/output/leads_testing/output_report.json",
+    "csv": "/home/user/MiniPrj/output/leads_testing/leads_scored.csv",
+    "md": "/home/user/MiniPrj/output/leads_testing/summary.md"
+  }
+}

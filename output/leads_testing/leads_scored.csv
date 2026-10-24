@@ -1,0 +1,87 @@
+lead_id,decision,priority_tier,priority_rank,score,base_score,llm_adjustment,name,company,company_size,industry,source,last_interaction_date,next_action,reasoning,data_issues,message_source,outreach_message
+L005,qualified,P1,1,10.0,10.0,0.0,Test_RecentEngagement,Hot Lead Corp,200,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 10.0 >= 7.0 qualification threshold,,template,"Hi Test_RecentEngagement,
+
+Thanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Hot Lead Corp, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L011,qualified,P1,2,9.3,9.25,0.0,Test_HighValueMatch,Perfect Fit Enterprise,2000,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.3 >= 7.0 qualification threshold,,template,"Hi Test_HighValueMatch,
+
+Thanks for requesting a FlowPilot demo just now. For an organisation of 2,000 people in SaaS like Perfect Fit Enterprise, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L009,qualified,P1,3,9.0,9.0,0.0,Test_MultipleInteractions,Active Company,500,Finance,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.0 >= 7.0 qualification threshold,,template,"Hi Test_MultipleInteractions,
+
+Thanks for requesting a FlowPilot demo just now. For a 500-person organisation in Finance like Active Company, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L020,qualified,P1,4,9.0,9.0,0.0,Test_SMBAverage,Average SMB Co,120,Retail,Inbound demo request,2024-01-19,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.0 >= 7.0 qualification threshold,,template,"Hi Test_SMBAverage,
+
+Thanks for requesting a FlowPilot demo just now. For a 120-person organisation in Retail like Average SMB Co, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L001,qualified,P1,5,8.5,8.5,0.0,Test_MissingSize,Test Inc,,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 8.5 >= 7.0 qualification threshold,missing company_size,template,"Hi Test_MissingSize,
+
+Thanks for requesting a FlowPilot demo just now. For a growing team in SaaS like Test Inc, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L016,qualified,P2,6,7.8,7.75,0.0,Test_WeekOldInteraction,Week Old Corp,250,Logistics,Webinar attendee,2024-01-13,P2: send first message via Email (webinar follow-up) within 3 business days,Score 7.8 >= 7.0 qualification threshold,,template,"Hi Test_WeekOldInteraction,
+
+Thanks for joining our webinar earlier this week. Many Logistics teams in the audience asked how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, so I put together a two-page example that fits a 250-person organisation like Week Old Corp. Shall I send it over, or would a short walkthrough be more useful?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L007,qualified,P2,7,7.3,7.25,0.0,Test_UnknownIndustry,Mysterious Startup,15,,Referral,2024-01-19,P2: send first message via Email (warm intro) within 3 business days,Score 7.3 >= 7.0 qualification threshold,placeholder value 'Unknown Sector' treated as missing,template,"Hi Test_UnknownIndustry,
+
+You were referred to us just now, so I wanted to reach out personally. Teams in your industry often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Mysterious Startup's size (a team of about 15) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L013,review,REVIEW,1,7.8,7.75,0.0,Test_MissingName,,400,Consulting,Sales call,2024-01-19,Human review: an SDR confirms or rejects (see decision_reasons),Score 7.8 >= 7.0 qualification threshold | Needs human review - data problem: missing company name - cannot personalise or verify the account,missing company name - cannot personalise or verify the account,template,"Hi Test_MissingName,
+
+Thanks again for the conversation just now. As a quick recap: for your team, a 400-person organisation in Consulting, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L017,review,REVIEW,2,6.5,6.5,0.0,Test_MidMarketSoft,Mid Market Software,1500,SaaS,Content download,2024-01-18,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.5 is in the 6.0-7.0 'too close to call' band,,template,"Hi Test_MidMarketSoft,
+
+I saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with SaaS teams like Mid Market Software is to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. If it would help, I'm happy to share a 10-minute example tailored to an organisation of 1,500 people. No pressure either way.
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L010,review,REVIEW,3,6.3,6.25,0.0,Test_NoSourceInfo,Source Unknown Corp,300,Retail,,2024-01-18,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.3 is in the 6.0-7.0 'too close to call' band,placeholder value 'Unknown Source' treated as missing,template,"Hi Test_NoSourceInfo,
+
+I'm reaching out because Source Unknown Corp looks like a strong fit for FlowPilot: we help Retail teams of a 300-person organisation automate order-exception, returns and store-ops requests. Would a short call next week be worthwhile to see whether it fits your current priorities?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L019,review,REVIEW,4,6.3,6.25,0.0,Test_GovernmentBuyer,Government Tech,3000,Government,Sales call,2024-01-17,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.3 is in the 6.0-7.0 'too close to call' band,,template,"Hi Test_GovernmentBuyer,
+
+Thanks again for the conversation earlier this week. As a quick recap: for Government Tech, an organisation of 3,000 people in Government, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+
+Best,
+Sam Rivera
+Account Executive, FlowPilot"
+L002,review,REVIEW,5,6.0,8.5,0.0,Test_VeryLargeEnterprise,Global Fortune 500 Corp,50000,Enterprise Software,Inbound demo request,2024-01-20,Human review: an SDR confirms or rejects (see decision_reasons),"Score 6.0 is in the 6.0-7.0 'too close to call' band | Capped at 6.0: Over 20,000 employees: capped at review - verify the record and consider routing to an enterprise team","unusually large company_size 50,000 - verify",,
+L008,review,REVIEW,6,6.0,8.0,0.0,Test_VeryRecentSignup,Brand New Startup,2,SaaS,Inbound demo request,2024-01-20,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.0 is in the 6.0-7.0 'too close to call' band | Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case,,,
+L015,review,REVIEW,7,5.8,5.75,0.0,Test_PartialData,Tech Partial,,SaaS,,2024-01-20,Human review: an SDR confirms or rejects (see decision_reasons),"Score 5.8 < 6.0 | Unknown company size (scored with a default) | Unknown intent signal (scored with a default) | Needs human review - insufficient data (company_size, source missing); score not reliable",missing company_size | missing source,,
+L006,review,REVIEW,8,5.8,5.75,0.0,Test_MissingDate,Mystery Co,150,Technology,,,Human review: an SDR confirms or rejects (see decision_reasons),"Score 5.8 < 6.0 | Unknown intent signal (scored with a default) | Unknown recency (scored with a default) | Needs human review - insufficient data (source, last_interaction_date missing); score not reliable",missing source | missing last_interaction_date,,
+L014,review,REVIEW,9,2.8,2.75,0.0,Test_NameOnly,James Wilson,,,,,Human review: an SDR confirms or rejects (see decision_reasons),"Score 2.8 < 6.0 | Unknown company size (scored with a default) | Unknown industry fit (scored with a default) | Unknown intent signal (scored with a default) | Unknown recency (scored with a default) | Needs human review - insufficient data (company_size, industry, source, last_interaction_date missing); score not reliable",missing company_size | missing industry | missing source | missing last_interaction_date,,
+L004,rejected,NURTURE,,5.8,5.75,0.0,Test_StaleInteraction,Old Company Inc,100,Manufacturing,Sales call,2022-06-15,Add to monthly newsletter / nurture track,Score 5.8 < 6.0 | No recent interaction,,,
+L018,rejected,NURTURE,,5.8,5.75,0.0,Test_StartupShutdown,Failed Startup,8,SaaS,Referral,2023-05-01,Add to monthly newsletter / nurture track,Score 5.8 < 6.0 | Company size outside target range | No recent interaction,,,
+L003,rejected,NURTURE,,4.0,4.0,0.0,Test_Solo,John Doe Consulting,1,Consulting,LinkedIn outreach,2024-01-20,Add to monthly newsletter / nurture track,Score 4.0 < 6.0 | Company size outside target range | Weak buying-intent signal (cold or early-stage source),,,
+L012,rejected,ARCHIVE,,3.3,3.25,0.0,Test_LowValueNiche,Niche Small Op,5,Agriculture,LinkedIn outreach,2024-01-15,Archive - no action,Score 3.3 < 6.0 | Company size outside target range | Low-fit or unknown industry | Weak buying-intent signal (cold or early-stage source),,,

@@ -1,0 +1,49 @@
+08:13:04 INFO    lead_qualifier.ingest: Loaded 100 leads from leads_full_scale_100.csv (0 blank rows skipped)
+08:13:04 INFO    lead_qualifier.pipeline: Reference date for recency: 2024-01-20
+08:13:04 INFO    lead_qualifier.judge: Batch 1/10: 10 leads
+08:13:04 DEBUG   lead_qualifier.llm: Chaos: injecting server_error
+08:13:04 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503 (simulated)) - retry 1/4 in 0.2s
+08:13:04 DEBUG   lead_qualifier.llm: Chaos: injecting rate_limit
+08:13:04 WARNING lead_qualifier.llm: Transient LLM error (HTTP 429 (simulated)) - retry 2/4 in 0.2s
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting truncated
+08:13:05 WARNING lead_qualifier.judge: Batch of 10 returned an unusable response: could not parse JSON from response: '{"results": [{"lead_id": "L001", "adjustment": 0, "adjustment_reason": "Mock provider: no LLM judgment applied.", "confi'
+08:13:05 INFO    lead_qualifier.judge: Splitting batch into 5 + 5 and retrying
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting truncated
+08:13:05 WARNING lead_qualifier.judge: Batch of 5 returned an unusable response: could not parse JSON from response: '{"results": [{"lead_id": "L001", "adjustment": 0, "adjustment_reason": "Mock provider: no LLM judgment applied.", "confi'
+08:13:05 INFO    lead_qualifier.judge: Splitting batch into 2 + 3 and retrying
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting truncated
+08:13:05 WARNING lead_qualifier.judge: Batch of 2 returned an unusable response: could not parse JSON from response: '{"results": [{"lead_id": "L001", "adjustment": 0, "adjustment_reason": "Mock provider: no LLM judgment applied.", "confi'
+08:13:05 INFO    lead_qualifier.judge: Splitting batch into 1 + 1 and retrying
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting rate_limit
+08:13:05 WARNING lead_qualifier.llm: Transient LLM error (HTTP 429 (simulated)) - retry 1/4 in 0.2s
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting rate_limit
+08:13:05 WARNING lead_qualifier.llm: Transient LLM error (HTTP 429 (simulated)) - retry 1/4 in 0.1s
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting truncated
+08:13:05 WARNING lead_qualifier.judge: Batch of 3 returned an unusable response: could not parse JSON from response: '{"results": [{"lead_id": "L003", "adjustment": 0, "adjustment_reason": "Mock provider: no LLM judgment applied.", "confi'
+08:13:05 INFO    lead_qualifier.judge: Splitting batch into 1 + 2 and retrying
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting server_error
+08:13:05 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503 (simulated)) - retry 1/4 in 0.1s
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting truncated
+08:13:05 WARNING lead_qualifier.judge: Batch of 5 returned an unusable response: could not parse JSON from response: '{"results": [{"lead_id": "L006", "adjustment": 0, "adjustment_reason": "Mock provider: no LLM judgment applied.", "confi'
+08:13:05 INFO    lead_qualifier.judge: Splitting batch into 2 + 3 and retrying
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting server_error
+08:13:05 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503 (simulated)) - retry 1/4 in 0.1s
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting server_error
+08:13:05 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503 (simulated)) - retry 2/4 in 0.2s
+08:13:05 DEBUG   lead_qualifier.llm: Chaos: injecting server_error
+08:13:05 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503 (simulated)) - retry 3/4 in 0.7s
+08:13:06 INFO    lead_qualifier.judge: Batch 2/10: 10 leads
+08:13:06 INFO    lead_qualifier.judge: Batch 3/10: 10 leads
+08:13:06 INFO    lead_qualifier.judge: Batch 4/10: 10 leads
+08:13:06 DEBUG   lead_qualifier.llm: Chaos: injecting truncated
+08:13:06 WARNING lead_qualifier.judge: Batch of 10 returned an unusable response: could not parse JSON from response: '{"results": [{"lead_id": "L031", "adjustment": 0, "adjustment_reason": "Mock provider: no LLM judgment applied.", "confi'
+08:13:06 INFO    lead_qualifier.judge: Splitting batch into 5 + 5 and retrying
+08:13:06 DEBUG   lead_qualifier.llm: Chaos: injecting truncated
+08:13:06 WARNING lead_qualifier.judge: Batch of 5 returned an unusable response: could not parse JSON from response: '{"results": [{"lead_id": "L036", "adjustment": 0, "adjustment_reason": "Mock provider: no LLM judgment applied.", "confi'
+08:13:06 INFO    lead_qualifier.judge: Splitting batch into 2 + 3 and retrying
+08:13:06 INFO    lead_qualifier.judge: Batch 5/10: 10 leads
+08:13:06 INFO    lead_qualifier.judge: Batch 6/10: 10 leads
+08:13:06 INFO    lead_qualifier.judge: Batch 7/10: 10 leads
+08:13:06 INFO    lead_qualifier.judge: Batch 8/10: 10 leads
+08:13:06 INFO    lead_qualifier.judge: Batch 9/10: 10 leads
+08:13:06 INFO    lead_qualifier.judge: Batch 10/10: 10 leads

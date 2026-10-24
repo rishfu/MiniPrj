@@ -1,0 +1,160 @@
+# =============================================================================
+# Lead Intelligence System - configuration
+#
+# DESIGN NOTE: the rubric lives here (data), not in Python (code). A sales
+# manager can change a weight or add an industry without touching the logic,
+# and every run records `rubric.version` so results stay traceable.
+# API keys are NOT stored here - they come from environment variables / .env.
+# =============================================================================
+
+# Who "we" are. The LLM uses this to keep outreach on-brand.
+seller:
+  company_name: "FlowPilot"
+  product_one_liner: "a workflow-automation platform that removes manual hand-offs between teams"
+  sender_name: "Sam Rivera"
+  sender_title: "Account Executive, FlowPilot"
+  tone: "warm, concise and consultative; plain language; no hype, no emojis, no fake urgency"
+  # Industry-specific value propositions (matched by keyword on the lead's industry).
+  value_props:
+    saas: "automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets"
+    software: "automate release, support-escalation and onboarding workflows across teams"
+    fintech: "automate approval and compliance workflows with a full audit trail"
+    finance: "automate approval and compliance workflows with a full audit trail"
+    insur: "cut claims and underwriting hand-off delays with automated routing"
+    health: "automate patient-intake and referral hand-offs while keeping an audit trail"
+    pharma: "automate document-review and approval workflows with a full audit trail"
+    logistic: "automate shipment-exception and carrier hand-offs so nothing sits in an inbox"
+    supply: "automate shipment-exception and supplier hand-offs so nothing sits in an inbox"
+    retail: "automate order-exception, returns and store-ops requests"
+    commerce: "automate order-exception, returns and fulfilment requests"
+    manufactur: "automate quality, maintenance and procurement requests on the shop floor"
+    marketing: "automate campaign-approval and client-onboarding workflows"
+    edtech: "automate learner-onboarding and content-approval workflows"
+    education: "automate enrolment and staff-request workflows"
+    real estate: "automate lease, maintenance and tenant-request workflows"
+    cyber: "automate incident-triage and access-request workflows with an audit trail"
+    default: "replace manual, email-driven hand-offs with automated workflows"
+
+rubric:
+  version: "1.2"
+  # Four scored factors. Max points sum to 10, so the base score is already on
+  # the 1-10 scale the brief asks for.
+  #
+  # CALIBRATION HISTORY (see docs/LEARNING_GUIDE.md, "Step 6"):
+  #   v1.0  size 3 / industry 2 / intent 3 / recency 2, review band 5.0-6.9
+  #         -> 55-63% qualified, 3-5% rejected: far too lenient; scores bunched at 6-8
+  #            because most leads are 51-1000 staff and all got the full size points.
+  #   v1.2  size 2.5 / industry 2 / intent 3.5 / recency 2, review band 6.0-6.9
+  #         -> ~41-49% qualified, ~21% review, ~29-38% rejected on the sample files.
+  #            Buying intent now separates leads more than company size does.
+  factors:
+    company_size:
+      max_points: 2.5
+      missing_points: 1.0          # unknown size -> neutral-low, and flagged
+      bands:                       # inclusive ranges; `max: null` = no upper bound
+        - {min: 1,    max: 10,   points: 0.5, label: "Micro business (1-10): too small to need cross-team workflows"}
+        - {min: 11,   max: 50,   points: 1.75, label: "Small business (11-50): good fit, smaller deal size"}
+        - {min: 51,   max: 1000, points: 2.5, label: "Core mid-market (51-1000): our ideal customer profile"}
+        - {min: 1001, max: 5000, points: 1.75, label: "Upper mid-market (1001-5000): good fit, longer sales cycle"}
+        - {min: 5001, max: null, points: 1.0, label: "Enterprise (5000+): long procurement cycle, outside our motion"}
+
+    industry_fit:
+      max_points: 2.0
+      missing_points: 0.5
+      unmapped_points: 0.75        # an industry we have no opinion on yet -> flagged
+      tiers:
+        core:
+          points: 2.0
+          label: "Core vertical: digital-first teams with heavy cross-team workflows"
+          industries: [SaaS, Software, Technology, Enterprise Software, FinTech, InsurTech, HealthTech,
+                       EdTech, HR Tech, E-commerce, Logistics, Supply Chain, Marketing, Analytics,
+                       Data Analytics, AI/ML, Cybersecurity, Climate Tech, PropTech]
+        adjacent:
+          points: 1.0
+          label: "Adjacent vertical: real need, but slower buying or more compliance"
+          industries: [Finance, Banking, Insurance, Healthcare, Manufacturing, Retail, Real Estate,
+                       Construction, Telecom, Telecommunications, Media, Entertainment, Energy,
+                       Environmental, Automotive, Transportation, Hospitality, Travel,
+                       Pharmaceuticals, Biotech, Consulting, Legal, Professional Services,
+                       Business Services, Trade, Consumer, Consumer Services, Events, Education,
+                       Accounting, Sports, Food & Beverage]
+        low:
+          points: 0.25
+          label: "Low-fit vertical: procurement rules or budgets rarely fit our product"
+          industries: [Government, Non-profit, Agriculture, Cryptocurrency, Cultural, Services]
+
+    intent_signal:                 # how the lead came to us = how much they want to talk
+      max_points: 3.5
+      missing_points: 0.75
+      unmapped_points: 1.0
+      sources:
+        inbound_demo:     {points: 3.5,  label: "Inbound demo request: explicit buying intent",       aliases: [inbound demo request, demo request, inbound]}
+        referral:         {points: 3.0,  label: "Referral: warm, trusted introduction",               aliases: [referral, referred]}
+        sales_call:       {points: 2.25, label: "Sales call: already in a live conversation",        aliases: [sales call, call]}
+        webinar:          {points: 1.25, label: "Webinar attendee: interested, still researching",    aliases: [webinar attendee, webinar]}
+        content_download: {points: 0.75, label: "Content download: early-stage research",             aliases: [content download, ebook, whitepaper]}
+        linkedin:         {points: 0.5,  label: "LinkedIn outreach: cold outbound, no intent shown yet", aliases: [linkedin outreach, linkedin]}
+
+    recency:                       # days between last interaction and the reference date
+      max_points: 2.0
+      missing_points: 0.5
+      bands:
+        - {max_days: 7,    points: 2.0,  label: "Hot: touched in the last week"}
+        - {max_days: 30,   points: 1.5,  label: "Warm: touched in the last month"}
+        - {max_days: 60,   points: 1.0,  label: "Cooling: 1-2 months since contact"}
+        - {max_days: 90,   points: 0.5,  label: "Cold: 2-3 months since contact"}
+        - {max_days: 365,  points: 0.25, label: "Very cold: 3-12 months since contact"}
+        - {max_days: null, points: 0.0,  label: "Stale: over a year since contact"}
+
+  # Knock-out caps: hard business rules applied AFTER the LLM adjustment, so the
+  # LLM can never talk its way past them. A capped lead can reach "review" at
+  # most - a human makes the call, the system doesn't guess.
+  caps:
+    - {rule: micro_company, max_score: 6.0, when: "company_size <= 10",
+       reason: "Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case"}
+    - {rule: stale_contact, max_score: 6.0, when: "days_since_contact > 365",
+       reason: "No contact in over a year: capped at review - contact details and need must be re-verified first"}
+    - {rule: very_large_company, max_score: 6.0, when: "company_size > 20000",
+       reason: "Over 20,000 employees: capped at review - verify the record and consider routing to an enterprise team"}
+
+  thresholds:
+    qualified_min: 7.0             # >= 7.0 -> QUALIFIED
+    review_min: 6.0                # 6.0 - 6.9 -> REVIEW (too close to call); < 6.0 -> REJECTED
+    insufficient_data_missing_fields: 2   # this many of size/industry/source/date missing -> REVIEW
+
+  llm_adjustment:
+    max_abs: 1.0                   # LLM may move a score by at most +/-1.0 ...
+    step: 0.5                      # ... in 0.5 steps, and must give a reason
+
+  priority:
+    p1_min_score: 8.5              # P1 = contact within 24h, P2 = within 3 business days
+    nurture_min_score: 4.0         # rejected leads at or above this go to nurture, below -> archive
+
+llm:
+  provider: nvidia                 # nvidia | groq | gemini | openai | mock (offline)
+  models:                          # defaults per provider - override with --model
+    nvidia: nvidia/nemotron-3.5-lightning-30b-a3b
+    groq: llama-3.3-70b-versatile
+    gemini: gemini-2.5-flash
+    openai: gpt-4o-mini
+  batch_size: 10                   # leads per API call (100 leads -> 10 calls, not 100)
+  max_retries: 4                   # retries per call for transient errors (429, 5xx, timeouts)
+  base_delay_seconds: 2.0          # exponential backoff: ~2s, 4s, 8s, 16s (+ jitter)
+  max_delay_seconds: 30.0
+  timeout_seconds: 120
+  requests_per_minute: 20          # client-side throttle, keeps us under free-tier limits
+  max_output_tokens: 8000
+  circuit_breaker_failures: 3      # after N failed batches in a row, stop calling the API
+  provider_options:
+    nvidia:
+      json_mode: false             # endpoint may not support response_format; the prompt + parser handle JSON
+      extra_body:
+        # Thinking off: scoring 10 leads is a structured task, and thinking adds
+        # latency and can use up max_tokens before the JSON answer is written.
+        # Set to true to compare quality.
+        chat_template_kwargs: {enable_thinking: false}
+
+run:
+  reference_date: auto             # "auto" = latest interaction date in the file; or "today"; or YYYY-MM-DD
+  output_root: output
+  sample_messages: 5               # how many outreach examples to feature in the report
