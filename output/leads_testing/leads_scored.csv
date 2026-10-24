@@ -1,79 +1,120 @@
 lead_id,decision,priority_tier,priority_rank,score,base_score,llm_adjustment,name,company,company_size,industry,source,last_interaction_date,next_action,reasoning,data_issues,message_source,outreach_message
-L005,qualified,P1,1,10.0,10.0,0.0,Test_RecentEngagement,Hot Lead Corp,200,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 10.0 >= 7.0 qualification threshold,,template,"Hi Test_RecentEngagement,
+L005,qualified,P1,1,10.0,10.0,0.0,Test_RecentEngagement,Hot Lead Corp,200,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 10.0 >= 7.0 qualification threshold,,llm,"Hi Test,
 
-Thanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Hot Lead Corp, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for reaching out for a demo of FlowPilot today. With Hot Lead Corp having around 200 employees in the SaaS space, our platform is built to help teams automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.
 
-Best,
+I would love to connect and show you how we can streamline your team's workflow transitions. Are you available for a brief call this Wednesday at 11:00 AM or Thursday at 3:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L011,qualified,P1,2,9.3,9.25,0.0,Test_HighValueMatch,Perfect Fit Enterprise,2000,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.3 >= 7.0 qualification threshold,,template,"Hi Test_HighValueMatch,
+L011,qualified,P1,2,9.3,9.25,0.0,Test_HighValueMatch,Perfect Fit Enterprise,2000,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.3 >= 7.0 qualification threshold,,llm,"Hi Test_HighValueMatch,
 
-Thanks for requesting a FlowPilot demo just now. For an organisation of 2,000 people in SaaS like Perfect Fit Enterprise, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for reaching out for a demo of FlowPilot. With 2,000 employees in the SaaS space, managing cross-team execution at Perfect Fit Enterprise can quickly get complex. We help organizations like yours automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.
 
-Best,
+I would love to walk you through a tailored demonstration of our platform. Are you available for a brief 20-minute call this Thursday at 10:00 AM or Friday at 2:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L009,qualified,P1,3,9.0,9.0,0.0,Test_MultipleInteractions,Active Company,500,Finance,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.0 >= 7.0 qualification threshold,,template,"Hi Test_MultipleInteractions,
+L009,qualified,P1,3,9.0,9.0,0.0,Test_MultipleInteractions,Active Company,500,Finance,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.0 >= 7.0 qualification threshold,,llm,"Hi Test,
 
-Thanks for requesting a FlowPilot demo just now. For a 500-person organisation in Finance like Active Company, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for submitting a demo request today for Active Company. With 500 employees in the finance sector, we know how critical operational rigor is. FlowPilot helps organizations like yours automate approval and compliance workflows with a full audit trail, ensuring seamless execution across teams.
 
-Best,
+I would be glad to schedule a tailored demonstration for your team. Are you available to connect this Thursday at 10:00 AM or Friday at 1:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L020,qualified,P1,4,9.0,9.0,0.0,Test_SMBAverage,Average SMB Co,120,Retail,Inbound demo request,2024-01-19,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.0 >= 7.0 qualification threshold,,template,"Hi Test_SMBAverage,
+L020,qualified,P1,4,9.0,9.0,0.0,Test_SMBAverage,Average SMB Co,120,Retail,Inbound demo request,2024-01-19,P1: send first message via Email (reply to demo request) within 24 hours,Score 9.0 >= 7.0 qualification threshold,,llm,"Hi Test_SMBAverage,
 
-Thanks for requesting a FlowPilot demo just now. For a 120-person organisation in Retail like Average SMB Co, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for requesting a demo of FlowPilot yesterday. We are excited to learn more about Average SMB Co. With 120 employees in the retail industry, keeping operations running smoothly across stores and channels is key to customer satisfaction.
 
-Best,
+FlowPilot can help you automate order-exception, returns and store-ops requests, eliminating friction across your operations.
+
+I would love to walk you through a tailored demo this week. Are you available for a 20-minute conversation this Wednesday at 11:00 AM or Thursday at 3:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L001,qualified,P1,5,8.5,8.5,0.0,Test_MissingSize,Test Inc,,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 8.5 >= 7.0 qualification threshold,missing company_size,template,"Hi Test_MissingSize,
+L001,qualified,P1,5,8.5,8.5,0.0,Test_MissingSize,Test Inc,,SaaS,Inbound demo request,2024-01-20,P1: send first message via Email (reply to demo request) within 24 hours,Score 8.5 >= 7.0 qualification threshold,missing company_size,llm,"Hi Test,
 
-Thanks for requesting a FlowPilot demo just now. For a growing team in SaaS like Test Inc, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for requesting a demo of FlowPilot today for Test Inc. Given that you are in the SaaS industry, we often help teams automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.
 
-Best,
+I would love to walk you through a tailored demo and discuss how FlowPilot can streamline your workflows. Are you open for a quick chat this Thursday at 10:00 AM or Friday at 2:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L016,qualified,P2,6,7.8,7.75,0.0,Test_WeekOldInteraction,Week Old Corp,250,Logistics,Webinar attendee,2024-01-13,P2: send first message via Email (webinar follow-up) within 3 business days,Score 7.8 >= 7.0 qualification threshold,,template,"Hi Test_WeekOldInteraction,
+L016,qualified,P2,6,7.8,7.75,0.0,Test_WeekOldInteraction,Week Old Corp,250,Logistics,Webinar attendee,2024-01-13,P2: send first message via Email (webinar follow-up) within 3 business days,Score 7.8 >= 7.0 qualification threshold,,llm,"Hi Test_WeekOldInteraction,
 
-Thanks for joining our webinar earlier this week. Many Logistics teams in the audience asked how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, so I put together a two-page example that fits a 250-person organisation like Week Old Corp. Shall I send it over, or would a short walkthrough be more useful?
+Thank you for attending our recent workflow webinar last week. It was great to see representatives from Week Old Corp in the session. Given your team of 250 in the logistics industry, operational speed and visibility are critical.
 
-Best,
+FlowPilot can help you automate shipment-exception and carrier hand-offs so nothing sits in an inbox waiting for action. I put together a brief guide on reducing logistics communication delays that I think you will find useful. Would you be interested in taking a look?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L007,qualified,P2,7,7.3,7.25,0.0,Test_UnknownIndustry,Mysterious Startup,15,,Referral,2024-01-19,P2: send first message via Email (warm intro) within 3 business days,Score 7.3 >= 7.0 qualification threshold,placeholder value 'Unknown Sector' treated as missing,template,"Hi Test_UnknownIndustry,
+L007,qualified,P2,7,7.3,7.25,0.0,Test_UnknownIndustry,Mysterious Startup,15,,Referral,2024-01-19,P2: send first message via Email (warm intro) within 3 business days,Score 7.3 >= 7.0 qualification threshold,placeholder value 'Unknown Sector' treated as missing,llm,"Hi Test,
 
-You were referred to us just now, so I wanted to reach out personally. Teams in your industry often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Mysterious Startup's size (a team of about 15) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
+I am reaching out following up on the referral we received yesterday regarding Mysterious Startup. Knowing that your team has around 15 employees, we specialize in helping growing companies replace manual, email-driven hand-offs with automated workflows to eliminate bottlenecks.
 
-Best,
+I would love to learn more about your operational goals and discuss how FlowPilot can support your team. Do you have 15 minutes open later this week for a brief introductory conversation?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L013,review,REVIEW,1,7.8,7.75,0.0,Test_MissingName,,400,Consulting,Sales call,2024-01-19,Human review: an SDR confirms or rejects (see decision_reasons),Score 7.8 >= 7.0 qualification threshold | Needs human review - data problem: missing company name - cannot personalise or verify the account,missing company name - cannot personalise or verify the account,template,"Hi Test_MissingName,
+L013,review,REVIEW,1,7.8,7.75,0.0,Test_MissingName,,400,Consulting,Sales call,2024-01-19,Human review: an SDR confirms or rejects (see decision_reasons),Score 7.8 >= 7.0 qualification threshold | Needs human review - data problem: missing company name - cannot personalise or verify the account,missing company name - cannot personalise or verify the account,llm,"Hi Test_MissingName,
 
-Thanks again for the conversation just now. As a quick recap: for your team, a 400-person organisation in Consulting, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+Thank you for taking the time to speak with me yesterday during our sales call. I really enjoyed learning more about your 400-person consulting firm and how your team manages client engagements.
 
-Best,
+As discussed, FlowPilot can help your organization replace manual, email-driven hand-offs with automated workflows, saving valuable time across departments.
+
+As a next step, I can prepare a customized workflow map tailored to your team's operational needs. Would you be open to reviewing that together early next week?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L017,review,REVIEW,2,6.5,6.5,0.0,Test_MidMarketSoft,Mid Market Software,1500,SaaS,Content download,2024-01-18,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.5 is in the 6.0-7.0 'too close to call' band,,template,"Hi Test_MidMarketSoft,
+L017,review,REVIEW,2,6.5,6.5,0.0,Test_MidMarketSoft,Mid Market Software,1500,SaaS,Content download,2024-01-18,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.5 is in the 6.0-7.0 'too close to call' band,,llm,"Hi Test_MidMarketSoft,
 
-I saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with SaaS teams like Mid Market Software is to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. If it would help, I'm happy to share a 10-minute example tailored to an organisation of 1,500 people. No pressure either way.
+I saw that you downloaded our workflow guide two days ago, and I hope it provided helpful insights for Mid Market Software. With 1,500 team members in the SaaS sector, coordinating hand-offs between customer-facing teams is often a major bottleneck.
 
-Best,
+A key takeaway from our work with SaaS companies is that you can automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.
+
+I would be glad to share a short case study showing how similar mid-market teams achieved this. Let me know if you would like me to send it over.
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L010,review,REVIEW,3,6.3,6.25,0.0,Test_NoSourceInfo,Source Unknown Corp,300,Retail,,2024-01-18,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.3 is in the 6.0-7.0 'too close to call' band,placeholder value 'Unknown Source' treated as missing,template,"Hi Test_NoSourceInfo,
+L010,review,REVIEW,3,6.3,6.25,0.0,Test_NoSourceInfo,Source Unknown Corp,300,Retail,,2024-01-18,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.3 is in the 6.0-7.0 'too close to call' band,placeholder value 'Unknown Source' treated as missing,llm,"Hi Test,
 
-I'm reaching out because Source Unknown Corp looks like a strong fit for FlowPilot: we help Retail teams of a 300-person organisation automate order-exception, returns and store-ops requests. Would a short call next week be worthwhile to see whether it fits your current priorities?
+I am reaching out from FlowPilot following up on our recent interaction two days ago regarding Source Unknown Corp. As a 300-employee organization in the retail space, managing cross-team coordination efficiently can be challenging.
 
-Best,
+We help retail teams automate order-exception, returns and store-ops requests to eliminate manual hand-offs and reduce processing delays. I would be glad to share how other retail organizations streamline these processes. Would you be open to a brief introductory chat later this week?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
-L019,review,REVIEW,4,6.3,6.25,0.0,Test_GovernmentBuyer,Government Tech,3000,Government,Sales call,2024-01-17,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.3 is in the 6.0-7.0 'too close to call' band,,template,"Hi Test_GovernmentBuyer,
+L019,review,REVIEW,4,6.3,6.25,0.0,Test_GovernmentBuyer,Government Tech,3000,Government,Sales call,2024-01-17,Human review: an SDR confirms or rejects (see decision_reasons),Score 6.3 is in the 6.0-7.0 'too close to call' band,,llm,"Hi Test_GovernmentBuyer,
 
-Thanks again for the conversation earlier this week. As a quick recap: for Government Tech, an organisation of 3,000 people in Government, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
+Thank you for speaking with us three days ago. It was great to discuss how Government Tech operates and where cross-departmental coordination can be improved. With 3,000 employees in the government sector, keeping operational processes clear and compliant is essential.
 
-Best,
+FlowPilot can help replace manual, email-driven hand-offs with automated workflows, giving your team complete auditability and efficiency.
+
+As a next step, I can prepare a brief technical overview focusing on security and compliance standards relevant to your public sector requirements. Would Thursday morning work to reconnect briefly?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot"
 L002,review,REVIEW,5,6.0,8.5,0.0,Test_VeryLargeEnterprise,Global Fortune 500 Corp,50000,Enterprise Software,Inbound demo request,2024-01-20,Human review: an SDR confirms or rejects (see decision_reasons),"Score 6.0 is in the 6.0-7.0 'too close to call' band | Capped at 6.0: Over 20,000 employees: capped at review - verify the record and consider routing to an enterprise team","unusually large company_size 50,000 - verify",,

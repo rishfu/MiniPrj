@@ -1,5 +1,47 @@
-08:13:04 INFO    lead_qualifier.ingest: Loaded 29 leads from leads_training.csv (0 blank rows skipped)
-08:13:04 INFO    lead_qualifier.pipeline: Reference date for recency: 2024-01-20
-08:13:04 INFO    lead_qualifier.judge: Batch 1/3: 10 leads
-08:13:04 INFO    lead_qualifier.judge: Batch 2/3: 10 leads
-08:13:04 INFO    lead_qualifier.judge: Batch 3/3: 9 leads
+08:47:05 INFO    lead_qualifier.ingest: Loaded 29 leads from leads_training.csv (0 blank rows skipped)
+08:47:05 INFO    lead_qualifier.pipeline: Reference date for recency: 2024-01-20
+08:47:05 INFO    lead_qualifier.judge: Batch 1/3: 10 leads
+08:47:34 INFO    lead_qualifier.judge: Batch 2/3: 10 leads
+08:47:39 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+) - retry 1/4 in 1.4s
+08:47:41 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+) - retry 2/4 in 3.1s
+08:48:16 INFO    lead_qualifier.judge: Batch 3/3: 9 leads
+08:48:30 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+) - retry 1/4 in 1.2s
+08:49:04 WARNING lead_qualifier.judge: Batch of 9 returned an unusable response: response truncated (hit maxOutputTokens)
+08:49:04 INFO    lead_qualifier.judge: Splitting batch into 4 + 5 and retrying
+08:49:22 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+) - retry 1/4 in 1.3s
+08:49:41 WARNING lead_qualifier.llm: Transient LLM error (HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+) - retry 2/4 in 3.5s

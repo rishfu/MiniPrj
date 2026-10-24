@@ -1,11 +1,11 @@
 {
   "run": {
-    "run_id": "20261024T081304Z-a0bc32",
-    "generated_at": "2026-10-24T08:13:04+00:00",
+    "run_id": "20261024T085001Z-4827df",
+    "generated_at": "2026-10-24T08:51:32+00:00",
     "input_file": "leads_testing.csv",
     "reference_date": "2024-01-20",
-    "llm_provider": "mock",
-    "llm_model": "mock",
+    "llm_provider": "gemini",
+    "llm_model": "gemini-3.5-flash",
     "batch_size": 10,
     "rubric_version": "1.2",
     "rubric_summary": "Score = company size (max 2.5) + industry fit (max 2.0) + intent signal from lead source (max 3.5) + recency of last interaction (max 2.0) = 10. >= 7.0 qualified, 6.0-7.0 human review, < 6.0 rejected. Micro companies (<=10 staff), very large companies (>20,000 staff) and contacts older than a year are capped at review."
@@ -131,25 +131,25 @@
     "leads_with_data_issues": 8,
     "llm": {
       "judgment_source_counts": {
-        "mock": 20
+        "llm": 20
       },
       "llm_adjusted_leads": 0,
       "batches_sent": 2,
       "batch_splits": 0,
       "circuit_breaker_opened": false,
       "circuit_breaker_reason": null,
-      "api_calls": 2,
-      "retries": 0,
-      "transient_errors": 0,
+      "api_calls": 6,
+      "retries": 4,
+      "transient_errors": 4,
       "permanent_errors": 0,
       "invalid_responses": 0,
-      "total_wait_seconds": 0.0,
-      "messages_from_llm": 0,
-      "messages_from_template": 11
+      "total_wait_seconds": 8.5,
+      "messages_from_llm": 11,
+      "messages_from_template": 0
     },
     "efficiency": {
-      "runtime_seconds": 0.01,
-      "seconds_per_lead": 0.0,
+      "runtime_seconds": 90.97,
+      "seconds_per_lead": 4.548,
       "estimated_manual_minutes": 200,
       "note": "Manual estimate assumes 10 min per lead (brief: 8-12 min)."
     }
@@ -549,8 +549,8 @@
       "company": "Hot Lead Corp",
       "priority_rank": 1,
       "angle": "demo_followup",
-      "message_source": "template",
-      "message": "Hi Test_RecentEngagement,\n\nThanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Hot Lead Corp, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Test,\n\nThank you for reaching out for a demo of FlowPilot today. With Hot Lead Corp having around 200 employees in the SaaS space, our platform is built to help teams automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.\n\nI would love to connect and show you how we can streamline your team's workflow transitions. Are you available for a brief call this Wednesday at 11:00 AM or Thursday at 3:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot"
     },
     {
       "lead_id": "L016",
@@ -558,8 +558,8 @@
       "company": "Week Old Corp",
       "priority_rank": 6,
       "angle": "event_followup",
-      "message_source": "template",
-      "message": "Hi Test_WeekOldInteraction,\n\nThanks for joining our webinar earlier this week. Many Logistics teams in the audience asked how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, so I put together a two-page example that fits a 250-person organisation like Week Old Corp. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Test_WeekOldInteraction,\n\nThank you for attending our recent workflow webinar last week. It was great to see representatives from Week Old Corp in the session. Given your team of 250 in the logistics industry, operational speed and visibility are critical.\n\nFlowPilot can help you automate shipment-exception and carrier hand-offs so nothing sits in an inbox waiting for action. I put together a brief guide on reducing logistics communication delays that I think you will find useful. Would you be interested in taking a look?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot"
     },
     {
       "lead_id": "L007",
@@ -567,8 +567,8 @@
       "company": "Mysterious Startup",
       "priority_rank": 7,
       "angle": "warm_referral",
-      "message_source": "template",
-      "message": "Hi Test_UnknownIndustry,\n\nYou were referred to us just now, so I wanted to reach out personally. Teams in your industry often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Mysterious Startup's size (a team of about 15) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Test,\n\nI am reaching out following up on the referral we received yesterday regarding Mysterious Startup. Knowing that your team has around 15 employees, we specialize in helping growing companies replace manual, email-driven hand-offs with automated workflows to eliminate bottlenecks.\n\nI would love to learn more about your operational goals and discuss how FlowPilot can support your team. Do you have 15 minutes open later this week for a brief introductory conversation?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot"
     },
     {
       "lead_id": "L011",
@@ -576,8 +576,8 @@
       "company": "Perfect Fit Enterprise",
       "priority_rank": 2,
       "angle": "demo_followup",
-      "message_source": "template",
-      "message": "Hi Test_HighValueMatch,\n\nThanks for requesting a FlowPilot demo just now. For an organisation of 2,000 people in SaaS like Perfect Fit Enterprise, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Test_HighValueMatch,\n\nThank you for reaching out for a demo of FlowPilot. With 2,000 employees in the SaaS space, managing cross-team execution at Perfect Fit Enterprise can quickly get complex. We help organizations like yours automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.\n\nI would love to walk you through a tailored demonstration of our platform. Are you available for a brief 20-minute call this Thursday at 10:00 AM or Friday at 2:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot"
     },
     {
       "lead_id": "L009",
@@ -585,8 +585,8 @@
       "company": "Active Company",
       "priority_rank": 3,
       "angle": "demo_followup",
-      "message_source": "template",
-      "message": "Hi Test_MultipleInteractions,\n\nThanks for requesting a FlowPilot demo just now. For a 500-person organisation in Finance like Active Company, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot"
+      "message_source": "llm",
+      "message": "Hi Test,\n\nThank you for submitting a demo request today for Active Company. With 500 employees in the finance sector, we know how critical operational rigor is. FlowPilot helps organizations like yours automate approval and compliance workflows with a full audit trail, ensuring seamless execution across teams.\n\nI would be glad to schedule a tailored demonstration for your team. Are you available to connect this Thursday at 10:00 AM or Friday at 1:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot"
     }
   ],
   "leads": [
@@ -640,13 +640,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
+        "source": "llm",
         "confidence": "medium",
-        "summary": "Test Inc: rubric score 8.5/10.",
+        "summary": "Inbound demo request from a SaaS company received today, though company size is currently unknown.",
         "note": null
       },
       "data_issues": [
@@ -658,9 +658,9 @@
       ],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Test_MissingSize,\n\nThanks for requesting a FlowPilot demo just now. For a growing team in SaaS like Test Inc, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test,\n\nThank you for requesting a demo of FlowPilot today for Test Inc. Given that you are in the SaaS industry, we often help teams automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.\n\nI would love to walk you through a tailored demo and discuss how FlowPilot can streamline your workflows. Are you open for a quick chat this Thursday at 10:00 AM or Friday at 2:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -734,15 +734,15 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": [
           "very_large_company"
         ]
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Global Fortune 500 Corp: rubric score 8.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Inbound demo request from a 50,000-employee enterprise software company requiring routing to an enterprise team.",
         "note": null
       },
       "data_issues": [
@@ -806,13 +806,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "John Doe Consulting: rubric score 4.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach lead with a 1-person consulting practice, well below core customer size thresholds.",
         "note": null
       },
       "data_issues": [],
@@ -869,13 +869,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Old Company Inc: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market manufacturing lead with past sales call history, but cold due to over 500 days of inactivity.",
         "note": null
       },
       "data_issues": [],
@@ -931,21 +931,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Hot Lead Corp: rubric score 10.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "High-intent inbound demo request from a 200-employee SaaS company received today.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Test_RecentEngagement,\n\nThanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Hot Lead Corp, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test,\n\nThank you for reaching out for a demo of FlowPilot today. With Hot Lead Corp having around 200 employees in the SaaS space, our platform is built to help teams automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.\n\nI would love to connect and show you how we can streamline your team's workflow transitions. Are you available for a brief call this Wednesday at 11:00 AM or Thursday at 3:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -1021,13 +1021,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Mystery Co: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "low",
+        "summary": "Mid-market technology company record with missing source and interaction timeline data.",
         "note": null
       },
       "data_issues": [
@@ -1094,13 +1094,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
+        "source": "llm",
         "confidence": "medium",
-        "summary": "Mysterious Startup: rubric score 7.25/10.",
+        "summary": "Warm referral from yesterday for a 15-employee startup with missing industry classification.",
         "note": null
       },
       "data_issues": [
@@ -1112,9 +1112,9 @@
       ],
       "outreach": {
         "angle": "warm_referral",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Test_UnknownIndustry,\n\nYou were referred to us just now, so I wanted to reach out personally. Teams in your industry often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Mysterious Startup's size (a team of about 15) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test,\n\nI am reaching out following up on the referral we received yesterday regarding Mysterious Startup. Knowing that your team has around 15 employees, we specialize in helping growing companies replace manual, email-driven hand-offs with automated workflows to eliminate bottlenecks.\n\nI would love to learn more about your operational goals and discuss how FlowPilot can support your team. Do you have 15 minutes open later this week for a brief introductory conversation?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -1188,15 +1188,15 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": [
           "micro_company"
         ]
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Brand New Startup: rubric score 8.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Inbound demo request from a 2-person SaaS startup, capped at review due to micro team size.",
         "note": null
       },
       "data_issues": [],
@@ -1252,21 +1252,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Active Company: rubric score 9.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Strong inbound demo request from a 500-employee finance enterprise received today.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Test_MultipleInteractions,\n\nThanks for requesting a FlowPilot demo just now. For a 500-person organisation in Finance like Active Company, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test,\n\nThank you for submitting a demo request today for Active Company. With 500 employees in the finance sector, we know how critical operational rigor is. FlowPilot helps organizations like yours automate approval and compliance workflows with a full audit trail, ensuring seamless execution across teams.\n\nI would be glad to schedule a tailored demonstration for your team. Are you available to connect this Thursday at 10:00 AM or Friday at 1:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -1339,13 +1339,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
+        "source": "llm",
         "confidence": "medium",
-        "summary": "Source Unknown Corp: rubric score 6.25/10.",
+        "summary": "Mid-market retail company engaged 2 days ago, missing original lead source tracking.",
         "note": null
       },
       "data_issues": [
@@ -1357,9 +1357,9 @@
       ],
       "outreach": {
         "angle": "general_intro",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Test_NoSourceInfo,\n\nI'm reaching out because Source Unknown Corp looks like a strong fit for FlowPilot: we help Retail teams of a 300-person organisation automate order-exception, returns and store-ops requests. Would a short call next week be worthwhile to see whether it fits your current priorities?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test,\n\nI am reaching out from FlowPilot following up on our recent interaction two days ago regarding Source Unknown Corp. As a 300-employee organization in the retail space, managing cross-team coordination efficiently can be challenging.\n\nWe help retail teams automate order-exception, returns and store-ops requests to eliminate manual hand-offs and reduce processing delays. I would be glad to share how other retail organizations streamline these processes. Would you be open to a brief introductory chat later this week?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": []
       }
     },
@@ -1413,21 +1413,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Perfect Fit Enterprise: rubric score 9.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "High-intent inbound demo request from a 2,000-employee SaaS company.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Test_HighValueMatch,\n\nThanks for requesting a FlowPilot demo just now. For an organisation of 2,000 people in SaaS like Perfect Fit Enterprise, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test_HighValueMatch,\n\nThank you for reaching out for a demo of FlowPilot. With 2,000 employees in the SaaS space, managing cross-team execution at Perfect Fit Enterprise can quickly get complex. We help organizations like yours automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.\n\nI would love to walk you through a tailored demonstration of our platform. Are you available for a brief 20-minute call this Thursday at 10:00 AM or Friday at 2:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -1503,13 +1503,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Niche Small Op: rubric score 3.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Cold LinkedIn outreach to a 5-person agricultural business that falls below our target company size.",
         "note": null
       },
       "data_issues": [],
@@ -1566,13 +1566,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
+        "source": "llm",
         "confidence": "medium",
-        "summary": "Unknown company: rubric score 7.75/10.",
+        "summary": "Mid-market consulting lead following a sales call, though company name is missing from the record.",
         "note": null
       },
       "data_issues": [
@@ -1584,9 +1584,9 @@
       ],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Test_MissingName,\n\nThanks again for the conversation just now. As a quick recap: for your team, a 400-person organisation in Consulting, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test_MissingName,\n\nThank you for taking the time to speak with me yesterday during our sales call. I really enjoyed learning more about your 400-person consulting firm and how your team manages client engagements.\n\nAs discussed, FlowPilot can help your organization replace manual, email-driven hand-offs with automated workflows, saving valuable time across departments.\n\nAs a next step, I can prepare a customized workflow map tailored to your team's operational needs. Would you be open to reviewing that together early next week?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": []
       }
     },
@@ -1645,13 +1645,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "James Wilson: rubric score 2.75/10.",
+        "source": "llm",
+        "confidence": "low",
+        "summary": "Incomplete record missing company size, industry, source, and interaction recency.",
         "note": null
       },
       "data_issues": [
@@ -1731,13 +1731,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
+        "source": "llm",
         "confidence": "medium",
-        "summary": "Tech Partial: rubric score 5.75/10.",
+        "summary": "SaaS industry lead with recent activity, but missing company size and source details.",
         "note": null
       },
       "data_issues": [
@@ -1804,21 +1804,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Week Old Corp: rubric score 7.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Mid-market logistics company lead who attended a webinar one week ago.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "event_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Test_WeekOldInteraction,\n\nThanks for joining our webinar earlier this week. Many Logistics teams in the audience asked how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, so I put together a two-page example that fits a 250-person organisation like Week Old Corp. Shall I send it over, or would a short walkthrough be more useful?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test_WeekOldInteraction,\n\nThank you for attending our recent workflow webinar last week. It was great to see representatives from Week Old Corp in the session. Given your team of 250 in the logistics industry, operational speed and visibility are critical.\n\nFlowPilot can help you automate shipment-exception and carrier hand-offs so nothing sits in an inbox waiting for action. I put together a brief guide on reducing logistics communication delays that I think you will find useful. Would you be interested in taking a look?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,
@@ -1891,21 +1891,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Mid Market Software: rubric score 6.5/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Upper mid-market SaaS company lead who downloaded content two days ago.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "content_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Test_MidMarketSoft,\n\nI saw you downloaded one of our guides earlier this week - I hope it was useful. One idea that tends to land well with SaaS teams like Mid Market Software is to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. If it would help, I'm happy to share a 10-minute example tailored to an organisation of 1,500 people. No pressure either way.\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test_MidMarketSoft,\n\nI saw that you downloaded our workflow guide two days ago, and I hope it provided helpful insights for Mid Market Software. With 1,500 team members in the SaaS sector, coordinating hand-offs between customer-facing teams is often a major bottleneck.\n\nA key takeaway from our work with SaaS companies is that you can automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.\n\nI would be glad to share a short case study showing how similar mid-market teams achieved this. Let me know if you would like me to send it over.\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": []
       }
     },
@@ -1961,13 +1961,13 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Failed Startup: rubric score 5.75/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Stale referral for an 8-person micro business with no interactions in over eight months.",
         "note": null
       },
       "data_issues": [],
@@ -2023,21 +2023,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Government Tech: rubric score 6.25/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Government sector lead following a recent sales call, subject to longer public procurement timelines.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "call_recap",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "draft - send only after human approval",
-        "message": "Hi Test_GovernmentBuyer,\n\nThanks again for the conversation earlier this week. As a quick recap: for Government Tech, an organisation of 3,000 people in Government, the clearest opportunity is to replace manual, email-driven hand-offs with automated workflows. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test_GovernmentBuyer,\n\nThank you for speaking with us three days ago. It was great to discuss how Government Tech operates and where cross-departmental coordination can be improved. With 3,000 employees in the government sector, keeping operational processes clear and compliant is essential.\n\nFlowPilot can help replace manual, email-driven hand-offs with automated workflows, giving your team complete auditability and efficiency.\n\nAs a next step, I can prepare a brief technical overview focusing on security and compliance standards relevant to your public sector requirements. Would Thursday morning work to reconnect briefly?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": []
       }
     },
@@ -2091,21 +2091,21 @@
           }
         ],
         "llm_adjustment": 0.0,
-        "llm_adjustment_reason": "Mock provider: no LLM judgment applied.",
+        "llm_adjustment_reason": null,
         "caps_applied": []
       },
       "llm": {
-        "source": "mock",
-        "confidence": "medium",
-        "summary": "Average SMB Co: rubric score 9.0/10.",
+        "source": "llm",
+        "confidence": "high",
+        "summary": "Strong inbound demo request from a mid-market retail company.",
         "note": null
       },
       "data_issues": [],
       "outreach": {
         "angle": "demo_followup",
-        "message_source": "template",
+        "message_source": "llm",
         "status": "ready to send",
-        "message": "Hi Test_SMBAverage,\n\nThanks for requesting a FlowPilot demo just now. For a 120-person organisation in Retail like Average SMB Co, the quickest win is usually to automate order-exception, returns and store-ops requests. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?\n\nBest,\nSam Rivera\nAccount Executive, FlowPilot",
+        "message": "Hi Test_SMBAverage,\n\nThank you for requesting a demo of FlowPilot yesterday. We are excited to learn more about Average SMB Co. With 120 employees in the retail industry, keeping operations running smoothly across stores and channels is key to customer satisfaction.\n\nFlowPilot can help you automate order-exception, returns and store-ops requests, eliminating friction across your operations.\n\nI would love to walk you through a tailored demo this week. Are you available for a 20-minute conversation this Wednesday at 11:00 AM or Thursday at 3:00 PM?\n\nBest regards,\n\nSam Rivera\nAccount Executive, FlowPilot",
         "sequence": [
           {
             "step": 1,

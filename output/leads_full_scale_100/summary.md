@@ -1,13 +1,13 @@
 # Lead Qualification Summary - leads_full_scale_100.csv
 
-Run `20261024T081304Z-349c73` | provider **mock** (mock) | rubric v1.2 | reference date 2024-01-20
+Run `20261024T085544Z-019868` | provider **gemini** (gemini-3.5-flash-lite) | rubric v1.2 | reference date 2024-01-20
 
-**100 leads processed** in 0.01s (manual estimate: ~1000 min).
+**100 leads processed** in 38.94s (manual estimate: ~1000 min).
 
 | Decision | Count | % |
 |---|---|---|
-| Qualified | 49 | 49.0% |
-| Review | 23 | 23.0% |
+| Qualified | 47 | 47.0% |
+| Review | 25 | 25.0% |
 | Rejected | 28 | 28.0% |
 
 ## Priority queue (contact in this order)
@@ -59,10 +59,8 @@ Run `20261024T081304Z-349c73` | provider **mock** (mock) | rubric v1.2 | referen
 | 43 | P2 | 7.3 | Ximena Flores | Gaming Studio | Core mid-market (51-1000); Adjacent vertical; Sales call; Warm | P2: send first message via Email (call recap) within 3 business days |
 | 44 | P2 | 7.3 | Yolanda Martinez | Customer Support Platform | Core mid-market (51-1000); Core vertical; Webinar attendee; Warm | P2: send first message via Email (webinar follow-up) within 3 business days |
 | 45 | P2 | 7.3 | Xavier Lopez | Data Analytics Firm | Core mid-market (51-1000); Core vertical; Webinar attendee; Warm | P2: send first message via Email (webinar follow-up) within 3 business days |
-| 46 | P2 | 7.3 | Tina Patel | Energy Solutions | Core mid-market (51-1000); Adjacent vertical; Inbound demo request; Very cold | P2: send first message via Email (reply to demo request) within 3 business days |
-| 47 | P2 | 7.0 | Evelyn Richardson | Human Resources Tech | Core mid-market (51-1000); Core vertical; LinkedIn outreach; Hot | P2: send first message via LinkedIn message within 3 business days |
-| 48 | P2 | 7.0 | Mona Patel | Blockchain Startup | Small business (11-50); Low-fit vertical; Referral; Hot | P2: send first message via Email (warm intro) within 3 business days |
-| 49 | P2 | 7.0 | Katherine Lee | Artificial Intelligence Lab | Core mid-market (51-1000); Core vertical; LinkedIn outreach; Hot | P2: send first message via LinkedIn message within 3 business days |
+| 46 | P2 | 7.0 | Evelyn Richardson | Human Resources Tech | Core mid-market (51-1000); Core vertical; LinkedIn outreach; Hot | P2: send first message via LinkedIn message within 3 business days |
+| 47 | P2 | 7.0 | Katherine Lee | Artificial Intelligence Lab | Core mid-market (51-1000); Core vertical; LinkedIn outreach; Hot | P2: send first message via LinkedIn message within 3 business days |
 
 ## Needs human review
 
@@ -73,24 +71,26 @@ Run `20261024T081304Z-349c73` | provider **mock** (mock) | rubric v1.2 | referen
 | 3 | 6.8 | Karen Miller | InsurancePro | Score 6.8 is in the 6.0-7.0 'too close to call' band |
 | 4 | 6.8 | Kevin Grant | Knowledge Management | Score 6.8 is in the 6.0-7.0 'too close to call' band |
 | 5 | 6.8 | Bella Cross | Legal Services Firm | Score 6.8 is in the 6.0-7.0 'too close to call' band |
-| 6 | 6.5 | Frank Liu | Healthcare Systems Ltd | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 7 | 6.5 | Liam O'Connor | Venture Capital Fund | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 8 | 6.5 | Kennedy Owens | Environmental Monitoring | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 9 | 6.5 | Ursula Hoffmann | Insurance Tech | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 10 | 6.5 | Quinton Price | Database Software | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 11 | 6.5 | Aaron Benjamin | Supply Chain Co | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 12 | 6.5 | Cecilia Santos | Freight Forwarding | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 13 | 6.5 | Daisy Newton | Wedding Planning Tech | Score 6.5 is in the 6.0-7.0 'too close to call' band |
-| 14 | 6.3 | Ethan Smith | Mobile Development | Score 6.3 is in the 6.0-7.0 'too close to call' band |
-| 15 | 6.3 | Harrison Scott | Commercial Real Estate | Score 6.3 is in the 6.0-7.0 'too close to call' band |
-| 16 | 6.3 | Quinn Matthews | Consulting Firm | Score 6.3 is in the 6.0-7.0 'too close to call' band |
-| 17 | 6.3 | Silas Brown | Financial Advisory | Score 6.3 is in the 6.0-7.0 'too close to call' band |
-| 18 | 6.3 | Ezra Fox | Veterinary Practice | Score 6.3 is in the 6.0-7.0 'too close to call' band |
-| 19 | 6.3 | Raymond Grant | Logistics Tracking | Score 6.3 is in the 6.0-7.0 'too close to call' band |
-| 20 | 6.0 | David Moore | StartupXYZ | Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case |
-| 21 | 6.0 | Tara Gonzalez | Nutrition Tech | Score 6.0 is in the 6.0-7.0 'too close to call' band |
-| 22 | 6.0 | Iris Monroe | Corporate Training | Score 6.0 is in the 6.0-7.0 'too close to call' band |
-| 23 | 6.0 | Pamela White | Pharma Research Inc | Score 6.0 is in the 6.0-7.0 'too close to call' band |
+| 6 | 6.8 | Tina Patel | Energy Solutions | LLM adjustment -0.5: Inbound demo request score is offset by 94 days of inactivity, making the lead quite cold. |
+| 7 | 6.5 | Mona Patel | Blockchain Startup | LLM adjustment -0.5: Low industry fit for cryptocurrency requires a slight downward adjustment despite the referral source. |
+| 8 | 6.5 | Frank Liu | Healthcare Systems Ltd | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 9 | 6.5 | Liam O'Connor | Venture Capital Fund | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 10 | 6.5 | Kennedy Owens | Environmental Monitoring | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 11 | 6.5 | Ursula Hoffmann | Insurance Tech | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 12 | 6.5 | Quinton Price | Database Software | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 13 | 6.5 | Aaron Benjamin | Supply Chain Co | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 14 | 6.5 | Cecilia Santos | Freight Forwarding | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 15 | 6.5 | Daisy Newton | Wedding Planning Tech | Score 6.5 is in the 6.0-7.0 'too close to call' band |
+| 16 | 6.3 | Ethan Smith | Mobile Development | Score 6.3 is in the 6.0-7.0 'too close to call' band |
+| 17 | 6.3 | Harrison Scott | Commercial Real Estate | Score 6.3 is in the 6.0-7.0 'too close to call' band |
+| 18 | 6.3 | Quinn Matthews | Consulting Firm | Score 6.3 is in the 6.0-7.0 'too close to call' band |
+| 19 | 6.3 | Silas Brown | Financial Advisory | Score 6.3 is in the 6.0-7.0 'too close to call' band |
+| 20 | 6.3 | Ezra Fox | Veterinary Practice | Score 6.3 is in the 6.0-7.0 'too close to call' band |
+| 21 | 6.3 | Raymond Grant | Logistics Tracking | Score 6.3 is in the 6.0-7.0 'too close to call' band |
+| 22 | 6.0 | David Moore | StartupXYZ | Capped at 6.0: Company has 10 or fewer employees: capped at review - too small for our product unless a human sees a special case |
+| 23 | 6.0 | Tara Gonzalez | Nutrition Tech | Score 6.0 is in the 6.0-7.0 'too close to call' band |
+| 24 | 6.0 | Iris Monroe | Corporate Training | Score 6.0 is in the 6.0-7.0 'too close to call' band |
+| 25 | 6.0 | Pamela White | Pharma Research Inc | Score 6.0 is in the 6.0-7.0 'too close to call' band |
 
 ## Disqualified
 
@@ -103,69 +103,39 @@ Run `20261024T081304Z-349c73` | provider **mock** (mock) | rubric v1.2 | referen
 
 ## Sample outreach messages
 
-### #1 Jack White - Digital Marketing Agency (demo_followup, template)
+### #1 Jack White - Digital Marketing Agency (demo_followup, llm)
 
 ```
-Hi Jack,
-
-Thanks for requesting a FlowPilot demo just now. For a 120-person organisation in Marketing like Digital Marketing Agency, the quickest win is usually to automate campaign-approval and client-onboarding workflows. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
-
-Best,
-Sam Rivera
-Account Executive, FlowPilot
+Hi Jack, thanks for requesting a demo for Digital Marketing Agency yesterday. I saw that you are looking to automate campaign-approval and client-onboarding workflows across your team. We can definitely help you eliminate those manual bottlenecks. Do you have 15 minutes for a quick chat this Wednesday at 2 PM or Thursday at 11 AM? Best, Sam Rivera, Account Executive, FlowPilot.
 ```
 
-### #4 Chloe Mitchell - Supply Chain Analytics (warm_referral, template)
+### #4 Chloe Mitchell - Supply Chain Analytics (warm_referral, llm)
 
 ```
-Hi Chloe,
-
-You were referred to us earlier this week, so I wanted to reach out personally. Teams in Software often use FlowPilot to automate release, support-escalation and onboarding workflows across teams, and at Supply Chain Analytics' size (a 60-person organisation) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
-
-Best,
-Sam Rivera
-Account Executive, FlowPilot
+Hi Chloe, thanks for the warm introduction from Supply Chain Analytics. We love working with software teams to help automate release, support-escalation and onboarding workflows across teams. Since we connected just 2 days ago, I wanted to reach out directly and see how we can help streamline your internal hand-offs. Would you have ten minutes for a brief introduction call this Tuesday or Thursday? Best, Sam Rivera, Account Executive, FlowPilot.
 ```
 
-### #13 Amelia Davis - Cybersecurity Consulting (call_recap, template)
+### #13 Amelia Davis - Cybersecurity Consulting (call_recap, llm)
 
 ```
-Hi Amelia,
-
-Thanks again for the conversation just now. As a quick recap: for Cybersecurity Consulting, a 95-person organisation in Cybersecurity, the clearest opportunity is to automate incident-triage and access-request workflows with an audit trail. As a next step, I can put together a short workflow map for your team - could we book 30 minutes this week to review it together?
-
-Best,
-Sam Rivera
-Account Executive, FlowPilot
+Hi Amelia, great speaking with you about Cybersecurity Consulting today. As we discussed, our team can help you automate incident-triage and access-request workflows with an audit trail across your organization. Since we just touched base today, I wanted to propose our next steps to keep the momentum going. Would you be open to a technical deep dive this Thursday or Friday? Best, Sam Rivera, Account Executive, FlowPilot.
 ```
 
-### #31 Gina Reeves - E-commerce Platform (event_followup, template)
+### #31 Gina Reeves - E-commerce Platform (event_followup, llm)
 
 ```
-Hi Gina,
-
-Thanks for joining our webinar earlier this week. Many SaaS teams in the audience asked how to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets, so I put together a two-page example that fits a 140-person organisation like E-commerce Platform. Shall I send it over, or would a short walkthrough be more useful?
-
-Best,
-Sam Rivera
-Account Executive, FlowPilot
+Hi Gina, thanks for attending our recent webinar representing E-commerce Platform. Since you are in the SaaS space with 140 employees, you might find our approach to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets particularly relevant. We touched base 6 days ago, so I wanted to share a brief, useful takeaway from the session. Are you open to a quick chat this week? Best, Sam Rivera, Account Executive, FlowPilot.
 ```
 
-### #37 Bradley Foster - Cloud Storage (content_followup, template)
+### #37 Bradley Foster - Cloud Storage (content_followup, llm)
 
 ```
-Hi Bradley,
-
-I saw you downloaded one of our guides just now - I hope it was useful. One idea that tends to land well with SaaS teams like Cloud Storage is to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. If it would help, I'm happy to share a 10-minute example tailored to a 800-person organisation. No pressure either way.
-
-Best,
-Sam Rivera
-Account Executive, FlowPilot
+Hi Bradley, thanks for downloading our recent content at Cloud Storage. Since you are in the SaaS space with 800 employees, you might find our tools useful to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. We touched base 1 day ago, so I wanted to share a brief, relevant takeaway on how teams scale hand-offs without extra headcount. Are you open to a quick chat this week? Best, Sam Rivera, Account Executive, FlowPilot.
 ```
 
 ## Robustness
 
 - LLM batches sent: 10 (API calls incl. retries: 10, retries: 0, batch splits: 0, invalid responses: 0)
-- Judgment source per lead: {'mock': 100}
+- Judgment source per lead: {'llm': 100}
 - Circuit breaker opened: False
 - Leads with data-quality issues: 0 - by field: {}

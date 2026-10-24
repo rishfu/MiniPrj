@@ -1,8 +1,8 @@
 # Lead Qualification Summary - leads_testing.csv
 
-Run `20261024T081304Z-a0bc32` | provider **mock** (mock) | rubric v1.2 | reference date 2024-01-20
+Run `20261024T085001Z-4827df` | provider **gemini** (gemini-3.5-flash) | rubric v1.2 | reference date 2024-01-20
 
-**20 leads processed** in 0.01s (manual estimate: ~200 min).
+**20 leads processed** in 90.97s (manual estimate: ~200 min).
 
 | Decision | Count | % |
 |---|---|---|
@@ -47,69 +47,84 @@ Run `20261024T081304Z-a0bc32` | provider **mock** (mock) | rubric v1.2 | referen
 
 ## Sample outreach messages
 
-### #1 Test_RecentEngagement - Hot Lead Corp (demo_followup, template)
+### #1 Test_RecentEngagement - Hot Lead Corp (demo_followup, llm)
 
 ```
-Hi Test_RecentEngagement,
+Hi Test,
 
-Thanks for requesting a FlowPilot demo just now. For a 200-person organisation in SaaS like Hot Lead Corp, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for reaching out for a demo of FlowPilot today. With Hot Lead Corp having around 200 employees in the SaaS space, our platform is built to help teams automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.
 
-Best,
+I would love to connect and show you how we can streamline your team's workflow transitions. Are you available for a brief call this Wednesday at 11:00 AM or Thursday at 3:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
-### #6 Test_WeekOldInteraction - Week Old Corp (event_followup, template)
+### #6 Test_WeekOldInteraction - Week Old Corp (event_followup, llm)
 
 ```
 Hi Test_WeekOldInteraction,
 
-Thanks for joining our webinar earlier this week. Many Logistics teams in the audience asked how to automate shipment-exception and carrier hand-offs so nothing sits in an inbox, so I put together a two-page example that fits a 250-person organisation like Week Old Corp. Shall I send it over, or would a short walkthrough be more useful?
+Thank you for attending our recent workflow webinar last week. It was great to see representatives from Week Old Corp in the session. Given your team of 250 in the logistics industry, operational speed and visibility are critical.
 
-Best,
+FlowPilot can help you automate shipment-exception and carrier hand-offs so nothing sits in an inbox waiting for action. I put together a brief guide on reducing logistics communication delays that I think you will find useful. Would you be interested in taking a look?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
-### #7 Test_UnknownIndustry - Mysterious Startup (warm_referral, template)
+### #7 Test_UnknownIndustry - Mysterious Startup (warm_referral, llm)
 
 ```
-Hi Test_UnknownIndustry,
+Hi Test,
 
-You were referred to us just now, so I wanted to reach out personally. Teams in your industry often use FlowPilot to replace manual, email-driven hand-offs with automated workflows, and at Mysterious Startup's size (a team of about 15) that tends to pay off fast. Would a 20-minute call next week be useful to see if it fits?
+I am reaching out following up on the referral we received yesterday regarding Mysterious Startup. Knowing that your team has around 15 employees, we specialize in helping growing companies replace manual, email-driven hand-offs with automated workflows to eliminate bottlenecks.
 
-Best,
+I would love to learn more about your operational goals and discuss how FlowPilot can support your team. Do you have 15 minutes open later this week for a brief introductory conversation?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
-### #2 Test_HighValueMatch - Perfect Fit Enterprise (demo_followup, template)
+### #2 Test_HighValueMatch - Perfect Fit Enterprise (demo_followup, llm)
 
 ```
 Hi Test_HighValueMatch,
 
-Thanks for requesting a FlowPilot demo just now. For an organisation of 2,000 people in SaaS like Perfect Fit Enterprise, the quickest win is usually to automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for reaching out for a demo of FlowPilot. With 2,000 employees in the SaaS space, managing cross-team execution at Perfect Fit Enterprise can quickly get complex. We help organizations like yours automate customer onboarding and renewal hand-offs so CS and Sales stop chasing spreadsheets.
 
-Best,
+I would love to walk you through a tailored demonstration of our platform. Are you available for a brief 20-minute call this Thursday at 10:00 AM or Friday at 2:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
-### #3 Test_MultipleInteractions - Active Company (demo_followup, template)
+### #3 Test_MultipleInteractions - Active Company (demo_followup, llm)
 
 ```
-Hi Test_MultipleInteractions,
+Hi Test,
 
-Thanks for requesting a FlowPilot demo just now. For a 500-person organisation in Finance like Active Company, the quickest win is usually to automate approval and compliance workflows with a full audit trail. I'd like to tailor the demo to your current hand-offs - would Tuesday at 10am or Thursday at 2pm work for 30 minutes?
+Thank you for submitting a demo request today for Active Company. With 500 employees in the finance sector, we know how critical operational rigor is. FlowPilot helps organizations like yours automate approval and compliance workflows with a full audit trail, ensuring seamless execution across teams.
 
-Best,
+I would be glad to schedule a tailored demonstration for your team. Are you available to connect this Thursday at 10:00 AM or Friday at 1:00 PM?
+
+Best regards,
+
 Sam Rivera
 Account Executive, FlowPilot
 ```
 
 ## Robustness
 
-- LLM batches sent: 2 (API calls incl. retries: 2, retries: 0, batch splits: 0, invalid responses: 0)
-- Judgment source per lead: {'mock': 20}
+- LLM batches sent: 2 (API calls incl. retries: 6, retries: 4, batch splits: 0, invalid responses: 0)
+- Judgment source per lead: {'llm': 20}
 - Circuit breaker opened: False
 - Leads with data-quality issues: 8 - by field: {'company_size': 4, 'source': 4, 'last_interaction_date': 2, 'industry': 2, 'company': 1}
