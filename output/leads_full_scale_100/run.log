@@ -1,0 +1,12 @@
+08:13:04 INFO    lead_qualifier.ingest: Loaded 100 leads from leads_full_scale_100.csv (0 blank rows skipped)
+08:13:04 INFO    lead_qualifier.pipeline: Reference date for recency: 2024-01-20
+08:13:04 INFO    lead_qualifier.judge: Batch 1/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 2/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 3/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 4/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 5/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 6/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 7/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 8/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 9/10: 10 leads
+08:13:04 INFO    lead_qualifier.judge: Batch 10/10: 10 leads
